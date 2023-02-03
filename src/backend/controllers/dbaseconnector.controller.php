@@ -24,6 +24,7 @@ class DatabaseConnector
         try {
 
             $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->database);
+            echo "connected";
         } catch (Exception $e) {
             die("Cannot connect to server " . $e->getMessage());
         }
