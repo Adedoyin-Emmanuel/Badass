@@ -2,9 +2,12 @@ import jQuery from "jquery";
 
 const sayHello = () => {
 	jQuery(($) => {
-		$.noConflict();
-
-		console.log("Hello world");
+		$.ajax({
+            url:"http://localhost/baddass-ts/src/backend/",
+            success: (result:string)=>{
+                console.log(result);
+            }
+        })
 	});
 };
 
