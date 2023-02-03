@@ -1,24 +1,31 @@
 <?php
 
+namespace Controllers\Database;
+
+use mysqli;
+use Exception;
+
 
 /**
  * Primary class for the Database connection
  * @author Adedoyin Emmanuel Adeniyi
  */
 
-namespace Controllers\Database;
-
-
 class DatabaseConnector
 {
-    private $database;
-    private $servername;
-    private $username;
-    private $password;
+    private $database = "test_cbt";
+    private $servername = "localhost";
+    private $username = "root";
+    private $password = "zWFBAgc-7zrg5rQz";
     public $conn;
 
     public function __construct()
     {
-         $this->conn = "Emmysoft";
+        try {
+
+            $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->database);
+        } catch (Exception $e) {
+            die("Cannot connect to server " . $e->getMessage());
+        }
     }
 }
