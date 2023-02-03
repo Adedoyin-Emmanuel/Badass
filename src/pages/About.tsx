@@ -7,3 +7,6 @@ const Home = () =>{
         </React.Fragment>
     )
 }
+
+
+export default Home;
