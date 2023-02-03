@@ -1,1 +1,3 @@
-let my_name :string = "Emmanuel";
+import jQuery from "jquery"
+
+
