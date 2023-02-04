@@ -17,30 +17,25 @@ final class UserController extends DatabaseConnector
     {
         parent::__construct();
     }
-
+    public $result;
     public function get_users()
     {
         $get_users_query = "SELECT * FROM users";
 
+
         if ($statement = $this->conn->prepare($get_users_query)) {
-           // $statement->bind_param("ii", 1, 0);
+            // $statement->bind_param("ii", 1, 0);
             $statement->execute();
 
-            $result = $statement->get_result();
+            $this->result = $statement->get_result();
 
-            if (!$result) {
+            if (!$this->result) {
                 return "an error occured" . $this->conn->error;
             }
-            $user_row = $result->fetch_assoc();
 
-            if($user_row > 0)
-            {
-               #pass
-            }else
-            {
-                return "server returned 0 results";
+            if ($this->result->num_rows < 0) {
+                return "0 results";
             }
-
         }
     }
 }
