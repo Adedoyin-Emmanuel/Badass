@@ -13,20 +13,27 @@ use Exception;
 
 class DatabaseConnector
 {
-    private $database = "test_cbt";
-    private $servername = "localhost";
-    private $username = "root";
-    private $password = "zWFBAgc-7zrg5rQz";
+
+    private $database;
+    private $servername;
+    private $username;
+    private $password;
     public $conn;
+
 
     public function __construct()
     {
+        $this->database = "test_cbt";
+        $this->servername = "localhost";
+        $this->username = "roots";
+        $this->password = "zWFBAgc-7zrg5rQz";
+        $this->conn;
+
         try {
 
             $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->database);
-            echo "connected";
         } catch (Exception $e) {
-            die("Cannot connect to server " . $e->getMessage());
+            die ("Cannot connect to server " . $e->getMessage());
         }
     }
 }
