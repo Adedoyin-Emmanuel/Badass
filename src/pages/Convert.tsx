@@ -1,6 +1,6 @@
 import React from "react";
 
-const Home = () =>{
+const Convert = () =>{
     return (
         <React.Fragment>
             <h2>This is the home component</h2>
@@ -9,4 +9,4 @@ const Home = () =>{
 }
 
 
-export default Home;
+export default Convert;
