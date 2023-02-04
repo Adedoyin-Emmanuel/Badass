@@ -20,22 +20,27 @@ final class UserController extends DatabaseConnector
 
     public function get_users()
     {
-        $get_users_query = "SELECT * FROM users WHERE status = ? OR ?";
+        $get_users_query = "SELECT * FROM users";
 
-        if ($statement = $this->conn->prepare($get_users_query))
-         {
-            $statement->bind_param("ii", 1, 0);
+        if ($statement = $this->conn->prepare($get_users_query)) {
+           // $statement->bind_param("ii", 1, 0);
             $statement->execute();
 
             $result = $statement->get_result();
 
-            if (!$result)
-            {
+            if (!$result) {
                 return "an error occured" . $this->conn->error;
             }
             $user_row = $result->fetch_assoc();
 
-            return $user_row;
+            if($user_row > 0)
+            {
+               #pass
+            }else
+            {
+                return "server returned 0 results";
+            }
+
         }
     }
 }

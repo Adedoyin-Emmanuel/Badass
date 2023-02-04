@@ -25,7 +25,7 @@ class DatabaseConnector
     {
         $this->database = "test_cbt";
         $this->servername = "localhost";
-        $this->username = "roots";
+        $this->username = "root";
         $this->password = "zWFBAgc-7zrg5rQz";
         $this->conn;
 
