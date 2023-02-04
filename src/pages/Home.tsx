@@ -1,7 +1,8 @@
 import React from "react";
 import sayHello from "./../apis/getData";
 const Home = () => {
-
+	sayHello();
+	
 	return (
 		<React.Fragment>
 			<h2>This is the home component</h2>
