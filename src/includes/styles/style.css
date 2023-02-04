@@ -1,13 +1,19 @@
 @font-face
 {
-    font-family:poppins;
+    font-family:Poppins;
     src:"../../assets/poppins.ttf";
 }
 
 
 @font-face
 {
-    font-family:poppins;
+    font-family:Poppins;
     src:"../../assets/poppins_bold.ttf";
     font-weight:bold;
+}
+
+
+*
+{
+    font-family:Poppins;
 }
