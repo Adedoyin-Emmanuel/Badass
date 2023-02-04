@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Support from "./pages/Support";
+import "../includes/scripts/autoload";
 function App() {
 	return (
 		<div className="App">
