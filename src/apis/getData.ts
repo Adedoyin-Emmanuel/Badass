@@ -4,12 +4,8 @@ const sayHello = () => {
 	jQuery(($) => {
 		$.ajax({
 			url: "http://localhost/badass-ts/src/backend/",
-			success: (results:string) => {
-				JSON.parse(results).forEach(
-					(result: any, resultIndex: number) => {
-                        console.log(result.username);
-                    }
-				);
+			success: (result:string) => {
+				console.log(result);
 			},
 			error: (error) => {
 				console.error(error);
