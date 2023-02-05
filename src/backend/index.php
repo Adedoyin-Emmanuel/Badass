@@ -29,3 +29,8 @@ if ($user_data == "0 results") {
     }
 }
 */
+
+
+echo "Hello world";
+
+?>
