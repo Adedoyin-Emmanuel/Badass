@@ -1,5 +1,5 @@
 <?php
-
+/*
 require_once "controllers/dummydatabase.controller.php";
 
 
@@ -28,3 +28,4 @@ if ($user_data == "0 results") {
      
     }
 }
+*/

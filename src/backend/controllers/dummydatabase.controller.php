@@ -1,16 +1,16 @@
 <?php
-
+/*
 require_once "dbaseconnector.controller.php";
 
 use Controllers\Database\DatabaseConnector;
-
+*/
 /**
  * 
  * Base class for the user controller class
  * @author: Adedoyin Emmanuel Adeniyi
  */
 
-
+/*
 final class UserController extends DatabaseConnector
 {
     public function __construct()
@@ -39,3 +39,5 @@ final class UserController extends DatabaseConnector
         }
     }
 }
+
+*/

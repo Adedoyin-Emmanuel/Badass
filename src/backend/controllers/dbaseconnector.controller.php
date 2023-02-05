@@ -1,16 +1,16 @@
 <?php
-
+/*
 namespace Controllers\Database;
 
 use mysqli;
 use Exception;
-
+*/
 
 /**
  * Primary class for the Database connection
  * @author Adedoyin Emmanuel Adeniyi
  */
-
+/*
 class DatabaseConnector
 {
 
@@ -37,3 +37,4 @@ class DatabaseConnector
         }
     }
 }
+*/
