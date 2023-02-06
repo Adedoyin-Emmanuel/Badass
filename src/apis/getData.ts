@@ -3,7 +3,7 @@ import jQuery from "jquery";
 const sayHello = () => {
 	jQuery(($) => {
 		$.ajax({
-			url: "https://localhost:80/badass-backend/backend/",
+			url: "http://prokeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeepe",
 			success: (result:any) => {
 				console.log(result);
 			},
