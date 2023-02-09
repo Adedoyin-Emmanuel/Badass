@@ -64,3 +64,11 @@
 .brand-secondary-color-3{
     background:var(--brand-secondary-color-3);
 }
+
+/*default bootstrap navbar properties @overide*/
+
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none;
+}
