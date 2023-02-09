@@ -22,7 +22,7 @@
     --brand-primary-dark-color:#1c2541;
     --brand-primary-light-color: #48cae4;
     --brand-primary-light-color-2: #90e0ef;
-    --brand-primary-light-color-2: #caf0f8;
+    --brand-primary-light-color-3: #caf0f8;
 
     --brand-secondary-color:#16679a;
     --brand-secondary-color-2:#1c558e;
@@ -35,13 +35,17 @@
 .brand-primary-color{
     background:var(--brand-primary-light-color);
 }
-
 .brand-primary-color-2{
-    background:var(--brand-primary-color-2);
+    background:var(--brand-primary-light-color-2);
 }
-
-.brand-primary-color-3{
-    background:var(--brand-primary-color-3);
+.brand-primary-color-2{
+    background:var(--brand-primary-light-color-3);
+}
+.brand-dark-color{
+    background:var(--brand-primary-dark-color);
+}
+.brand-white-color{
+    background:var(--brand-white-color);
 }
 
 
@@ -55,10 +59,6 @@
 
 .brand-secondary-color-2{
     background:var(--brand-secondary-color-2);
-}
-
-.brand-secondary-color-3{
-    background:var(--brand-secondary-color-3);
 }
 
 /*default bootstrap navbar properties @overide*/
