@@ -3,7 +3,7 @@ import sayHello from "./../apis/getData";
 import Header from "../components/header";
 import MainPageFooter from "../components/main-page-footer";
 
-const Home = () => {
+const Home = ()=> {
 
 	return (
 		<React.Fragment>
@@ -11,7 +11,7 @@ const Home = () => {
 			<br/>
 			<br/>
 			<br/>
-		<div className="brand-primary-color-2">
+		<div className="brand-primary-color-3">
 
 
 		<div className="box p-4" >
