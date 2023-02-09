@@ -1,25 +1,26 @@
 const Header = () => {
 	return (
 		<nav
-			className="navbar navbar-expand-sm navbar-dark bg-dark"
-			aria-label="Third navbar example">
+			className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top"
+			aria-label="Badass navbar" style={{"display":"fixed"}}>
 			<div className="container-fluid">
-				<a className="navbar-brand" href="#">
-					Expand at sm
+				<a className="navbar-brand fw-bold" href="#">
+					Badass
 				</a>
 				<button
-					className="btn"
+					className="btn mx-0"
 					type="button"
 					data-bs-toggle="collapse"
 					data-bs-target="#navbarsExample03"
 					aria-controls="navbarsExample03"
 					aria-expanded="false"
-					aria-label="Toggle navigation">
+					aria-label="Toggle navigation"	
+					>
 					<span className="">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
-						width={"30px"}
-						height={"30px"}
+						width={"27px"}
+						height={"27px"}
 						viewBox="0 0 24 24"
 						className="d-block"
 						>
@@ -28,6 +29,7 @@ const Header = () => {
 							fill="white"
 							d="M4 13h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0 8h6c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1zm10 0h6c.55 0 1-.45 1-1v-8c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zM13 4v4c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1h-6c-.55 0-1 .45-1 1z"
 						/>
+						
 					</svg>
 					</span>
 				</button>
