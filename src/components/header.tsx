@@ -5,8 +5,7 @@ const Header = () => {
 		<React.Fragment>
 			<nav
 				className="navbar navbar-expand-sm brand-dark-color fixed-top"
-				aria-label="Badass navbar"
-				>
+				aria-label="Badass navbar">
 				<div className="container-fluid">
 					<a className="navbar-brand text-light fw-bold" href="#">
 						Badass
@@ -71,8 +70,11 @@ l28 53 0 352 c0 318 -2 355 -19 391 -23 51 -79 101 -128 114 -61 17 -698 14
 					<div className="collapse navbar-collapse" id="navbarsExample03">
 						<ul className="navbar-nav me-auto mb-2 mb-sm-0">
 							<li className="nav-item">
-								<a className="nav-link text-light active" aria-current="page" href="#">
-									Convert 
+								<a
+									className="nav-link text-light active"
+									aria-current="page"
+									href="#">
+									Convert
 								</a>
 							</li>
 							<li className="nav-item">
@@ -89,10 +91,6 @@ l28 53 0 352 c0 318 -2 355 -19 391 -23 51 -79 101 -128 114 -61 17 -698 14
 					</div>
 				</div>
 			</nav>
-
-			<br />
-			<br />
-			<br />
 		</React.Fragment>
 	);
 };

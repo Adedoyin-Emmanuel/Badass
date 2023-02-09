@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "./../assets/images/skull.svg";
-import BgVideo from "./../assets/videos/v1.mp4"
+
 const Hero = () => {
 	return (
 		<React.Fragment>
@@ -9,7 +9,7 @@ const Hero = () => {
 					<div
 						className="col-md-6 col-sm-8 col  mx-auto col-lg-5 d-flex align-items-center m-auto my-md-3 my-4"
 						id="img-container">
-						<img src={Logo} className="img-fluid m-auto" width="500" height="500" />
+						<img src={Logo} width="400" height="400"/>
 					</div>
 
 					<div className="col-lg-7 text-center text-lg-start my-md-3">

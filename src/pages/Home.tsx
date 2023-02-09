@@ -7,13 +7,9 @@ const Home = ()=> {
 
 	return (
 		<React.Fragment>
-			<Header/>
-			<Hero/>
-		<div className="brand-primary-color-3">
+			<section className="con">
 
-
-		</div>
-			<MainPageFooter/>
+			</section>
 		</React.Fragment>
 	);
 };
