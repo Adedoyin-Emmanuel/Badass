@@ -11,7 +11,7 @@ const Home = () => {
 			<br/>
 			<br/>
 			<br/>
-		<div className="brand-primary-color">
+		<div className="brand-primary-color-2">
 
 
 		<div className="box p-4" >
