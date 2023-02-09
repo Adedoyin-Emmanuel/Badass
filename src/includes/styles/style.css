@@ -56,3 +56,11 @@
 .brand-secondary-color{
     background:var(--brand-secondary-color);
 }
+
+.brand-secondary-color-2{
+    background:var(--brand-secondary-color-2);
+}
+
+.brand-secondary-color-3{
+    background:var(--brand-secondary-color-3);
+}
