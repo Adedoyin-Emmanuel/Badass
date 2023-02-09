@@ -124,21 +124,21 @@ const MainPageFooter = () => {
 						<li className="ms-3">
 							<a className="link-dark" href="#">
 								<svg className="bi" width="24" height="24">
-									<use xlink:href="#twitter"></use>
+									<use xlinkHref="#twitter"></use>
 								</svg>
 							</a>
 						</li>
 						<li className="ms-3">
 							<a className="link-dark" href="#">
 								<svg className="bi" width="24" height="24">
-									<use xlink:href="#instagram"></use>
+									<use xlinkHref="#instagram"></use>
 								</svg>
 							</a>
 						</li>
 						<li className="ms-3">
 							<a className="link-dark" href="#">
 								<svg className="bi" width="24" height="24">
-									<use xlink:href="#facebook"></use>
+									<use xlinkHref="#facebook"></use>
 								</svg>
 							</a>
 						</li>
