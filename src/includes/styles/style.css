@@ -16,3 +16,43 @@
 {
     font-family:Poppins;
 }
+
+/*utility variables*/
+::root{
+    --brand-primary-color:#383838;
+    --brand-primary-color-2: #353535;
+    --brand-primary-color-3:#323232;
+    --brand-primary-color-4:#2c2c2c;
+    --brand-primary-color-5:#272727;
+    --brand-primary-color-6:#232323;
+
+    --brand-secondary-color:#0096c7;
+    --brand-secondary-color-2:#00b4d8;
+    --brand-secondary-color-3:#48cae4;
+    --brand-secondary-color-4:#90e0ef;
+    --brand-secondary-color-5:#ade8f4;
+    --brand-secondary-color-6:#caf0f8;
+}
+
+/*Brand primary utility classes*/
+
+.brand-primary-color{
+    background:var(--brand-primary-color);
+}
+
+.brand-primary-color-2{
+    background:var(--brand-primary-color-2);
+}
+
+.brand-primary-color-3{
+    background:var(--brand-primary-color-3);
+}
+
+
+
+
+/*Brand secondary utility classes*/
+
+.brand-secondary-color{
+    background:var(--brand-secondary-color);
+}
