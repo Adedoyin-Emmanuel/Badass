@@ -8,15 +8,9 @@ const Home = ()=> {
 	return (
 		<React.Fragment>
 			<Header/>
-			<br/>
-			<br/>
-			<br/>
+			<Hero/>
 		<div className="brand-primary-color-3">
 
-
-		<div className="box p-4" >
-		i am emmysoft
-		</div>
 
 		</div>
 			<MainPageFooter/>
