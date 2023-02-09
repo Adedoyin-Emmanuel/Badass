@@ -7,7 +7,7 @@ const Hero = () => {
 			<section className="hero-section brand-dark-color">
 				<div className="row align-items-center g-lg-5 g-md-3 py-5 justify-content-around">
 					<div
-						className="col-md-6 col-sm-8 col  mx-auto col-lg-5 d-flex align-items-center m-auto my-md-3 my-4"
+						className="col-md-6 col-sm-8 col mx-auto col-lg-5 d-flex align-items-center m-auto my-md-3 my-4"
 						id="img-container">
 						<img src={Logo} width="400" height="400"/>
 					</div>
