@@ -43,6 +43,7 @@
 }
 .brand-dark-color{
     background:var(--brand-primary-dark-color);
+    color:var(--brand-white-color);
 }
 .brand-white-color{
     background:var(--brand-white-color);
@@ -59,6 +60,10 @@
 
 .brand-secondary-color-2{
     background:var(--brand-secondary-color-2);
+}
+
+.brand-white-text{
+    color:var(--brand-white-color);
 }
 
 /*default bootstrap navbar properties @overide*/
