@@ -9,7 +9,7 @@ const Hero = () => {
 
 				<div className="row align-items-center g-lg-5 g-md-3 py-2 justify-content-around">
 					<div
-						className="col-md-6 col-sm-8 col  col-lg-4 d-flex align-items-center m-auto my-md-3 my-5"
+						className="col-md-6 col-sm-8 col  col-lg-4 d-flex align-items-center m-auto my-md-3 my-md-5 my-3"
 						id="img-container">
 						<img
 							src={Logo}
