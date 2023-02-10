@@ -1,7 +1,11 @@
 import React from "react";
 import Logo from "./../assets/images/skull.svg";
 import Button from  "./button";
+import {navigate} from "./../includes/scripts/script";
 const Hero = () => {
+	const navigateToApp = () =>{
+		navigate("");
+	}
 	return (
 		<React.Fragment>
 			<section className="hero-section brand-dark-color">
