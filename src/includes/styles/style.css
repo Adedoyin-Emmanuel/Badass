@@ -13,6 +13,10 @@
 	font-family: Poppins;
 }
 
+body{
+	font-family:Poppins;
+}
+
 /*utility variables*/
 :root {
 	--brand-primary-dark-color: #121420;
