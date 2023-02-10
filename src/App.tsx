@@ -25,6 +25,7 @@ function App() {
           <Route path="upload" element={<Upload/>}/>
           <Route path="search" element={<Search/>}/>
           <Route path="convert" element={<Convert/>}/>
+          <Route path="settings" element={<Settings/>}/>
         </Routes>
       </BrowserRouter>
 		</div>
