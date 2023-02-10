@@ -21,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={DEFAULT_ROUTE} />
           <Route path="home" element={<Home/>}/>
+          <Route path="app" element={<MainApp/>}/>
           <Route path="support" element={<Support/>}/>
           <Route path="upload" element={<Upload/>}/>
           <Route path="search" element={<Search/>}/>
