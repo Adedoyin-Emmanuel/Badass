@@ -1,6 +1,6 @@
 import Database from "./database";
 
-const Db = new Database();
+const db = new Database();
 
 
-export default Db;
+export default db;

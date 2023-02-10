@@ -2,11 +2,11 @@ import React from "react";
 import Logo from "./../assets/images/skull.svg";
 import Button from  "./button";
 import {navigate} from "./../includes/scripts/script";
-import Db from "./../backend/db";
+import db from "./../backend/db";
 const Hero = () => {
 	const navigateToApp = () =>{
 
-		Db.create("BADASS_HOME_PAGE_SEEN", "true");
+		db.create("BADASS_HOME_PAGE_SEEN", "true");
 		navigate("app");
 
 	}
