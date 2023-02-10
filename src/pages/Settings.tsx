@@ -7,3 +7,5 @@ const Settings = (): JSX.Element =>{
         </React.Fragment>
     )
 }
+
+export default Settings;
