@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "./../assets/images/skull.svg";
 import Button from  "./button";
 import {navigate} from "./../includes/scripts/script";
+import {Db} from "./../backend/db";
 const Hero = () => {
 	const navigateToApp = () =>{
 		navigate("app");
