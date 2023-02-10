@@ -1,108 +1,131 @@
-@font-face
-{
-    font-family:Poppins;
-    src:"../../assets/poppins.ttf";
+@font-face {
+	font-family: Poppins;
+	src: "../../assets/poppins.ttf";
 }
 
-
-@font-face
-{
-    font-family:Poppins;
-    src:"../../assets/poppins_bold.ttf";
-    font-weight:bold;
+@font-face {
+	font-family: Poppins;
+	src: "../../assets/poppins_bold.ttf";
+	font-weight: bold;
 }
 
-*
-{
-    font-family:Poppins;
+* {
+	font-family: Poppins;
 }
 
 /*utility variables*/
-:root{
-    --brand-primary-dark-color:#121420;
-    --brand-primary-light-color: #48cae4;
-    --brand-primary-light-color-2: #90e0ef;
-    --brand-primary-light-color-3: #caf0f8;
+:root {
+	--brand-primary-dark-color: #121420;
+	--brand-primary-light-color: #48cae4;
+	--brand-primary-light-color-2: #90e0ef;
+	--brand-primary-light-color-3: #caf0f8;
 
-    --brand-secondary-color:#16679a;
-    --brand-secondary-color-2:#1c558e;
+	--brand-secondary-color: #16679a;
+	--brand-secondary-color-2: #1c558e;
 
-    --brand-white-color:#eff7f6;
-    --brand-button-border-radius: 20px;
-    --brand-button-border-radius-2: 15px;
-    --brand-button-border-radius-3: 10px;
+	--brand-white-color: #eff7f6;
+	--brand-button-border-radius: 20px;
+	--brand-button-border-radius-2: 15px;
+	--brand-button-border-radius-3: 10px;
 }
 
 /*Brand primary utility classes*/
 
-.brand-primary-color{
-    background:var(--brand-primary-light-color);
+.brand-primary-color {
+	background: var(--brand-primary-light-color);
 }
-.brand-primary-color-2{
-    background:var(--brand-primary-light-color-2);
+.brand-primary-color-2 {
+	background: var(--brand-primary-light-color-2);
 }
-.brand-primary-color-3{
-    background:var(--brand-primary-light-color-3);
+.brand-primary-color-3 {
+	background: var(--brand-primary-light-color-3);
 }
-.brand-dark-color{
-    background:var(--brand-primary-dark-color);
-    color:var(--brand-white-color);
+.brand-dark-color {
+	background: var(--brand-primary-dark-color);
+	color: var(--brand-white-color);
 }
-.brand-white-color{
-    background:var(--brand-white-color);
+.brand-white-color {
+	background: var(--brand-white-color);
 }
 
+/*spinner component*/
 
-
+#spinner {
+	background: ghostwhite;
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 10000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
 /*Brand secondary utility classes*/
 
-.brand-secondary-color{
-    background:var(--brand-secondary-color);
+.brand-secondary-color {
+	background: var(--brand-secondary-color);
 }
 
-.brand-secondary-color-2{
-    background:var(--brand-secondary-color-2);
+.brand-secondary-color-2 {
+	background: var(--brand-secondary-color-2);
 }
 
-.brand-white-text{
-    color:var(--brand-white-color);
+.brand-white-text {
+	color: var(--brand-white-color);
 }
 
 /*default bootstrap navbar properties @overide*/
 
 .navbar-toggler:focus {
-  text-decoration: none;
-  outline: 0;
-  box-shadow: none;
+	text-decoration: none;
+	outline: 0;
+	box-shadow: none;
 }
-
 
 /*Brand button styling*/
 
-.brand-button{
-    border-radius: var(--brand-button-border-radius-2);
-    outline:none;
-    border:0;
-    text-transform:capitalize;
-    padding:1.3rem;
-    background:var(--brand-primary-color);
+.brand-button {
+	border-radius: var(--brand-button-border-radius-2);
+	outline: none;
+	border: 0;
+	text-transform: capitalize;
+	padding: 1.3rem;
+	background: var(--brand-primary-color);
 }
-.get-started{
-    transition:.8s;
-}
-
-.get-started:hover{
-    cursor: pointer;
-    border:1px solid var(--brand-white-color);
-    color:var(--brand-white-color);
+.get-started {
+	transition: 0.8s;
 }
 
-.brand-button:hover
-{
-    cursor:pointer;
+.get-started:hover {
+	cursor: pointer;
+	border: 1px solid var(--brand-white-color);
+	color: var(--brand-white-color);
 }
 
-.wave{
-    transform: translateY(50px);
+.brand-button:hover {
+	cursor: pointer;
 }
+
+.wave {
+	transform: translateY(50px);
+}
+
+body {
+	background: var(--brand-primary-dark-color);
+}
+/* 
+.hero-section {
+	height: 100vh;
+	width: 100%;
+    position: fixed;
+	top: 0;
+	right:0;
+	z-index: 10000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+} */
