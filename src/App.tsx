@@ -23,7 +23,7 @@ function App() {
           <Route path="support" element={<Support/>}/>
           <Route path="upload" element={<Upload/>}/>
           <Route path="search" element={<Search/>}/>
-          
+          <Route path="convert" element={<Convert/>}/>
         </Routes>
       </BrowserRouter>
 		</div>
