@@ -7,4 +7,5 @@ import "bootstrap/dist/js/bootstrap.min.js.map";
 
 //custom styles and spinner animation file
 import "./includes/styles/style.css";
+import "./includes/scripts/script.ts";
 import "./includes/styles/three-dots.css";

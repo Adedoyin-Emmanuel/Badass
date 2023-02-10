@@ -1,20 +1,20 @@
 @font-face {
-	font-family: Poppins;
+	font-family: poppins;
 	src: "../../assets/poppins.ttf";
 }
 
 @font-face {
-	font-family: Poppins;
+	font-family: poppins;
 	src: "../../assets/poppins_bold.ttf";
 	font-weight: bold;
 }
 
 * {
-	font-family: Poppins;
+	font-family: poppins;
 }
 
 body{
-	font-family:Poppins;
+	font-family:poppins;
 }
 
 /*utility variables*/
@@ -154,7 +154,7 @@ body {
 	transform:translate(10px,-5px)
 }
 
-
+poppins
 @media (min-width: 667.98px) {
 	.width-toggle {
 		width: 35%;
