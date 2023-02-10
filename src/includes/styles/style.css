@@ -24,7 +24,7 @@
 	--brand-secondary-color-2: #1c558e;
 
 	--brand-white-color: #eff7f6;
-	--brand-button-border-radius: 20px;
+	--brand-button-border-radius: 30px;
 	--brand-button-border-radius-2: 15px;
 	--brand-button-border-radius-3: 10px;
 }
@@ -77,6 +77,10 @@
 	color: var(--brand-white-color);
 }
 
+.brand-dark-text{
+    color:var(--brand-primary-dark-color);
+}
+
 /*default bootstrap navbar properties @overide*/
 
 .navbar-toggler:focus {
@@ -96,13 +100,18 @@
 	background: var(--brand-primary-color);
 }
 .get-started {
-	transition: 0.8s;
+	transition: 0.4s;
+    border-radius:var(--brand-button-border-radius);
+    outline:none;
+    border:none;
+    text-transform:capitalize;
+    width:75%;
+    padding:17px;
 }
 
 .get-started:hover {
 	cursor: pointer;
-	border: 1px solid var(--brand-white-color);
-	color: var(--brand-white-color);
+	background:var(--brand-primary-light-color-2);
 }
 
 .brand-button:hover {
@@ -129,3 +138,28 @@ body {
 	justify-content: center;
 	
 } */
+
+
+@media (min-width: 667.98px) {
+	.width-toggle {
+		width: 35%;
+	}
+	.width-toggle-2 {
+		width: 75%;
+		
+	}
+
+	.width-toggle-5{
+		width:90%;
+	}
+
+	.width-toggle-3 {
+		width: 50%;
+	}
+	.width-toggle-4{
+		width:35%;
+	}
+	.width-toggle-6{
+		width:25%;
+	}
+}

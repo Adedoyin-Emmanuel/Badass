@@ -28,7 +28,7 @@ const Hero = () => {
 							Do all with one application download, convert and remove
 							background images.
 						</p>
-						<Button text="get started" className="brand-primary-color-2"></Button>
+						<Button text="get started" className="get-started brand-primary-color brand-dark-text width-toggle my-md-3 my-4 shadow-sm"></Button>
 					</div>
 				</div>
 			</section>
