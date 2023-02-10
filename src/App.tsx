@@ -5,7 +5,7 @@ import MainApp from "./pages/Main-App";
 import Search from "./pages/Search";
 import Convert from "./pages/Convert";
 import Upload from "./pages/Upload";
-import Settings from "./Pages/Settings";
+import Settings from "./pages/Settings";
 import "./autoload";
 import db from "./backend/db";
 function App() {
