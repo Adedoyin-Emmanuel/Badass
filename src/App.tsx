@@ -22,6 +22,8 @@ function App() {
           <Route path="home" element={<Home/>}/>
           <Route path="support" element={<Support/>}/>
           <Route path="upload" element={<Upload/>}/>
+          <Route path="search" element={<Search/>}/>
+          
         </Routes>
       </BrowserRouter>
 		</div>
