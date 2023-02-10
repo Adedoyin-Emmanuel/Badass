@@ -20,7 +20,7 @@ const Hero = () => {
 							Do all with one application, download images, convert images, remove image background.
 						</p>
 
-						<button className="btn  btn-lg text-capitalize mx-md-2">
+						<button className="btn btn-lg get-started brand-primary-color text-capitalize mx-md-2 my-3">
 							Get started!
 						</button>
 

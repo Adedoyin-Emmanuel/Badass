@@ -85,6 +85,17 @@
     outline:none;
     border:0;
     text-transform:capitalize;
+    padding:1.3rem;
+    background:var(--brand-primary-color);
+}
+.get-started{
+    transition:.8s;
+}
+
+.get-started:hover{
+    cursor: pointer;
+    border:1px solid var(--brand-white-color);
+    color:var(--brand-white-color);
 }
 
 .brand-button:hover
