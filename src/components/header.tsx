@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "../components/hero";
+import ConvertHero from "./convertHero";
 const Header = () => {
 	return (
 		<React.Fragment>
@@ -93,6 +94,7 @@ l28 53 0 352 c0 318 -2 355 -19 391 -23 51 -79 101 -128 114 -61 17 -698 14
 			</nav>
 			<div className="py-3 d-sm-none d-md-block"></div>
 			<Hero/>
+			<ConvertHero/>
 		</React.Fragment>
 	);
 };
