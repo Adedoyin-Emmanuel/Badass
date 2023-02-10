@@ -4,7 +4,7 @@ import Logo from "./../assets/images/skull.svg";
 const Hero = () => {
 	return (
 		<React.Fragment>
-			<section className="hero-section brand-dark-color my-3">
+			<section className="hero-section brand-dark-color">
 				<div className="row align-items-center g-lg-5 g-md-3 py-5 justify-content-around">
 					<div
 						className="col-md-6 col-sm-8 col  col-lg-4 d-flex align-items-center m-auto my-md-3 my-5"
