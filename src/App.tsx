@@ -1,19 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Support from "./pages/Support";
+import MainApp from "./pages/Main-App";
 import "./autoload";
 import db from "./backend/db";
 function App() {
 
-  let DEFAULT_ROUTE: JSX.Element =;
+  let DEFAULT_ROUTE: JSX.Element = <MainApp/>;
 
-  (db.get("BADASS_HOME_PAGE_SEEN") === "true") ? DEFAULT_ROUTE = "Main-Page" : DEFAULT_ROUTE = <Home/>
+  (db.get("BADASS_HOME_PAGE_SEEN") === "true") ? DEFAULT_ROUTE = <MainApp/> : DEFAULT_ROUTE = <Home/>
 
 	return (
 		<div className="App">
 			<BrowserRouter>
         <Routes>
-          <Route path={DEFAULT_ROUTE} element={<Home />} />
+          <Route path="/" element={DEFAULT_ROUTE} />
           <Route path="home" element={<Home/>}/>
           <Route path="support" element={<Support/>}/>
         </Routes>
