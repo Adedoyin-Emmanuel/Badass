@@ -8,7 +8,7 @@ const ConvertHero = () => {
 
 				<div className="row align-items-center g-lg-5 g-md-3 py-5 justify-content-around">
 					<div
-						className="col-md-6 col-sm-8 col  col-lg-4 d-flex align-items-center m-auto my-md-3 my-5"
+						className="col-md-6 col-sm-8 col  col-lg-4 d-flex align-items-center m-auto my-md-3 my-2 p-2"
 						id="img-container">
 						<img src={Convert} width="300" height="300" className="img-fluid m-auto"/>
 					</div>
@@ -20,11 +20,6 @@ const ConvertHero = () => {
 						<p className="col-lg-10 fs-5 p-2 text-start text-lg-start">
 							Convert your images from one format to another. png, ico, jpg, jpeg etc.
 						</p>
-
-						<button className="btn btn-lg get-started brand-primary-color text-capitalize mx-md-2 my-3">
-							Get started!
-						</button>
-
 					</div>
 				</div>
 			</section>
