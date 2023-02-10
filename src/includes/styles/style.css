@@ -19,7 +19,7 @@
 
 /*utility variables*/
 :root{
-    --brand-primary-dark-color:#1c2541;
+    --brand-primary-dark-color:#121420;
     --brand-primary-light-color: #48cae4;
     --brand-primary-light-color-2: #90e0ef;
     --brand-primary-light-color-3: #caf0f8;
@@ -90,4 +90,8 @@
 .brand-button:hover
 {
     cursor:pointer;
+}
+
+.wave{
+    transform: translateY(20px);
 }
