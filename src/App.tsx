@@ -21,6 +21,7 @@ function App() {
           <Route path="/" element={DEFAULT_ROUTE} />
           <Route path="home" element={<Home/>}/>
           <Route path="support" element={<Support/>}/>
+          <Route path="upload" element={<Upload/>}/>
         </Routes>
       </BrowserRouter>
 		</div>
