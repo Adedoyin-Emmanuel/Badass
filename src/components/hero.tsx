@@ -4,7 +4,7 @@ import Button from  "./button";
 import {navigate} from "./../includes/scripts/script";
 const Hero = () => {
 	const navigateToApp = () =>{
-		navigate("");
+		navigate("app");
 	}
 	return (
 		<React.Fragment>
@@ -44,7 +44,7 @@ const Hero = () => {
 
 						
 
-						<Button text="get started" className="get-started brand-primary-color brand-dark-text width-toggle my-md-3 my-4 shadow-sm"/>
+						<Button text="get started" className="get-started brand-primary-color brand-dark-text width-toggle my-md-3 my-4 shadow-sm" onClick={navigateToApp}/>
 					
 					</div>
 				</div>
