@@ -21,7 +21,7 @@ const Hero = () => {
 
 					<div className="col-lg-8 text-center text-lg-start my-md-3">
 						<h1 className="display-5 fw-bold lh-1 mb-3 text-capitalize text-start text-md-center text-lg-start px-2 px-md-0">
-							A free tool for image manipulation
+							A free <span className="brand-text-primary-color">tool</span> for image manipulation
 						</h1>
 
 						<p className="col-lg-10 fs-5 p-2 text-start text-lg-start">

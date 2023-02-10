@@ -51,7 +51,9 @@ body{
 .brand-white-color {
 	background: var(--brand-white-color);
 }
-
+.brand-text-primary-color{
+	color:var(--brand-primary-light-color);
+}
 /*spinner component*/
 
 #spinner {
