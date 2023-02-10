@@ -28,6 +28,9 @@
     --brand-secondary-color-2:#1c558e;
 
     --brand-white-color:#eff7f6;
+    --brand-button-border-radius: 20px;
+    --brand-button-border-radius-2: 15px;
+    --brand-button-border-radius-3: 10px;
 }
 
 /*Brand primary utility classes*/
@@ -72,4 +75,19 @@
   text-decoration: none;
   outline: 0;
   box-shadow: none;
+}
+
+
+/*Brand button styling*/
+
+.brand-button{
+    border-radius: var(--brand-button-border-radius-2);
+    outline:none;
+    border:0;
+    text-transform:capitalize;
+}
+
+.brand-button:hover
+{
+    cursor:pointer;
 }

@@ -91,6 +91,7 @@ l28 53 0 352 c0 318 -2 355 -19 391 -23 51 -79 101 -128 114 -61 17 -698 14
 					</div>
 				</div>
 			</nav>
+			<div className="py-3 d-sm-none d-md-block"></div>
 			<Hero/>
 		</React.Fragment>
 	);

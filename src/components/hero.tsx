@@ -4,10 +4,10 @@ import Logo from "./../assets/images/skull.svg";
 const Hero = () => {
 	return (
 		<React.Fragment>
-			<section className="hero-section brand-dark-color">
+			<section className="hero-section brand-dark-color my-3">
 				<div className="row align-items-center g-lg-5 g-md-3 py-5 justify-content-around">
 					<div
-						className="col-md-6 col-sm-8 col  col-lg-4 d-flex align-items-center m-auto my-md-3 my-4"
+						className="col-md-6 col-sm-8 col  col-lg-4 d-flex align-items-center m-auto my-md-3 my-5"
 						id="img-container">
 						<img src={Logo} width="400" height="400" className="img-fluid m-auto"/>
 					</div>
