@@ -31,6 +31,7 @@ body{
 	--brand-button-border-radius: 30px;
 	--brand-button-border-radius-2: 15px;
 	--brand-button-border-radius-3: 10px;
+	--brand-small-text: 0.9rem;
 }
 
 /*Brand primary utility classes*/
@@ -87,7 +88,11 @@ body{
     color:var(--brand-primary-dark-color);
 }
 .brand-small-text{
-	font-size:.9rem;
+	font-size:var(--brand-small-text);
+}
+
+.brand-small-text-2{
+	font-size: calc(var(--brand-small-text) - .1rem);
 }
 /*default bootstrap navbar properties @overide*/
 

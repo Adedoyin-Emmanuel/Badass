@@ -21,8 +21,28 @@ const MainApp = (): JSX.Element =>{
                         <p className="text-muted brand-small-text">Get a transparent background for any image</p>
 
                         <section className="m-auto button-container d-flex align-items-center justify-content-center">
-                              <Button className="brand-button-2 text-capitalize fw-bold text-light" text="upload image"></Button>
+                              <Button className="brand-button-3 my-3 width-toggle text-capitalize fw-bold text-light" text="upload image"></Button>
                         </section>
+
+                        <p className="text-muted brand-small-text">No image? try one of these</p>
+                        <section className="no-image d-flex align-items-center justify-content-center">
+
+                        <section className="image-box p-3 brand-white-color rounded-1 mx-2"> 
+
+                        </section>
+
+                        <section className="image-box p-3 brand-white-color rounded-1 mx-2"> 
+
+                        </section>
+
+                        <section className="image-box p-3 brand-white-color rounded-1 mx-2"> 
+
+                        </section>
+
+                        <section className="image-box p-3 brand-white-color rounded-1 mx-2"> 
+
+                        </section>
+                    </section>
                    </section>
                </section>
         </React.Fragment>
