@@ -7,7 +7,7 @@ const Home = ()=> {
 
 	return (
 		<React.Fragment>
-			<section className="" style={{"overflowX":"hidden"}}>
+			<section className="brand-dark-color" style={{"overflowX":"hidden"}}>
 					<Header/>
 			</section>
 		</React.Fragment>
