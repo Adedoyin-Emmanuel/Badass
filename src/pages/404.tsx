@@ -1,5 +1,5 @@
 import React from "react";
-
+import LostImage from "./../assets/images/lost.svg";
 
 const NotFound = (): JSX.Element =>{
 	return (
@@ -8,11 +8,16 @@ const NotFound = (): JSX.Element =>{
 			<section className="container-fluid ">
 
 				<section className="not-found-container">
-
+					<img src={LostImage} className="img-fluid m-auto"/>
 				</section>
 
 			</section>
 
-		<React.Fragment>
-	)
+		</React.Fragment>
+
+	);
+
 }
+
+
+export default NotFound;

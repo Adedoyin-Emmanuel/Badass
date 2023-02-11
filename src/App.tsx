@@ -6,6 +6,7 @@ import Search from "./pages/Search";
 import Convert from "./pages/Convert";
 import Upload from "./pages/Upload";
 import Settings from "./pages/Settings";
+import NotFound from "./pages/404";
 import "./autoload";
 import db from "./backend/db";
 function App() {
