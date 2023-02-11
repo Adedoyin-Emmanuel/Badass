@@ -26,23 +26,19 @@ const MainApp = (): JSX.Element =>{
 
                         <p className="text-muted brand-small-text">No image? try one of these</p>
                         <section className="no-image d-flex align-items-center justify-content-center">
+                                <section className="image-box p-3 brand-white-color rounded-1 mx-2"></section>
 
-                        <section className="image-box p-3 brand-white-color rounded-1 mx-2"> 
+                                <section className="image-box p-3 brand-white-color rounded-1 mx-2"></section>
 
+                                <section className="image-box p-3 brand-white-color rounded-1 mx-2"></section>
+
+                                <section className="image-box p-3 brand-white-color rounded-1 mx-2"></section>
                         </section>
+                   </section>
 
-                        <section className="image-box p-3 brand-white-color rounded-1 mx-2"> 
+                   <section className="file-converter-container">
 
-                        </section>
 
-                        <section className="image-box p-3 brand-white-color rounded-1 mx-2"> 
-
-                        </section>
-
-                        <section className="image-box p-3 brand-white-color rounded-1 mx-2"> 
-
-                        </section>
-                    </section>
                    </section>
                </section>
         </React.Fragment>
