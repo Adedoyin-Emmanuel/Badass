@@ -5,10 +5,10 @@ const Header = () => {
 	return (
 		<React.Fragment>
 			<nav
-				className="navbar navbar-expand-sm brand-dark-color fixed-top"
+				className="navbar navbar-expand-sm brand-primary-color fixed-top"
 				aria-label="Badass navbar">
 				<div className="container-fluid">
-					<a className="navbar-brand text-light fw-bold" href="#">
+					<a className="navbar-brand text-dark fw-bold" href="#">
 						Badass
 					</a>
 					<button
@@ -72,19 +72,19 @@ l28 53 0 352 c0 318 -2 355 -19 391 -23 51 -79 101 -128 114 -61 17 -698 14
 						<ul className="navbar-nav me-auto mb-2 mb-sm-0">
 							<li className="nav-item">
 								<a
-									className="nav-link text-light active"
+									className="nav-link active"
 									aria-current="page"
 									href="#">
 									Convert
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link text-light" href="#">
+								<a className="nav-link " href="#">
 									Download
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link text-light" href="#">
+								<a className="nav-link " href="#">
 									Remove Bg
 								</a>
 							</li>

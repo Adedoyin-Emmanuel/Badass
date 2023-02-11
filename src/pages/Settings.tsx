@@ -10,7 +10,7 @@ const Settings = (): JSX.Element =>{
     
     return (
         <React.Fragment>
-            
+            <h3>Welcome to the settings page!</h3>
         </React.Fragment>
     )
 }
