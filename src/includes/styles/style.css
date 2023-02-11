@@ -86,7 +86,9 @@ body{
 .brand-dark-text{
     color:var(--brand-primary-dark-color);
 }
-
+.brand-small-text{
+	font-size:.9rem;
+}
 /*default bootstrap navbar properties @overide*/
 
 .navbar-toggler:focus {
@@ -97,7 +99,7 @@ body{
 
 /*Brand button styling*/
 
-.brand-button {
+.brand-button, .brand-button-2, .brand-button-3 {
 	border-radius: var(--brand-button-border-radius);
 	outline: none;
 	border: 0;
@@ -107,6 +109,17 @@ body{
 	width:75%;
 
 }
+
+.brand-button-2{
+	padding:15px;
+}
+
+
+.brand-button-3{
+	padding:13px;
+}
+
+
 .get-started {
 	transition: 0.4s;
     border-radius:var(--brand-button-border-radius);
@@ -133,19 +146,6 @@ body{
 body {
 	background: var(--brand-primary-dark-color);
 }
-/* 
-.hero-section {
-	height: 100vh;
-	width: 100%;
-    position: fixed;
-	top: 0;
-	right:0;
-	z-index: 10000;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	
-} */
 
 .width-toggle-dash
 {

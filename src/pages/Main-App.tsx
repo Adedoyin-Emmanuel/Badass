@@ -18,7 +18,11 @@ const MainApp = (): JSX.Element =>{
                    <section className="remove-bg-container ">
                         <h4 className="fw-bold text-light">Remove Image <span className="brand-text-primary-color">Background</span></h4>
 
-                        <p className="text-muted">Get a transparent background for any image</p>
+                        <p className="text-muted brand-small-text">Get a transparent background for any image</p>
+
+                        <section className="m-auto button-container d-flex align-items-center justify-content-center">
+                              <Button className="brand-button-2 text-capitalize fw-bold text-light" text="upload image"></Button>
+                        </section>
                    </section>
                </section>
         </React.Fragment>
