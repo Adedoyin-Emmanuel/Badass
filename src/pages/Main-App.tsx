@@ -13,9 +13,13 @@ const MainApp = (): JSX.Element =>{
     return (
         <React.Fragment>
                <section className="container-fluid">
-                   
+                   <Header/>
+                    <div className="py-5 d-sm-none d-md-block"></div>
+                   <section className="remove-bg-container ">
+                        <h4 className="fw-bold text-light">Remove Image <span className="brand-text-primary-color">Background</span></h4>
 
-                    hi world.
+                        <p className="text-muted">Get a transparent background for any image</p>
+                   </section>
                </section>
         </React.Fragment>
     )
