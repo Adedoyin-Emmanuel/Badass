@@ -104,7 +104,7 @@ body{
 
 /*Brand button styling*/
 
-.brand-button, .brand-button-2, .brand-button-3 {
+.brand-button, .brand-button-2, .brand-button-3, .brand-white-button {
 	border-radius: var(--brand-button-border-radius);
 	outline: none;
 	border: 0;
@@ -117,6 +117,11 @@ body{
 
 .brand-button-2{
 	padding:15px;
+}
+
+.brand-white-button{
+	background: var(--brand-white-color);
+	padding:13px;
 }
 
 

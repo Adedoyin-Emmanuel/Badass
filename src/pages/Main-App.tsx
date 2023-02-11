@@ -16,7 +16,7 @@ const MainApp = (): JSX.Element =>{
                    <Header/>
                     <div className="py-5 d-sm-none d-md-block"></div>
                    <section className="remove-bg-container ">
-                        <h4 className="fw-bold text-light">Remove Image <span className="brand-text-primary-color">Background</span></h4>
+                        <h4 className="fw-bold text-light fs-4 text-capitalize">Remove Image <span className="brand-text-primary-color">Background</span></h4>
 
                         <p className="text-muted brand-small-text">Get a transparent background for any image</p>
 
@@ -36,10 +36,25 @@ const MainApp = (): JSX.Element =>{
                         </section>
                    </section>
 
-                   <section className="file-converter-container">
+                   <section className="file-converter-container my-5">
+                        <h4 className="fw-bold fs-4 text-capitalize text-white"><span className="brand-text-primary-color">Convert</span> Your Images | Files </h4>
 
-
+                        <p className="text-muted brand-small-text">with Badass, you can convert your files to any format</p>
+                         <section className="m-auto button-container d-flex align-items-center justify-content-center">
+                              <Button className="brand-white-button my-3 width-toggle text-capitalize fw-bold text-dark brand-white-color" text="choose files"></Button>
+                        </section>
                    </section>
+
+
+                   <section className="bulk-image-downloader-container my-5">
+                        <h4 className="fw-bold fs-4 text-capitalize text-white"><span className="brand-text-primary-color">Download</span> Multiple Images At Once </h4>
+
+                        <p className="text-muted brand-small-text">with Badass, you can convert your files to any format</p>
+                         <section className="m-auto button-container d-flex align-items-center justify-content-center">
+                              <Button className="brand-white-button my-3 width-toggle text-capitalize fw-bold text-dark brand-white-color" text="choose files"></Button>
+                        </section>
+                   </section>
+
                </section>
         </React.Fragment>
     )
