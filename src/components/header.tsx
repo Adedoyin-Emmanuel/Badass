@@ -1,5 +1,4 @@
 import React from "react";
-import Hero from "../components/hero";
 
 const Header = () => {
 	return (
@@ -92,7 +91,7 @@ l28 53 0 352 c0 318 -2 355 -19 391 -23 51 -79 101 -128 114 -61 17 -698 14
 					</div>
 				</div>
 			</nav>
-			<Hero/>
+
 			
 		</React.Fragment>
 	);

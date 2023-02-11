@@ -2,6 +2,7 @@ import React from "react";
 import db from "../backend/db";
 import Button from "./../components/button";
 import {navigate} from "./../includes/scripts/script";
+import Header from "./../components/header";
 
 const MainApp = (): JSX.Element =>{
 
@@ -11,9 +12,11 @@ const MainApp = (): JSX.Element =>{
     }
     return (
         <React.Fragment>
-                <h2>Hello world, welcome to the main app</h2>
+               <section className="container-fluid">
+                   
 
-                <Button text="hello world" className="brand-button"></Button>
+                    hi world.
+               </section>
         </React.Fragment>
     )
 }
