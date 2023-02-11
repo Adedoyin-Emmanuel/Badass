@@ -1,8 +1,12 @@
 import React from "react";
 import LostImage from "./../assets/images/lost.svg";
 import Button from "./../components/button";
-
+import {navigate} from "./../includes/scripts/script";
 const NotFound = (): JSX.Element =>{
+
+	const navigateToHome = ():void =>{
+		navigate("/app");
+	}
 	return (
 		<React.Fragment>
 
@@ -16,8 +20,8 @@ const NotFound = (): JSX.Element =>{
 				</section>
 
 				 <section className="m-auto button-container d-flex align-items-center justify-content-center my-sm-3">
-                              <Button className="brand-button-3 my-3 width-toggle-6 text-capitalize fw-bold text-dark brand-white-color" text="Go Home"></Button>
-                  </section>
+                              <Button className="brand-button-3 my-3 width-toggle-6 text-capitalize fw-bold text-dark brand-white-color" text="Go Home" onClick={navigateToHome}/>
+                 </section>
 			</section>
 
 		</React.Fragment>
