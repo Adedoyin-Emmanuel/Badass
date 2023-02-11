@@ -28,6 +28,7 @@ function App() {
           <Route path="app/search" element={<Search/>}/>
           <Route path="app/convert" element={<Convert/>}/>
           <Route path="app/settings" element={<Settings/>}/>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
       </BrowserRouter>
 		</div>
