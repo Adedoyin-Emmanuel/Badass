@@ -39,7 +39,7 @@ const MainApp = (): JSX.Element =>{
                    <section className="file-converter-container my-5">
                         <h4 className="fw-bold fs-4 text-capitalize text-white"><span className="brand-text-primary-color">Convert</span> Your Images | Files </h4>
 
-                        <p className="text-muted brand-small-text">with Badass, you can convert your files to any format</p>
+                        <p className="text-muted brand-small-text">With Badass, you can convert your files to any format</p>
                          <section className="m-auto button-container d-flex align-items-center justify-content-center">
                               <Button className="brand-white-button my-3 width-toggle text-capitalize fw-bold text-dark brand-white-color" text="choose files"></Button>
                         </section>
@@ -49,9 +49,9 @@ const MainApp = (): JSX.Element =>{
                    <section className="bulk-image-downloader-container my-5">
                         <h4 className="fw-bold fs-4 text-capitalize text-white"><span className="brand-text-primary-color">Download</span> Multiple Images At Once </h4>
 
-                        <p className="text-muted brand-small-text">with Badass, you can convert your files to any format</p>
+                        <p className="text-muted brand-small-text">Ever thought of downloading multiple images at once?</p>
                          <section className="m-auto button-container d-flex align-items-center justify-content-center">
-                              <Button className="brand-white-button my-3 width-toggle text-capitalize fw-bold text-dark brand-white-color" text="choose files"></Button>
+                              <Button className="brand-button-3 my-3 width-toggle text-capitalize fw-bold text-dark " text="Download Images"></Button>
                         </section>
                    </section>
 
