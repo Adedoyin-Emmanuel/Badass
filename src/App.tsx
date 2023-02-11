@@ -22,11 +22,11 @@ function App() {
           <Route path="/" element={DEFAULT_ROUTE} />
           <Route path="home" element={<Home/>}/>
           <Route path="app" element={<MainApp/>}/>
-          <Route path="support" element={<Support/>}/>
-          <Route path="upload" element={<Upload/>}/>
-          <Route path="search" element={<Search/>}/>
-          <Route path="convert" element={<Convert/>}/>
-          <Route path="settings" element={<Settings/>}/>
+          <Route path="app/support" element={<Support/>}/>
+          <Route path="app/upload" element={<Upload/>}/>
+          <Route path="app/search" element={<Search/>}/>
+          <Route path="app/convert" element={<Convert/>}/>
+          <Route path="app/settings" element={<Settings/>}/>
         </Routes>
       </BrowserRouter>
 		</div>
