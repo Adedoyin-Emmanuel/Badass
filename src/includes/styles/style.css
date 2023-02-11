@@ -98,12 +98,14 @@ body{
 /*Brand button styling*/
 
 .brand-button {
-	border-radius: var(--brand-button-border-radius-2);
+	border-radius: var(--brand-button-border-radius);
 	outline: none;
 	border: 0;
 	text-transform: capitalize;
-	padding: 1.3rem;
-	background: var(--brand-primary-color);
+	background: var(--brand-primary-light-color);
+	padding:17px;
+	width:75%;
+
 }
 .get-started {
 	transition: 0.4s;
