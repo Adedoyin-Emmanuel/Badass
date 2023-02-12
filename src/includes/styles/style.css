@@ -1,11 +1,11 @@
 @font-face {
 	font-family: poppins;
-	src: "./../../assets/fonts/poppins.ttf";
+	src: "./../../fonts/poppins.ttf";
 }
 
 @font-face {
 	font-family: poppins;
-	src: "./../../assets/fonts/poppins_bold.ttf";
+	src: "./../../fonts/poppins_bold.ttf";
 	font-weight: bold;
 }
 
