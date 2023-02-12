@@ -33,7 +33,7 @@ const FooterNav = (props: FooterProp): JSX.Element => {
 							 >
 
 							<g transform="translate(0.000000,225.000000) scale(0.100000,-0.100000)"
-							fill="#fff" stroke="none">
+							fill="#fff" stroke="none" className={`${props.convertActivePage}`}>
 							<path d="M1190 2225 c-8 -2 -46 -7 -83 -10 -56 -6 -70 -11 -83 -30 -24 -37 -5
 							-62 54 -70 205 -27 340 -86 468 -207 48 -46 103 -110 128 -152 139 -222 164
 							-492 68 -738 -28 -74 -116 -218 -132 -218 -4 0 -47 41 -96 90 -77 80 -92 91

@@ -12,7 +12,7 @@ const Convert = () =>{
                         <br/>
                      <h2>This is the convert component</h2>
 
-                     <AppFooter/>
+                     <AppFooter childrenConvertActivePage="current-active-page"/>
             </section>
         </React.Fragment>
     )
