@@ -1,11 +1,16 @@
 import React from "react";
 import FooterNav from "./footer-nav";
-const AppFooter = (): JSX.Element =>{
+
+interface AppFooterProp
+{
+	childrenCurrentActivePage ?: string
+}
+const AppFooter = (props: AppFooterProp): JSX.Element =>{
 	return (
 
 		<React.Fragment>
 			<section className="app-footer m-auto d-flex align-items-center justify-content-center flex-row">
-				<FooterNav/>
+				<FooterNav currentActivePage={props.childrenCurrentActivePage}/>
 			</section>
 		</React.Fragment>
 
