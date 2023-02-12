@@ -11,6 +11,18 @@ const MainApp = (): JSX.Element =>{
     {
         navigate("/home");
     }
+
+    const navigateToConvert = (): void =>{
+        navigate("/app/convert");
+    }
+
+    const navigateToUpload = (): void =>{
+        navigate("/app/upload");
+    }
+
+    const navigateToDownload = (): void =>{
+        navigate("/app/search");
+    }
     return (
         <React.Fragment>
                <section className="container-fluid p-0">
