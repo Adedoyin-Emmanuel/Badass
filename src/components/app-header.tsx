@@ -1,4 +1,5 @@
 import React from "react";
+import * as navigate from "./../includes/scripts/handleNavigation";
 
 interface Prop 
 {
@@ -18,6 +19,7 @@ const AppHeader = (props: Prop): JSX.Element => {
 							id="Layer_1"
 							version="1.1"
 							fill="#fff"
+							onClick={navigate.navigateToApp}
 							viewBox="0 0 512 512"
 							width={"30"}
 							xmlns="http://www.w3.org/2000/svg">
