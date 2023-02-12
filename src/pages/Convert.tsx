@@ -1,10 +1,19 @@
 import React from "react";
 import AppHeader from "./../components/app-header";
+import AppFooter from "./../components/app-footer";
+
 const Convert = () =>{
     return (
         <React.Fragment>
-            <AppHeader title="Convert"/>
-            <h2>This is the convert component</h2>
+            <section className="container-fluid p-0">
+                    <AppHeader title="Convert"/>
+                        <br/>
+                        <br/>
+                        <br/>
+                     <h2>This is the convert component</h2>
+
+                     <AppFooter/>
+            </section>
         </React.Fragment>
     )
 }

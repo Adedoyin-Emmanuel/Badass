@@ -1,9 +1,14 @@
 import React from "react";
 import * as navigate from "./../includes/scripts/handleNavigation";
 
+/*different props represent the current page the user is currently on*/
 interface FooterProp
 {
-	currentActivePage?: string,
+	convertActivePage?: string,
+	uploadActivePage?: string,
+	settingsActivePage?: string,
+	supportActivePage?: string,
+	searchActivePage?: string
 }
 
 const FooterNav = (props: FooterProp): JSX.Element => {
@@ -23,7 +28,7 @@ const FooterNav = (props: FooterProp): JSX.Element => {
   								width={"15px"}
 			              		height={"15px"}
 			              		fill="#fff"
-					            className={`footer-svgs footer-svg-convert text-center m-auto ${props.currentActivePage}`}
+					            className={`footer-svgs footer-svg-convert text-center m-auto ${props.convertActivePage}`}
 			              		onClick={navigate.navigateToConvert}
 							 >
 
@@ -57,7 +62,7 @@ const FooterNav = (props: FooterProp): JSX.Element => {
 				              width={"15px"}
 				              height={"15px"}
 				              fill="#fff"
-					          className={`footer-svgs text-center m-auto ${props.currentActivePage}`}
+					          className={`footer-svgs text-center m-auto ${props.uploadActivePage}`}
 					          viewBox="0 0 512 512"
 				              onClick={navigate.navigateToUpload}
 				            >
@@ -75,7 +80,7 @@ const FooterNav = (props: FooterProp): JSX.Element => {
 			              width={"15px"}
 			              height={"15px"}
 			              fill="#fff"
-				          className={`footer-svgs text-center m-auto ${props.currentActivePage}`}
+				          className={`footer-svgs text-center m-auto ${props.searchActivePage}`}
 			              viewBox="0 0 512 512"
 			              onClick={navigate.navigateToDownload}
 			            >
@@ -92,7 +97,7 @@ const FooterNav = (props: FooterProp): JSX.Element => {
 			              width={"15px"}
 			              height={"15px"}
 			              fill="#fff"
-				          className={`footer-svgs text-center m-auto ${props.currentActivePage}`}
+				          className={`footer-svgs text-center m-auto ${props.settingsActivePage}`}
 			              xmlns="http://www.w3.org/2000/svg"
 			              viewBox="0 0 512 512"
 			              onClick={navigate.navigateToSettings}
@@ -110,7 +115,7 @@ const FooterNav = (props: FooterProp): JSX.Element => {
 				              width={"15px"}
 				              height={"15px"}
 				              fill="#fff"
-				              className={`footer-svgs text-center m-auto ${props.currentActivePage}`}
+				              className={`footer-svgs text-center m-auto ${props.supportActivePage}`}
 				              xmlns="http://www.w3.org/2000/svg"
 				              viewBox="0 0 512 512"
 				              onClick={navigate.navigateToSupport}
