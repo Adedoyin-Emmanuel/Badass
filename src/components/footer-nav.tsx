@@ -12,11 +12,11 @@ const FooterNav = (): JSX.Element => {
 					<section>
 											
 					<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-					 width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
-					 preserveAspectRatio="xMidYMid meet">
+					 width="15" height="15" viewBox="0 0 512.000000 512.000000"
+					 preserveAspectRatio="xMidYMid meet" className="footer-svgs text-center m-auto">
 
 						<g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-						fill="#fff" stroke="none">
+						fill="#fff" stroke="#fff">
 						<path d="M2367 4519 c-654 -63 -1239 -459 -1551 -1049 -60 -114 -126 -281
 						-152 -385 -9 -36 -19 -65 -23 -65 -3 1 -22 27 -42 59 -44 69 -90 96 -155 88
 						-86 -9 -146 -87 -130 -169 6 -35 277 -491 318 -535 48 -53 115 -66 176 -34 53
@@ -77,7 +77,7 @@ const FooterNav = (): JSX.Element => {
               				<path d="M32 448c0 17.7 14.3 32 32 32h160V320H32v128zm256 32h160c17.7 0 32-14.3 32-32V320H288v160zm192-320h-42.1c6.2-12.1 10.1-25.5 10.1-40 0-48.5-39.5-88-88-88-41.6 0-68.5 21.3-103 68.3-34.5-47-61.4-68.3-103-68.3-48.5 0-88 39.5-88 88 0 14.5 3.8 27.9 10.1 40H32c-17.7 0-32 14.3-32 32v80c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-80c0-17.7-14.3-32-32-32zm-326.1 0c-22.1 0-40-17.9-40-40s17.9-40 40-40c19.9 0 34.6 3.3 86.1 80h-86.1zm206.1 0h-86.1c51.4-76.5 65.7-80 86.1-80 22.1 0 40 17.9 40 40s-17.9 40-40 40z" />
            					</svg>
 					</section>
-
+					support
 				</section>
 
 			</section>

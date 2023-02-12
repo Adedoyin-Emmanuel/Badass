@@ -3,6 +3,7 @@ import db from "../backend/db";
 import Button from "./../components/button";
 import {navigate} from "./../includes/scripts/script";
 import Header from "./../components/header";
+import AppFooter from  "./../components/app-footer";
 
 const MainApp = (): JSX.Element =>{
 
@@ -54,7 +55,7 @@ const MainApp = (): JSX.Element =>{
                               <Button className="brand-button-3 my-3 width-toggle text-capitalize fw-bold text-dark " text="Download Images"></Button>
                         </section>
                    </section>
-
+                <AppFooter/>
                </section>
         </React.Fragment>
     )
