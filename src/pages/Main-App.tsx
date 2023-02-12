@@ -13,7 +13,7 @@ const MainApp = (): JSX.Element =>{
     }
     return (
         <React.Fragment>
-               <section className="container-fluid">
+               <section className="container-fluid p-0">
                    <Header/>
                     <div className="py-5 d-sm-none d-md-block"></div>
                    <section className="remove-bg-container ">

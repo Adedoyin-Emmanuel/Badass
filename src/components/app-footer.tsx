@@ -4,8 +4,7 @@ const AppFooter = (): JSX.Element =>{
 	return (
 
 		<React.Fragment>
-
-			<section className="app-footer">
+			<section className="app-footer m-auto d-flex align-items-center justify-content-center flex-row p-0">
 				<FooterNav/>
 			</section>
 		</React.Fragment>

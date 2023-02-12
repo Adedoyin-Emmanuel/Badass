@@ -168,6 +168,25 @@ body {
 	transform:translate(10px,-5px)
 }
 
+
+/*app-footer */
+.app-footer-nav{
+	width:100%;
+}
+.app-footer{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index:100;
+	background:var(--brand-primary-dark-color);
+}
+
+
+.footer-svgs:active, .footer-svgs:hover{
+	fill:var(--brand-primary-light-color);
+	cursor:pointer;
+}
+
 @media (min-width: 667.98px) {
 	.width-toggle {
 		width: 35%;
