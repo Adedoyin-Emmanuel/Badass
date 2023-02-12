@@ -187,6 +187,11 @@ body {
 	cursor:pointer;
 }
 
+.footer-svg-convert > g:active, .footer-svg-convert > g:hover{
+	fill:var(--brand-primary-light-color);
+	cursor:pointer;
+}
+
 @media (min-width: 667.98px) {
 	.width-toggle {
 		width: 35%;

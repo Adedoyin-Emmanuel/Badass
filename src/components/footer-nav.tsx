@@ -9,16 +9,16 @@ const FooterNav = (): JSX.Element => {
 			<section className="app-footer-nav d-flex flex-row align-items-center justify-content-around">
 
 				<section className="convert-nav">
-					<section className="footer-icon d-flex flex-row align-items-center justify-content-center py-2">
+					<section className="footer-svgs footer-icon d-flex flex-row align-items-center justify-content-center py-2">
 						
 
 							<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 225.000000 225.000000"
 							 	preserveAspectRatio="xMidYMid meet"
-
-							   	width={"15px"}
+  								width={"15px"}
 			              		height={"15px"}
-			              		className="footer-svgs text-center m-auto"
+			              		className="footer-svgs footer-svg-convert text-center m-auto"
+			              		fill="#fff"
 							 >
 
 							<g transform="translate(0.000000,225.000000) scale(0.100000,-0.100000)"
