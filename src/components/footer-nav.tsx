@@ -1,5 +1,5 @@
 import React from "react";
-
+import * as navigate from "./../includes/scripts/handleNavigation";
 
 const FooterNav = (): JSX.Element => {
     return (
@@ -8,7 +8,7 @@ const FooterNav = (): JSX.Element => {
 
 			<section className="app-footer-nav d-flex flex-row align-items-center justify-content-around">
 
-				<section className="convert-nav">
+				<section className="convert-nav" onClick={navigate.navigateToConvert}>
 					<section className="footer-svgs footer-icon d-flex flex-row align-items-center justify-content-center py-2">
 						
 
@@ -19,6 +19,7 @@ const FooterNav = (): JSX.Element => {
 			              		height={"15px"}
 			              		className="footer-svgs footer-svg-convert text-center m-auto"
 			              		fill="#fff"
+			              		onClick={navigate.navigateToConvert}
 							 >
 
 							<g transform="translate(0.000000,225.000000) scale(0.100000,-0.100000)"
@@ -43,7 +44,7 @@ const FooterNav = (): JSX.Element => {
 					<p className="brand-small-text-2 text-light text-muted m-0">Convert</p>
 				</section>
 
-				<section className="remove-bg-nav">
+				<section className="remove-bg-nav" onClick={navigate.navigateToUpload}>
 					<section className="d-flex align-items-center justify-content-center footer-icon py-2">
 
 							 <svg
@@ -53,6 +54,7 @@ const FooterNav = (): JSX.Element => {
 			              className="footer-svgs text-center m-auto"
 			              fill="#fff"
 			              viewBox="0 0 512 512"
+			              onClick={navigate.navigateToUpload}
 			            >
           		   		 <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" />
            				 </svg>
@@ -60,7 +62,7 @@ const FooterNav = (): JSX.Element => {
 						<p className="brand-small-text-2 text-light text-muted m-0">Upload</p>
 				</section>
 
-				<section className="search-nav">
+				<section className="search-nav" onClick={navigate.navigateToDownload}>
 
 					<section className="d-flex align-items-center justify-content-center footer-icon py-2">
 						 <svg
@@ -70,6 +72,7 @@ const FooterNav = (): JSX.Element => {
 			              className="footer-svgs text-center m-auto"
 			              fill="#fff"
 			              viewBox="0 0 512 512"
+			              onClick={navigate.navigateToDownload}
 			            >
           		   		 <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" />
            				 </svg>
@@ -78,7 +81,7 @@ const FooterNav = (): JSX.Element => {
 				</section>
 
 
-				<section className="settings-nav">
+				<section className="settings-nav" onClick={navigate.navigateToSettings}>
 					<section className="footer-icon d-flex align-items-center justify-content-center py-2">
 						 <svg
 			              width={"15px"}
@@ -87,6 +90,7 @@ const FooterNav = (): JSX.Element => {
 			              fill="#fff"
 			              xmlns="http://www.w3.org/2000/svg"
 			              viewBox="0 0 512 512"
+			              onClick={navigate.navigateToSettings}
 			            >
               			<path d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z" />
             			</svg>
@@ -94,7 +98,7 @@ const FooterNav = (): JSX.Element => {
 						<p className="brand-small-text-2 text-light text-muted m-0">Settings</p>
 				</section>
 
-				<section className="support-nav">
+				<section className="support-nav" onClick={navigate.navigateToSupport}>
 
 					<section className="footer-icons d-flex align-items-center justify-content-center py-2">
 							 <svg
@@ -104,6 +108,7 @@ const FooterNav = (): JSX.Element => {
 				              fill="#fff"
 				              xmlns="http://www.w3.org/2000/svg"
 				              viewBox="0 0 512 512"
+				              onClick={navigate.navigateToSupport}
 				            >
               				<path d="M32 448c0 17.7 14.3 32 32 32h160V320H32v128zm256 32h160c17.7 0 32-14.3 32-32V320H288v160zm192-320h-42.1c6.2-12.1 10.1-25.5 10.1-40 0-48.5-39.5-88-88-88-41.6 0-68.5 21.3-103 68.3-34.5-47-61.4-68.3-103-68.3-48.5 0-88 39.5-88 88 0 14.5 3.8 27.9 10.1 40H32c-17.7 0-32 14.3-32 32v80c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-80c0-17.7-14.3-32-32-32zm-326.1 0c-22.1 0-40-17.9-40-40s17.9-40 40-40c19.9 0 34.6 3.3 86.1 80h-86.1zm206.1 0h-86.1c51.4-76.5 65.7-80 86.1-80 22.1 0 40 17.9 40 40s-17.9 40-40 40z" />
            					</svg>
