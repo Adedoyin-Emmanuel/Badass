@@ -45,7 +45,7 @@ const Hero = () => {
 
 						</p>
 
-						<Button text="get started" className="get-started brand-button-3  brand-dark-text width-toggle my-md-3 my-2 shadow-sm" onClick={navigateToApp}/>
+						<Button text="get started" className="brand-button-outline brand-dark-text width-toggle my-md-3 my-2 shadow-sm" onClick={navigateToApp}/>
 					
 					</div>
 				</div>
