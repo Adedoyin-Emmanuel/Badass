@@ -34,6 +34,7 @@ body{
 	--brand-button-border-radius-2: 15px;
 	--brand-button-border-radius-3: 10px;
 	--brand-small-text: 0.9rem;
+	--brand-search-border-radius:50px;
 }
 
 /*Brand primary utility classes*/
@@ -196,8 +197,22 @@ body {
 	fill: var(--brand-primary-light-color);
 }
 
+.search-element{
+	border-radius:var(--brand-search-border-radius);
+	border:none;
+	outline:3px solid var(--brand-primary-light-color);
+	transition: .6s;
+}
 
 
+.search-element:focus{
+	outline: 3px solid var(--brand-primary-light-color-3);
+}
+
+
+
+
+/*custom responsiveness*/
 @media (min-width: 667.98px) {
 	.width-toggle {
 		width: 35%;
