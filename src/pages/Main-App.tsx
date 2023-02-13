@@ -4,6 +4,10 @@ import Button from "./../components/button";
 import * as navigate from "./../includes/scripts/handleNavigation";
 import Header from "./../components/header";
 import AppFooter from  "./../components/app-footer";
+import DogImage from "./../assets/images/dog1.jpeg";
+import LionImage from './../assets/images/lion.jpeg';
+import MonkeyImage from "./../assets/images/monkey.jpeg";
+import ButterFlyImage from "./../assets/images/butterfly.jpeg";
 
 const MainApp = (): JSX.Element =>{
 
