@@ -9,6 +9,7 @@ import LionImage from './../assets/images/lion.jpeg';
 import MonkeyImage from "./../assets/images/monkey.jpeg";
 import ButterFlyImage from "./../assets/images/butterfly.jpeg";
 
+
 const MainApp = (): JSX.Element =>{
 
     if(!(db.get("BADASS_HOME_PAGE_SEEN") == "true"))
@@ -32,13 +33,21 @@ const MainApp = (): JSX.Element =>{
 
                         <p className="text-muted brand-small-text p-2">No image? try one of these</p>
                         <section className="no-image d-flex align-items-center justify-content-center">
-                                <section className="image-box p-3 brand-white-color rounded-1 mx-2"></section>
+                                <section className="image-box  p-1 brand-white-color rounded-1 mx-2">
+                                    <img src={LionImage} width="40" height="30" className="rounded-1"/>
+                                </section>
 
-                                <section className="image-box p-3 brand-white-color rounded-1 mx-2"></section>
+                                <section className="image-box  p-1 brand-white-color rounded-1 mx-2">
+                                     <img src={MonkeyImage}  width="40" height="30"className="rounded-1"/>
+                                </section>
 
-                                <section className="image-box p-3 brand-white-color rounded-1 mx-2"></section>
+                                <section className="image-box  p-1 brand-white-color rounded-1 mx-2">
+                                     <img src={ButterFlyImage}  width="40" height="30"className="rounded-1"/>
+                                </section>
 
-                                <section className="image-box p-3 brand-white-color rounded-1 mx-2"></section>
+                                <section className="image-box  p-1 brand-white-color rounded-1 mx-2">
+                                     <img src={DogImage} width="40" height="30" className="rounded-1"/>
+                                </section>
                         </section>
                    </section>
 
