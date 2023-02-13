@@ -14,8 +14,8 @@ const Convert = () =>{
                         <br/>
                         <br/>
                         <br/>
-                     <h3 className="fs-4 fw-bold text-center my-3 text-light">File Converter</h3>
-                     <p className="text-muted text-light text-center">Convert your files to any format</p>
+                     <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light">File | Image Converter</h3>
+                     <p className="text-muted text-light text-start p-2">Convert your files to any format</p>
 
 
                      <section className="m-auto d-flex align-items-center justify-content-center">
