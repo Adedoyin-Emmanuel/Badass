@@ -2,7 +2,11 @@ import React from "react";
 import AppHeader from "./../components/app-header";
 import AppFooter from "./../components/app-footer";
 import Button from "./../components/button";
+import * as navigate from "./../includes/scripts/handleNavigation";
+
 const Convert = () =>{
+
+    navigate.checkIfHomePageSeen();
     return (
         <React.Fragment>
             <section className="container-fluid p-0">

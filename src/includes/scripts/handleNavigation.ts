@@ -1,4 +1,5 @@
 import {navigate} from  "./script";
+import db from "./../../backend/db";
 
 export const navigateToApp = (): void =>{
 	navigate("/app");
@@ -17,14 +18,31 @@ export const navigateToHome = (): void =>{
 }
 
 export const navigateToConvert = (): void =>{
-    navigate("/app/convert");
+	if(db.get("BADASS_HOME_PAGE_SEEN") === "true")
+	{	
+    	navigate("/app/convert");
+	}
 }
 
 export const navigateToUpload = (): void =>{
-    navigate("/app/upload");
+	if(db.get("BADASS_HOME_PAGE_SEEN") === "true")
+	{
+  		  navigate("/app/upload");
+  	}
 }
 
 export const navigateToDownload = (): void =>{
-    navigate("/app/search");
+	if(db.get("BADASS_HOME_PAGE_SEEN") === "true")
+	{
+    	navigate("/app/search");
+	}
+}
+
+
+export const checkIfHomePageSeen = (): void =>{
+	if(!(db.get("BADASS_HOME_PAGE_SEEN") === "true"))
+	{
+		navigateToHome();
+	}
 }
 

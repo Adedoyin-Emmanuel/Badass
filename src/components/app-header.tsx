@@ -93,19 +93,19 @@ l28 53 0 352 c0 318 -2 355 -19 391 -23 51 -79 101 -128 114 -61 17 -698 14
 						<ul className="navbar-nav me-auto mb-2 mb-sm-0">
 							<li className="nav-item"  onClick={navigate.navigateToConvert}>
 								<a
-									className="nav-link active"
+									className="nav-link"
 									aria-current="page"
 									href="#" onClick={navigate.navigateToConvert}>
 									Convert
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link " href="#">
+								<a className="nav-link " href="#" onClick={navigate.navigateToDownload}>
 									Download
 								</a>
 							</li>
 							<li className="nav-item">
-								<a className="nav-link " href="#">
+								<a className="nav-link " href="#" onClick={navigate.navigateToUpload}>
 									Remove Bg
 								</a>
 							</li>

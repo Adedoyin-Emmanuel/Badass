@@ -29,7 +29,7 @@ const Hero = () => {
 						/>
 					</div>
 
-					<div className="col-lg-7 text-center text-lg-start my-md-4">
+					<div className="col-lg-7 text-center text-lg-start my-md-4 my-2">
 						<h1 className="display-6 header-title fw-bold lh-1 mb-3 text-capitalize text-start text-md-center text-lg-start px-2 px-md-0">
 							A free <span className="brand-text-primary-color">
 								tool
