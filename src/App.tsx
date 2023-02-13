@@ -9,13 +9,14 @@ import Settings from "./pages/Settings";
 import NotFound from "./pages/404";
 import "./autoload";
 import db from "./backend/db";
+import sayHello from "./apis/getData";
 function App() {
   
   //default route is the main app.
   let DEFAULT_ROUTE: JSX.Element = <MainApp/>;
 
   (db.get("BADASS_HOME_PAGE_SEEN") === "true") ? DEFAULT_ROUTE = <MainApp/> : DEFAULT_ROUTE = <Home/>
-
+  sayHello();
 	return (
 		<div className="App">
 			<BrowserRouter>
