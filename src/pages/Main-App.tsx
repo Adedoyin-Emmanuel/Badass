@@ -8,8 +8,8 @@ import DogImage from "./../assets/images/dog1.jpeg";
 import LionImage from './../assets/images/lion.jpeg';
 import MonkeyImage from "./../assets/images/monkey.jpeg";
 import ButterFlyImage from "./../assets/images/butterfly.jpeg";
-import BgVideo from "./../assets/videos/bg-video-2.mp4";
-
+//import BgVideo from "./../assets/videos/bg-video-2.mp4";
+import BgImage from "./../assets/images/hero-img-2.png";
 const MainApp = (): JSX.Element =>{
 
     navigate.checkIfHomePageSeen();
@@ -20,13 +20,10 @@ const MainApp = (): JSX.Element =>{
                    <Header/>
                     <div className="py-5 d-sm-none d-md-block"></div>
                    <section className="remove-bg-container ">
-                        <section className="d-flex align-items-center justify-content-center m-auto">
-                            <video src={BgVideo} width="300" height="300" autoPlay={true}  loop>
-
-
-                            </video>
+                        <section className="image-container d-flex align-items-center justify-content-center m-auto brand-primary-color rounded-1 py-2 width-toggle " style={{"overflowX":"hidden"}}>
+                            <img src={BgImage} width = "400" height = "220" className="bg-image p-1"/>
                         </section>
-                        <h4 className="fw-bold text-light fs-4 text-capitalize p-2">Remove Image <span className="brand-text-primary-color">Background</span></h4>
+                        <h4 className="fw-bold text-light fs-4 text-capitalize p-2 my-3">Remove Image <span className="brand-text-primary-color">Background</span></h4>
 
                         <p className="text-muted brand-small-text p-2">Get a transparent background for any image</p>
 

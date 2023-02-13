@@ -196,6 +196,8 @@ body {
 	fill: var(--brand-primary-light-color);
 }
 
+
+
 @media (min-width: 667.98px) {
 	.width-toggle {
 		width: 35%;
