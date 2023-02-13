@@ -13,7 +13,7 @@ const AppHeader = (props: Prop): JSX.Element => {
 				className="navbar navbar-expand-sm brand-primary-color fixed-top"
 				aria-label="Badass navbar">
 				<div className="container-fluid">
-					<a className="navbar-brand text-dark fw-bold" href="#">
+					<a className="navbar-brand text-dark fw-bold d-md-none" href="#">
 						<svg
 							height={"30"}
 							id="Layer_1"
@@ -27,7 +27,7 @@ const AppHeader = (props: Prop): JSX.Element => {
 						</svg>
 					</a>
 
-					<a className="text-decoration-none fs-5 text-dark fw-bold" href="#">
+					<a className="text-decoration-none fs-5 text-dark fw-bold d-md-none" href="#">
 						{props.title}
 					</a>
 					<button

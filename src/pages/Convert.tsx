@@ -10,8 +10,8 @@ const Convert = () =>{
                         <br/>
                         <br/>
                         <br/>
-                     <h2>This is the convert component</h2>
-
+                     <h3 className="fs-4 fw-bold text-center my-3 text-light">File Converter</h3>
+                     <p className="text-muted text-light text-center">Convert your files to any format</p>
                      <AppFooter childrenConvertActivePage="current-active-page"/>
             </section>
         </React.Fragment>
