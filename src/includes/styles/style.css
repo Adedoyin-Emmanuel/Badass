@@ -35,6 +35,7 @@ body{
 	--brand-button-border-radius-3: 10px;
 	--brand-small-text: 0.9rem;
 	--brand-search-border-radius:50px;
+	--brand-button-outline-padding: 15px;
 }
 
 /*Brand primary utility classes*/
@@ -107,7 +108,7 @@ body{
 
 /*Brand button styling*/
 
-.brand-button, .brand-button-2, .brand-button-3, .brand-white-button {
+.brand-button, .brand-button-2, .brand-button-3, .brand-white-button, .brand-button-outline{
 	border-radius: var(--brand-button-border-radius);
 	outline: none;
 	border: 0;
@@ -130,6 +131,20 @@ body{
 
 .brand-button-3{
 	padding:13px;
+}
+
+.brand-button-outline{
+	background:none;
+	padding: calc(var(--brand-button-outline-padding) - 5px);
+	outline: 2px solid var(--brand-primary-light-color);
+	transition: .5s;
+	color:var(--brand-white-color);
+}
+
+.brand-button-outline:hover, .brand-button-outline:active{
+	background:var(--brand-white-color);
+	color:var(--brand-primary-dark-color);
+	cursor:pointer;
 }
 
 
