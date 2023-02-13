@@ -34,7 +34,7 @@ const Support = () => {
             Hi, I'm Adedoyin Emmanuel. I built Badass to solve the issue of repetitive download, you can download mutiple files at once and also manipulate images to your taste, you also can remove image backgrounds and also convert file or images from one format to another.
             
             <section className="d-flex align-items-center justify-content-center my-2">
-              <Button className="brand-button-outline my-3 width-toggle text-capitalize fw-bold" text="support on github" ></Button>
+              <Button className="brand-button-outline my-3 width-toggle text-capitalize fw-bold" text="support on github" onClick={navigate.navigateToGithub}></Button>
 
             </section>
           </section>
@@ -58,7 +58,7 @@ const Support = () => {
             find bugs and contribute a fix. You can also suggest pickup
             development of new feature
             <section className="d-flex align-items-center justify-content-center my-2">
-              <Button className="brand-button-outline my-3 width-toggle text-capitalize fw-bold" text="view github repository" ></Button>
+              <Button className="brand-button-outline my-3 width-toggle text-capitalize fw-bold" text="view github repository" onClick={navigate.navigateToProject}></Button>
 
             </section>
             <br/><br/>
