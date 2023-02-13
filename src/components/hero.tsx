@@ -3,6 +3,7 @@ import Logo from "./../assets/images/skull.svg";
 import Button from  "./button";
 import {navigate} from "./../includes/scripts/script";
 import db from "./../backend/db";
+import HeroImage from "./../assets/images/hero-img-1.png";
 const Hero = () => {
 	const navigateToApp = () =>{
 
@@ -17,10 +18,10 @@ const Hero = () => {
 
 				<div className="row align-items-center g-lg-5 g-md-3 py-2 justify-content-around">
 					<div
-						className="col-md-6 col-sm-8 col  col-lg-4 d-flex align-items-center m-auto my-md-3 my-md-5 my-3"
+						className="col-md-6 col-sm-8 col  col-lg-5 d-flex align-items-center m-auto my-md-3 my-md-5 my-3"
 						id="img-container">
 						<img
-							src={Logo}
+							src={HeroImage}
 							width="400"
 							height="400"
 							className="img-fluid m-auto"
@@ -28,7 +29,7 @@ const Hero = () => {
 						/>
 					</div>
 
-					<div className="col-lg-8 text-center text-lg-start my-md-3">
+					<div className="col-lg-7 text-center text-lg-start my-md-4">
 						<h1 className="display-6 header-title fw-bold lh-1 mb-3 text-capitalize text-start text-md-center text-lg-start px-2 px-md-0">
 							A free <span className="brand-text-primary-color">
 								tool
@@ -37,14 +38,14 @@ const Hero = () => {
 								</span> for image <span className="d-md-inline d-block py-2">manipulation</span>
 						</h1>
 
-						<p className="col-lg-10 fs-5 p-2 text-start text-lg-start">
+						<p className="col-lg-10 fs-5 p-2 text-start text-lg-start my-3 py-md-4 py-sm-1">
 							Do all with one application download, convert and remove
 							background images.
 
 
 						</p>
 
-						<Button text="get started" className="get-started brand-primary-color brand-dark-text width-toggle my-md-3 my-4 shadow-sm" onClick={navigateToApp}/>
+						<Button text="get started" className="get-started brand-button-3  brand-dark-text width-toggle my-md-3 my-2 shadow-sm" onClick={navigateToApp}/>
 					
 					</div>
 				</div>

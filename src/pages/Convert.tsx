@@ -18,9 +18,8 @@ const Convert = () =>{
                         <form className="form w-100 d-flex align-items-center justify-content-center">
                         <div className="brand-button-3 text-center fs-6 my-3">
                             <label>
-                            {/*<Button text="choose files" type="file" className="brand-button-3"/>*/}
-                            <input type="file" className="form-control w-75 width-toggle brand-primary-color" hidden/>  
-                            choose files      
+                                <input type="file" className="form-control w-75 width-toggle brand-primary-color" hidden/>  
+                                choose files      
                             </label>
                         </div>
                         </form>
