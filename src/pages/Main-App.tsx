@@ -8,7 +8,7 @@ import DogImage from "./../assets/images/dog1.jpeg";
 import LionImage from './../assets/images/lion.jpeg';
 import MonkeyImage from "./../assets/images/monkey.jpeg";
 import ButterFlyImage from "./../assets/images/butterfly.jpeg";
-//import BgVideo from "./../assets/videos/bg-video-2.mp4";
+import Spinner from "./../components/spinner";
 import BgImage from "./../assets/images/hero-img-2.png";
 const MainApp = (): JSX.Element =>{
 
