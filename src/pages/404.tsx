@@ -1,5 +1,4 @@
-import React from "react";
-import {Suspense} from "react";
+import React, {Suspense} from "react";
 import LostImage from "./../assets/images/lost.svg";
 import Button from "./../components/button";
 import {navigate} from "./../includes/scripts/script";

@@ -1,8 +1,9 @@
-import React from "react";
+import React, {Suspense} from "react";
 import AppHeader from "./../components/app-header";
 import AppFooter from "./../components/app-footer";
 import Button from "./../components/button";
 import * as navigate from "./../includes/scripts/handleNavigation";
+import Spinner from "./../components/spinner";
 
 const Search = () =>{
 
