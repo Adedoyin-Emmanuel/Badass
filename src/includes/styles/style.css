@@ -200,13 +200,13 @@ body {
 .search-element{
 	border-radius:var(--brand-search-border-radius);
 	border:none;
-	outline:3px solid var(--brand-primary-light-color);
+	outline:3px solid var(--brand-primary-light-color-3);
 	transition: .6s;
 }
 
 
 .search-element:focus{
-	outline: 3px solid var(--brand-primary-light-color-3);
+	outline: 3px solid var(--brand-primary-light-color);
 }
 
 

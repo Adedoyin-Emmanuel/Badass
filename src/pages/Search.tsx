@@ -30,7 +30,7 @@ const Search = () =>{
 
 
                     </section>
-                     <AppFooter childrenConvertActivePage="current-active-page"/>
+                     <AppFooter childrenSearchActivePage="current-active-page"/>
             </section>
         </React.Fragment>
     )
