@@ -1,22 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Footer from "../components/footer";
-import navigate from "../inc/scripts/utilities";
+import * as navigate from "../include/scripts/handleNavigation";
 import Button from "../components/button";
-import Spinner from "../components/spinner";
+
+
 const Support = () => {
-  const navigateHome = () => {
-    navigate("./weather");
-  };
-
-  const navigateToProject = ()=>{
-    navigate("https://github.com/Adedoyin-Emmanuel/react-weather-app");
-  }
-
-  const navigateToGithub = () =>{
-    navigate("https://github.com/Adedoyin-Emmanuel");
-  }
-
-  const [defaultLocation, setDefaultLocation] = useState("");
+  
+  navigate.checkIfHomePageSeen();
   return (
     <React.Fragment>
       <Spinner />
@@ -27,7 +17,7 @@ const Support = () => {
               height={"30"}
               id="Layer_1"
               version="1.1"
-              onClick={navigateHome}
+              onClick={navigate.navigateToApp}
               viewBox="0 0 512 512"
               width={"30"}
               xmlns="http://www.w3.org/2000/svg"
@@ -58,15 +48,12 @@ const Support = () => {
               </svg>
               <p className=" text-capitalize px-3 text-dark">sponsor me!</p>
             </section>
-            Hi, I'm Adedoyin Emmanuel. I built this weather app in 2023 to
-            sharpen my react skills and also have a clean, ads free application
-            I can use. I make most of my side projects open source with the hope
-            people would be able to learn and use the things I build.
+            Hi, I'm Adedoyin Emmanuel. I built Badass to solve the issue of repetitive download, usually when we want to build a project we download single images at once but with Badass you can download mutiple files at once and also manipulate images to your taste, with Badass, you can remove image backgrounds and also convert file or images from one format to another.
             <section className="d-md-flex align-items-center justify-content-center">
               <Button
                 text="support on github"
                 className="shadow brand-btn-3-secondary my-5 text-dark p-2 text-capitalize width-toggle"
-                onClick={navigateToGithub}
+                onClick={navigate.navigateToGithub}
               />
             </section>
           </section>
@@ -93,7 +80,7 @@ const Support = () => {
               <Button
                 text="view github repository"
                 className="shadow brand-btn-3-secondary my-5 text-dark p-2 text-capitalize width-toggle"
-                onClick={navigateToProject}
+                onClick={navigate.navigateToProject}
               />
             </section>
             <br/><br/>
