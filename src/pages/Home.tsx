@@ -10,10 +10,13 @@ const Home = ()=> {
 	
 	return (
 		<React.Fragment>
-			<section className="brand-dark-color" style={{"overflowX":"hidden"}}>
-					<Header/>
-					<Hero/>
-			</section>
+			<Suspense fallback={<Spinner/>}>
+				<Spinner/>
+				<section className="brand-dark-color" style={{"overflowX":"hidden"}}>
+						<Header/>
+						<Hero/>
+				</section>
+			</Suspense>
 		</React.Fragment>
 	);
 };
