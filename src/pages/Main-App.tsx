@@ -10,6 +10,8 @@ import MonkeyImage from "./../assets/images/monkey.jpeg";
 import ButterFlyImage from "./../assets/images/butterfly.jpeg";
 import Spinner from "./../components/spinner";
 import BgImage from "./../assets/images/hero-img-2.png";
+import FastDownload from "./../assets/images/fast-download.png";
+import ChainLink from "./../assets/images/chain.png";
 const MainApp = (): JSX.Element =>{
 
     navigate.checkIfHomePageSeen();
@@ -54,6 +56,9 @@ const MainApp = (): JSX.Element =>{
                        </section>
 
                        <section className="file-converter-container my-5">
+                             <section className="image-container d-flex align-items-center justify-content-center m-auto  rounded-1 py-2 width-toggle " style={{"overflowX":"hidden"}}>
+                                <img src={ChainLink} width = "400" height = "220" className="bg-image p-1"/>
+                            </section>
                             <h4 className="fw-bold fs-4 text-capitalize text-white p-2"><span className="brand-text-primary-color">Convert</span> Your Images | Files </h4>
 
                             <p className="text-muted brand-small-text p-2">With Badass, you can convert your files to any format</p>
@@ -64,6 +69,9 @@ const MainApp = (): JSX.Element =>{
 
 
                        <section className="bulk-image-downloader-container my-5">
+                            <section className="image-container d-flex align-items-center justify-content-center m-auto  rounded-1 py-2 width-toggle " style={{"overflowX":"hidden"}}>
+                                <img src={FastDownload} width = "400" height = "220" className="bg-image p-1"/>
+                            </section>
                             <h4 className="fw-bold fs-4 text-capitalize text-white p-2"><span className="brand-text-primary-color">Download</span> Multiple Images At Once </h4>
 
                             <p className="text-muted brand-small-text p-2">Ever thought of downloading multiple images at once?</p>
