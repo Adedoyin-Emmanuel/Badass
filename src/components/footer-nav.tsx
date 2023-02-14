@@ -57,17 +57,24 @@ const FooterNav = (props: FooterProp): JSX.Element => {
 				<section className="remove-bg-nav" onClick={navigate.navigateToUpload}>
 					<section className="d-flex align-items-center justify-content-center footer-icon py-2">
 
-							 <svg
-				              xmlns="http://www.w3.org/2000/svg"
-				              width={"15px"}
-				              height={"15px"}
-				              fill="#fff"
-					          className={`footer-svgs text-center m-auto ${props.uploadActivePage}`}
-					          viewBox="0 0 512 512"
-				              onClick={navigate.navigateToUpload}
-				            >
+							<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+							 width="15px" height="15px" viewBox="0 0 122.000000 122.000000"
+							 preserveAspectRatio="xMidYMid meet"   className={`footer-svgs text-center m-auto ${props.uploadActivePage}`} onClick={navigate.navigateToUpload}>
+
+								<g transform="translate(0.000000,122.000000) scale(0.100000,-0.100000)"
+								fill="#fff" stroke="none" className={`${props.uploadActivePage}`}>
+								<path d="M575 1211 c-11 -5 -91 -81 -177 -168 -148 -149 -158 -162 -158 -197
+								0 -52 44 -96 95 -96 32 0 46 9 106 67 l69 66 0 -189 c0 -212 4 -229 62 -257
+								33 -16 40 -17 72 -3 60 25 66 50 66 262 l0 187 69 -66 c60 -58 74 -67 106 -67
+								51 0 95 44 95 96 0 35 -10 48 -162 201 -167 167 -194 185 -243 164z"/>
+								<path d="M33 516 l-28 -24 -3 -203 c-3 -222 2 -250 49 -274 42 -22 1076 -22
+								1118 0 47 24 52 52 49 274 l-3 203 -28 24 c-44 38 -121 28 -146 -20 -6 -11
+								-12 -83 -13 -161 l-3 -140 -415 0 -415 0 -3 140 c-1 78 -7 150 -13 161 -25 48
+								-102 58 -146 20z"/>
+								</g>
+							</svg>
           		   		 <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" />
-           				 </svg>
+           				 
 					</section>
 						<p className="brand-small-text-2 text-light text-muted m-0">Upload</p>
 				</section>
