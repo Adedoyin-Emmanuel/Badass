@@ -1,7 +1,12 @@
 import jQuery from "jquery";
 
-$jQuery(($)=>{
-	$.noConflict();
+export const checkSubmit = (e: any)=>{
+	jQuery(($)=>{
+		$.noConflict();
 
-	//check if the file was uploaded
-})
+		const files = e.target.files;
+
+	
+		console.log(files);
+	})
+}
