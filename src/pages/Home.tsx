@@ -15,7 +15,7 @@ const Home = ()=> {
 				<section className="brand-dark-color" style={{"overflowX":"hidden"}}>
 						<Header/>
 						<Hero/>
-				</section>
+				</section>	
 			</Suspense>
 		</React.Fragment>
 	);

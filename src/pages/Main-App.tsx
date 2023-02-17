@@ -85,6 +85,4 @@ const MainApp = (): JSX.Element =>{
             </React.Fragment>
     )
 }
-
-
 export default MainApp;

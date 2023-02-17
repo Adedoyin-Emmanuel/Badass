@@ -12,9 +12,7 @@ import "./autoload";
 import db from "./backend/db";
 import sayHello from "./apis/getData";
 import Spinner from "./components/spinner";
-import dotenv from "dotenv";
 
-dotenv.config();
 
 function App() {
   
