@@ -1,20 +1,24 @@
 import jQuery from "jquery";
 import * as Badass from "./BADASS_APIKEY";
 
+interface ConvertJSONResponse
+{
+	data: string,
+	code: number
+}
+
 export const checkSubmit = (e: any)=>{
 	jQuery(($)=>{
 		$.noConflict();
 
 		const files = e.target.files;
 
-		const formData = new FormData();
-
-		for(let i = 0; i < files.length; i++)
-		{
-			const file: number = files[i];
-
-			formData.append('files[]', files[i]);
-		}
+		const formData = new FormData(), fileArray = [...files];
+		
+		fileArray.forEach((file: any, fileIndex: number)=>{
+			formData.append("files[]", files[fileIndex]);
+			console.log(files[fileIndex]);
+		})
 
 		//connect to the backend
 		$.ajax({
@@ -23,8 +27,9 @@ export const checkSubmit = (e: any)=>{
 			data: formData,
 			processData: false,
 			contentType: false,
-			success: (response: string) =>{
-					console.log(response);
+			success: (response:string) =>{
+				const parsedResponse: ConvertJSONResponse = JSON.parse(response);
+				
 			},
 
 			error: (xhr:object, status:string, error: string) =>{
