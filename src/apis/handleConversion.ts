@@ -7,15 +7,32 @@ export const checkSubmit = (e: any)=>{
 
 		const files = e.target.files;
 
+		const formData = new FormData();
+
 		for(let i = 0; i < files.length; i++)
 		{
 			const file: number = files[i];
 
-			//connect to the backend
-
-			$.ajax({
-				url:"http://localhost/badass-backend/api/convert/?app_id=d847b2e0-14f9-11e9-b5dc-0242ac130003"
-			})
+			formData.append('files[]', files[i]);
 		}
+
+		//connect to the backend
+		$.ajax({
+			url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}`,
+			type: "post",
+			data: formData,
+			processData: false,
+			contentType: false,
+			success: (response: string) =>{
+					console.log(response);
+			},
+
+			error: (xhr:object, status:string, error: string) =>{
+				console.log("Upload error");
+				console.log(error);
+			}
+
+
+		})
 	})
 }
