@@ -75,7 +75,7 @@ const FooterNav = (props: FooterProp): JSX.Element => {
 							</svg>
            				 
 					</section>
-						<p className="brand-small-text-2 text-light text-muted m-0">Upload</p>
+						<p className="brand-small-text-2 text-light text-muted m-0">Remove</p>
 				</section>
 
 				<section className="search-nav" onClick={navigate.navigateToDownload}>

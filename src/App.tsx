@@ -5,7 +5,7 @@ import Support from "./pages/Support";
 import MainApp from "./pages/Main-App";
 import Search from "./pages/Search";
 import Convert from "./pages/Convert";
-import Upload from "./pages/Upload";
+import Remove from "./pages/Remove";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/404";
 import "./autoload";
@@ -30,7 +30,7 @@ function App() {
             <Route path="home" element={<Home/>}/>
             <Route path="app" element={<MainApp/>}/>
             <Route path="app/support" element={<Support/>}/>
-            <Route path="app/upload" element={<Upload/>}/>
+            <Route path="app/removebg" element={<Remove/>}/>
             <Route path="app/search" element={<Search/>}/>
             <Route path="app/convert" element={<Convert/>}/>
             <Route path="app/settings" element={<Settings/>}/>

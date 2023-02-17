@@ -33,7 +33,7 @@ export const navigateToConvert = (): void => {
 
 export const navigateToUpload = (): void => {
     if (db.get("BADASS_HOME_PAGE_SEEN") === "true") {
-        navigate("/app/upload");
+        navigate("/app/removebg");
     }
 }
 

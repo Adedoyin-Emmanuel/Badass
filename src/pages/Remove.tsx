@@ -4,7 +4,7 @@ import AppFooter from "./../components/app-footer";
 import Button from "./../components/button";
 import * as navigate from "./../includes/scripts/handleNavigation";
 import Spinner from "./../components/spinner";
-const Upload = () =>{
+const Remove = () =>{
 
     navigate.checkIfHomePageSeen();
     return (
@@ -43,4 +43,4 @@ const Upload = () =>{
 }
 
 
-export default Upload;
+export default Remove;
