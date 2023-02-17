@@ -1,10 +1,9 @@
 import jQuery from "jquery";
-
+import * as Badass from "./BADASS_APIKEY";
 const sayHello = () => {
-	const API_KEY = "d847b2e0-14f9-11e9-b5dc-0242ac130003";
 	jQuery(($) => {
 		$.ajax({
-			url: `http://localhost/badass-backend/api/convert?app_id=${API_KEY}`,
+			url: `http://localhost/badass-backend/api/convert?app_id=${Badass.API_KEY}`,
 			success: (results:any) => {
 				// const $result = JSON.parse(results);
 
