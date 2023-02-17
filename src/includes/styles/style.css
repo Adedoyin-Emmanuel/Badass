@@ -133,6 +133,11 @@ body{
 	padding:13px;
 }
 
+
+.brand-button-4{
+	padding: calc(var(--brand-button-outline-padding) - 5px);
+}
+
 .brand-button-outline{
 	background:none;
 	padding: calc(var(--brand-button-outline-padding) - 5px);

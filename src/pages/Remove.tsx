@@ -22,7 +22,7 @@ const Remove = () =>{
 
                              <section className="m-auto d-flex align-items-center justify-content-center">
                                 <form className="form w-100 d-flex align-items-center justify-content-center">
-                                <div className="brand-white-button text-center fs-6 my-3">
+                                <div className="brand-white-button brand-button-4 text-center fs-6 my-3">
                                     <label>
                                         <input type="file" className="form-control w-75 width-toggle brand-primary-color" hidden/>  
                                         choose files      
