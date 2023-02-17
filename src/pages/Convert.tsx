@@ -4,6 +4,7 @@ import AppFooter from "./../components/app-footer";
 import Button from "./../components/button";
 import * as navigate from "./../includes/scripts/handleNavigation";
 import Spinner from "./../components/spinner";
+import * as convertAPI from "./../apis/handleConversion";
 const Convert = () =>{
 
     navigate.checkIfHomePageSeen();
