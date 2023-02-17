@@ -4,6 +4,7 @@ const sayHello = () => {
 	jQuery(($) => {
 		$.ajax({
 			url: `http://localhost/badass-backend/api/convert?app_id=${Badass.API_KEY}`,
+			type:"GET",
 			success: (results:any) => {
 				// const $result = JSON.parse(results);
 
@@ -11,8 +12,8 @@ const sayHello = () => {
 
 				console.log(results);
 			},
-			error: (error) => {
-				console.error(error);
+			error: (xhr, status, error) => {
+				console.log(error);
 			},
 			
 		});

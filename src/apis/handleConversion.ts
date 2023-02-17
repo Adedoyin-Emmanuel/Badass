@@ -3,8 +3,9 @@ import * as Badass from "./BADASS_APIKEY";
 
 interface ConvertJSONResponse
 {
-	data: string,
-	code: number
+	data?: string,
+	code?: number,
+	filename?: string[]
 }
 
 export const checkSubmit = (e: any)=>{
@@ -17,19 +18,20 @@ export const checkSubmit = (e: any)=>{
 		
 		fileArray.forEach((file: any, fileIndex: number)=>{
 			formData.append("files[]", files[fileIndex]);
-			console.log(files[fileIndex]);
 		})
 
 		//connect to the backend
 		$.ajax({
 			url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}`,
-			type: "post",
+			type: "POST",
 			data: formData,
 			processData: false,
 			contentType: false,
 			success: (response:string) =>{
-				const parsedResponse: ConvertJSONResponse = JSON.parse(response);
-				
+				const parsedResponse = JSON.parse(response);
+				parsedResponse.forEach((response: any)=>{
+					console.log(response.filename);
+				})
 			},
 
 			error: (xhr:object, status:string, error: string) =>{
