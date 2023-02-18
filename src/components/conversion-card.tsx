@@ -4,7 +4,7 @@ interface ConvertCardProps
 {
 	fileIcon?: string,
 	fileName?: string,
-	fileConvertStatus?: string | number,
+	fileConvertStatus?: number,
 	fileExtension?: string,
 	fileSize?: string,
 
@@ -25,13 +25,13 @@ const ConversionCard = ({fileIcon, fileName, fileConvertStatus, fileExtension, f
 				case 1:
 					//file conversion successful
 					setFileClassStatus("brand-outline-success");
-					setFileStatusText("finished");
+					setFileStatusText("success");
 					break;
 
 				case 0:
 					//file conversion failure
 					setFileClassStatus("brand-outline-fail");
-					setFileStatusText("fail");
+					setFileStatusText("failure");
 					break;
 
 				default:
@@ -83,13 +83,13 @@ const ConversionCard = ({fileIcon, fileName, fileConvertStatus, fileExtension, f
 						
 				</section>
 
-					<section className = {`conversion-status  d-flex align-items-center justify-content-center p-1 rounded-1 ${fileClassStatus}`}>
-							<p className="text-light text-muted brand-small-text-2 m-0 text-capitalize">{fileClassStatus}</p>
+					<section className = {`conversion-status  d-flex align-items-center justify-content-center p-1  rounded-1 ${fileClassStatus}`}>
+							<p className="text-light text-muted brand-small-text-2 m-0 text-capitalize">{fileStatusText}</p>
 					</section>
 
 
 					<section className="conversion-size">
-							<p className="text-muted text-light brand-small-text text-capitalize m-0"> {fileExtension} / {fileSize} </p>
+							<p className="text-muted text-light brand-small-text-2 text-capitalize m-0"> {fileExtension} / {fileSize} </p>
 					</section>
 
 					<section className="cancel-icon">
