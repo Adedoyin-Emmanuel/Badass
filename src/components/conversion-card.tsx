@@ -1,10 +1,55 @@
-import React from "react";
-const ConversionCard = (): JSX.Element =>{
-	return (
+import React, {useState, useMemo} from "react";
 
+interface ConvertCardProps
+{
+	fileIcon?: string,
+	fileName?: string,
+	fileConvertStatus?: string | number,
+	fileExtension?: string,
+	fileSize?: string,
+
+}
+
+
+
+
+const ConversionCard = ({fileIcon, fileName, fileConvertStatus, fileExtension, fileSize}: ConvertCardProps): JSX.Element =>{
+
+	const [fileClassStatus, setFileClassStatus] = useState("brand-light-color-outline");
+	const [fileStatusText, setFileStatusText]   = useState("pending");
+
+	const checkConvertStatus = () =>{
+
+			switch(fileConvertStatus)
+	        {
+				case 1:
+					//file conversion successful
+					setFileClassStatus("brand-outline-success");
+					setFileStatusText("finished");
+					break;
+
+				case 0:
+					//file conversion failure
+					setFileClassStatus("brand-outline-fail");
+					setFileStatusText("fail");
+					break;
+
+				default:
+					setFileClassStatus("brand-light-color-outline");
+					setFileStatusText("pending");
+					break;
+			}
+
+	}
+
+
+
+	useMemo(checkConvertStatus, [])
+
+	return (
 		<React.Fragment>
 
-			<section className="conversion-card d-flex align-items-center justify-content-around">
+			<section className="conversion-card d-flex align-items-center justify-content-around  my-3 py-2">
 
 				<section className="file-card">
 					
@@ -32,23 +77,23 @@ const ConversionCard = (): JSX.Element =>{
 							-60 -10z"/>
 							</g>
 							</svg>
-							<p className="file-name brand-small-text text-muted mx-2 text-capitalize">prize.png</p>
+							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{fileName}</p>
 
 						</section>
 						
 				</section>
 
-					<section className="conversion-status brand-light-color-outline d-flex align-items-center justify-content-center p-1 rounded-1">
-							<p className="text-light text-muted brand-small-text-2 m-0 text-capitalize">finished</p>
+					<section className = {`conversion-status  d-flex align-items-center justify-content-center p-1 rounded-1 ${fileClassStatus}`}>
+							<p className="text-light text-muted brand-small-text-2 m-0 text-capitalize">{fileClassStatus}</p>
 					</section>
 
 
 					<section className="conversion-size">
-							<p className="text-muted text-light brand-small-text text-capitalize"> svg / 145kb </p>
+							<p className="text-muted text-light brand-small-text text-capitalize m-0"> {fileExtension} / {fileSize} </p>
 					</section>
 
 					<section className="cancel-icon">
-						<p className="fs-4 text-light">x</p>
+						<p className="fs-5 text-light m-0">x</p>
 					</section>
 
 			</section>

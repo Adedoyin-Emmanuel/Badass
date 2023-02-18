@@ -19,7 +19,7 @@ const Convert = () =>{
                      <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light">File | Image Converter</h3>
                      <p className="text-muted text-light text-start p-2">Convert your files to any format</p>
 
-                     <section className="conversion-area">
+                     <section className="conversion-area" id="conversion-area">
 
                         <ConversionCard/>
 
