@@ -6,7 +6,8 @@ interface ConvertJSONResponse
 	data?: string,
 	code?: number,
 	filename?: string[]
-	extension?: string
+	extension?: string,
+	filesize?: number
 }
 
 export const checkSubmit = (e: any)=>{
@@ -33,6 +34,7 @@ export const checkSubmit = (e: any)=>{
 				parsedResponse.forEach((response: ConvertJSONResponse)=>{
 					console.log(response.filename);
 					console.log(response.extension);
+					console.log(response.filesize);
 				})
 			},
 

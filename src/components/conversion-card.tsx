@@ -49,7 +49,7 @@ const ConversionCard = ({fileIcon, fileName, fileConvertStatus, fileExtension, f
 	return (
 		<React.Fragment>
 
-			<section className="conversion-card d-flex align-items-center justify-content-around  my-3 py-2">
+			<section className="conversion-card d-flex align-items-center justify-content-around  my-2 py-1">
 
 				<section className="file-card">
 					
