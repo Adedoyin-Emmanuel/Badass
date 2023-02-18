@@ -6,7 +6,7 @@ interface ConvertJSONResponse
 	data?: string,
 	code?: number,
 	filename?: string[]
-	extension?: any
+	extension?: string
 }
 
 export const checkSubmit = (e: any)=>{
@@ -17,7 +17,7 @@ export const checkSubmit = (e: any)=>{
 
 		const formData = new FormData(), fileArray = [...files];
 		
-		fileArray.forEach((file: any, fileIndex: number)=>{
+		fileArray.forEach((file: string[], fileIndex: number)=>{
 			formData.append("files[]", files[fileIndex]);
 		})
 
@@ -30,9 +30,9 @@ export const checkSubmit = (e: any)=>{
 			contentType: false,
 			success: (response:string) =>{
 				const parsedResponse = JSON.parse(response);
-				parsedResponse.forEach((response: any)=>{
+				parsedResponse.forEach((response: ConvertJSONResponse)=>{
 					console.log(response.filename);
-					//console.log(response.extension);
+					console.log(response.extension);
 				})
 			},
 
