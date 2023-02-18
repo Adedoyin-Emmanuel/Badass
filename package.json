@@ -10,6 +10,7 @@
     "@types/node": "^16.18.11",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",

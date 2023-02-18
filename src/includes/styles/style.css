@@ -254,7 +254,24 @@ body {
 	outline: 3px solid var(--brand-primary-light-color);
 }
 
+/*custom animations*/
 
+.fade-away
+{
+	animation: fade .4s 1;
+}
+
+@keyframes fade {
+
+	from{
+		transform: translateX(0);
+		opacity: none;
+	}
+	to{
+		transform: translateX(-300px);
+		opacity:.1;
+	}
+}
 
 
 /*custom responsiveness*/

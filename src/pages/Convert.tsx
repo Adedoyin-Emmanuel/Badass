@@ -21,8 +21,8 @@ const Convert = () =>{
 
                      <section className="conversion-area" id="conversion-area">
 
-                        <ConversionCard fileName = "rats.svg" fileConvertStatus = {1} fileExtension = "svg"  fileSize="143kb"/>
-                        <ConversionCard fileName = "bats.svg" fileConvertStatus = {2} fileExtension = "svg"  fileSize="156kb"/>
+                        <ConversionCard fileName = "rats" fileConvertStatus = {1} fileExtension = "svg"  fileSize="143kb"/>
+                        <ConversionCard fileName = "bats" fileConvertStatus = {2} fileExtension = "svg"  fileSize="156kb"/>
 
                      </section>
 

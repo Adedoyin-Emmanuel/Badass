@@ -1,5 +1,5 @@
 import React, {useState, useMemo} from "react";
-
+import jQuery from "jquery";
 interface ConvertCardProps
 {
 	fileIcon?: string,
@@ -44,12 +44,25 @@ const ConversionCard = ({fileIcon, fileName, fileConvertStatus, fileExtension, f
 
 
 
-	useMemo(checkConvertStatus, [])
+	useMemo(checkConvertStatus, []);
+
+
+	const FadeElement = () =>{
+		jQuery(($) =>{
+			$.noConflict();
+
+			$(`.${fileName}`).addClass("fade-away");
+			$(`.${fileName}`).on("animationend",(e:any)=>{
+				$(`.${fileName}`).addClass("d-none");
+			})
+
+		});
+	}
 
 	return (
 		<React.Fragment>
 
-			<section className="conversion-card d-flex align-items-center justify-content-around  my-2 py-1">
+			<section className={`conversion-card d-flex align-items-center justify-content-around  my-2 py-1 ${fileName}`}>
 
 				<section className="file-card">
 					
@@ -77,7 +90,7 @@ const ConversionCard = ({fileIcon, fileName, fileConvertStatus, fileExtension, f
 							-60 -10z"/>
 							</g>
 							</svg>
-							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{fileName}</p>
+							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{`${fileName}.${fileExtension}`}</p>
 
 						</section>
 						
@@ -92,8 +105,9 @@ const ConversionCard = ({fileIcon, fileName, fileConvertStatus, fileExtension, f
 							<p className="text-muted text-light brand-small-text-2 text-capitalize m-0"> {fileExtension} / {fileSize} </p>
 					</section>
 
-					<section className="cancel-icon">
-						<p className="fs-5 text-light m-0">x</p>
+					<section className="cancel-icon" onClick={FadeElement} style={{"cursor":"pointer"}}>
+						<p className="fs-5 text-light text-muted fw-bold m-0">&#10006;</p>
+
 					</section>
 
 			</section>
