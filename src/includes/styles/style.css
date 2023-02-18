@@ -152,6 +152,20 @@ body{
 	cursor:pointer;
 }
 
+.brand-light-color-outline{
+	border: 1px solid var(--brand-primary-light-color);
+}
+.brand-light-color-outline-2{
+	border:2px solid var(--brand-primary-light-color);
+}
+
+.brand-white-color-outline{
+	border: 1px solid var(--brand-white-color);
+}
+.brand-white-color-outline-2{
+	border: 2px solid var(--brand-white-color);
+}
+
 
 .get-started {
 	transition: 0.4s;

@@ -5,6 +5,7 @@ import Button from "./../components/button";
 import * as navigate from "./../includes/scripts/handleNavigation";
 import Spinner from "./../components/spinner";
 import * as convertAPI from "./../apis/handleConversion";
+import ConversionCard from "./../components/conversion-card";
 const Convert = () =>{
 
     navigate.checkIfHomePageSeen();
@@ -18,6 +19,11 @@ const Convert = () =>{
                      <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light">File | Image Converter</h3>
                      <p className="text-muted text-light text-start p-2">Convert your files to any format</p>
 
+                     <section className="conversion-area">
+
+                        <ConversionCard/>
+
+                     </section>
 
                      <section className="m-auto d-flex align-items-center justify-content-center">
                         <form className="form w-100 d-flex align-items-center justify-content-center" id="conversion_form" encType="multipart/form-data">
