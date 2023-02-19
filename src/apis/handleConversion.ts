@@ -13,7 +13,7 @@ export interface ConvertJSONResponse
 
 export const connectToBackend = (formData: any) =>{
 		return $.ajax({
-			url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}`,
+			url:`https://badass-backend.railway.app/api/convert/?app_id=${Badass.API_KEY}`,
 			type: "POST",
 			data: formData,
 			processData: false,
