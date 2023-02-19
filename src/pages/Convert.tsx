@@ -1,4 +1,5 @@
-import React, {Suspense} from "react";
+import React, {Suspense, useState, useEffect} from "react";
+import jQuery from "jquery";
 import AppHeader from "./../components/app-header";
 import AppFooter from "./../components/app-footer";
 import Button from "./../components/button";
@@ -9,6 +10,40 @@ import ConversionCard from "./../components/conversion-card";
 const Convert = () =>{
 
     navigate.checkIfHomePageSeen();
+    //const check = convertAPI.connectToBackend();
+    const [fileData, setFileData] = useState <any> ();
+    const [conversionUiData, setConversionUIData] = useState(<React.Fragment></React.Fragment>);
+
+    useEffect(()=>{
+        jQuery(($)=>{
+            $.noConflict();
+
+            $("#file_uploaded").on("change",(e: any)=>{
+
+                const files = e.target.files;
+                const formData = new FormData(), fileArray = [...files];
+                
+                fileArray.forEach((file: string[], fileIndex: number)=>{
+                    formData.append("files[]", files[fileIndex]);
+                });
+
+                const fetchData = async ()=>{
+                    const apiResponse = await convertAPI.connectToBackend(formData);
+                    const legitApiResponse = JSON.parse(apiResponse);
+
+                      setConversionUIData(legitApiResponse.map((data: convertAPI.ConvertJSONResponse, index: number)=>{
+                            const {filename, extension, filesize, id} = data;
+                            return <ConversionCard key = {id} fileName = {filename} fileSize = {`${filesize}Kb`} fileExtension = {extension} fileConvertStatus = {1} />
+                      }));
+                }
+                fetchData();
+
+            });
+        });
+
+       
+    },[]);
+
     return (
         <React.Fragment>
             <section className="container-fluid p-0">
@@ -21,8 +56,7 @@ const Convert = () =>{
 
                      <section className="conversion-area" id="conversion-area">
 
-                        <ConversionCard fileName = "rats" fileConvertStatus = {1} fileExtension = "svg"  fileSize="143kb"/>
-                        <ConversionCard fileName = "bats" fileConvertStatus = {2} fileExtension = "svg"  fileSize="156kb"/>
+                        {conversionUiData}
 
                      </section>
 
@@ -30,7 +64,7 @@ const Convert = () =>{
                         <form className="form w-100 d-flex align-items-center justify-content-center" id="conversion_form" encType="multipart/form-data">
                         <div className="brand-button-3 brand-button-4 text-center fs-6 my-3">
                             <label>
-                                <input type="file" id="file_uploaded" name="files" className="form-control w-75 width-toggle brand-primary-color" hidden multiple onChange={(e)=> convertAPI.checkSubmit(e)}/>  
+                                <input type="file" id="file_uploaded" name="files" className="form-control w-75 width-toggle brand-primary-color"  hidden multiple />  
                                 choose files      
                             </label>
                         </div>
