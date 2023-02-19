@@ -1,7 +1,8 @@
 import React, {useState, useMemo} from "react";
 import jQuery from "jquery";
 interface ConvertCardProps
-{
+{	
+	
 	fileIcon?: string,
 	fileName?: string,
 	fileConvertStatus?: number,
@@ -13,7 +14,7 @@ interface ConvertCardProps
 
 
 
-const ConversionCard = ({fileIcon, fileName, fileConvertStatus, fileExtension, fileSize}: ConvertCardProps): JSX.Element =>{
+const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, fileSize}: ConvertCardProps): JSX.Element =>{
 
 	const [fileClassStatus, setFileClassStatus] = useState("brand-light-color-outline");
 	const [fileStatusText, setFileStatusText]   = useState("pending");
@@ -46,14 +47,20 @@ const ConversionCard = ({fileIcon, fileName, fileConvertStatus, fileExtension, f
 
 	useMemo(checkConvertStatus, []);
 
+	const trimWord = (word: any) =>{
+		return word.replace(/[()\[\]{}\-_=+~!@#$%^&*;:'"<>,.?\\|/`\s]/g, '');
+	}
 
 	const FadeElement = () =>{
+		
+		const legitFileName = trimWord(fileName);
 		jQuery(($) =>{
 			$.noConflict();
-
-			$(`.${fileName}`).addClass("fade-away");
-			$(`.${fileName}`).on("animationend",(e:any)=>{
-				$(`.${fileName}`).addClass("d-none");
+			// const legitFileName = fileName.trim();
+			$(`.${legitFileName}`).addClass("fade-away");
+			console.log(legitFileName);
+			$(`.${legitFileName}`).on("animationend",(e:any)=>{
+				$(`.${legitFileName}`).addClass("d-none");
 			})
 
 		});
@@ -62,7 +69,7 @@ const ConversionCard = ({fileIcon, fileName, fileConvertStatus, fileExtension, f
 	return (
 		<React.Fragment>
 
-			<section className={`conversion-card d-flex align-items-center justify-content-around  my-2 py-1 ${fileName}`}>
+			<section className={`conversion-card d-flex align-items-center justify-content-around  my-2 py-1 ${trimWord(fileName)}`}>
 
 				<section className="file-card">
 					
