@@ -61,6 +61,7 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 			console.log(legitFileName);
 			$(`.${legitFileName}`).on("animationend",(e:any)=>{
 				$(`.${legitFileName}`).addClass("d-none");
+				$(`.${legitFileName}`).html(" ");
 			})
 
 		});
@@ -97,7 +98,7 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 							-60 -10z"/>
 							</g>
 							</svg>
-							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{`${fileName}.${fileExtension}`}</p>
+							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{`${(fileName.length > 5) ? fileName.substr(0, 5) : fileName}.${fileExtension}`}</p>
 
 						</section>
 						

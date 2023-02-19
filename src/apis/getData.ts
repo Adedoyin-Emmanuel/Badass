@@ -3,7 +3,7 @@ import * as Badass from "./BADASS_APIKEY";
 const sayHello = () => {
 	jQuery(($) => {
 		$.ajax({
-			url: `https://badass-backend.up.railway.app/api/convert?app_id=${Badass.API_KEY}`,
+			url: `http://localhost/badass-backend/api/convert?app_id=${Badass.API_KEY}`,
 			type:"GET",
 			
 			success: (results:any) => {

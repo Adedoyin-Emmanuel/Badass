@@ -22,6 +22,7 @@ const Convert = () =>{
 
                 const files = e.target.files;
                 const formData = new FormData(), fileArray = [...files];
+                setConversionUIData("");
                 
                 fileArray.forEach((file: string[], fileIndex: number)=>{
                     formData.append("files[]", files[fileIndex]);
