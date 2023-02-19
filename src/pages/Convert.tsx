@@ -54,8 +54,8 @@ const Convert = () =>{
                         <br/>
                         <br/>
                         <br/>
-                     <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light">File | Image Converter</h3>
-                     <p className="text-muted text-light text-start p-2">Convert your files to any format</p>
+                     <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light">Image Converter</h3>
+                     <p className="text-muted text-light text-start p-2">Convert your images files to any format</p>
 
                      <section className="conversion-area" id="conversion-area">
 
@@ -68,7 +68,7 @@ const Convert = () =>{
                         <div className="brand-button-3 brand-button-4 text-center fs-6 my-3">
                             <label>
                                 <input type="file" id="file_uploaded" name="files" className="form-control w-75 width-toggle brand-primary-color"  hidden multiple onChange={sayHi}/>  
-                                choose files      
+                                choose image      
                             </label>
                         </div>
                         </form>
