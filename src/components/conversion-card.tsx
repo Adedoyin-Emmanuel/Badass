@@ -1,5 +1,7 @@
 import React, {useState, useMemo} from "react";
 import jQuery from "jquery";
+import Swal from "sweetalert2";
+import * as Badass from "./../apis/BADASS_APIKEY";
 interface ConvertCardProps
 {	
 	
@@ -11,14 +13,17 @@ interface ConvertCardProps
 
 }
 
+interface SwalPromiseObject
+{
+	isConfirmed: boolean,
+	//isDismissed?: boolean
 
-
-
+}
 const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, fileSize}: ConvertCardProps): JSX.Element =>{
 
 	const [fileClassStatus, setFileClassStatus] = useState("brand-light-color-outline");
 	const [fileStatusText, setFileStatusText]   = useState("pending");
-
+	const [convertTo, setConvertTo] 			= useState("To");
 	const checkConvertStatus = () =>{
 
 			switch(fileConvertStatus)
@@ -44,7 +49,6 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 	}
 
 
-
 	useMemo(checkConvertStatus, []);
 
 	const trimWord = (word: any) =>{
@@ -52,7 +56,7 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 	}
 
 	const returnSubString = (word: any) =>{
-		return (word.length > 5 ) ? word.substr(0, 5) : word;
+		return (word.length > 5 ) ? `${word.substr(0, 5)}` : word;
 	}
 
 	const FadeElement = () =>{
@@ -70,6 +74,51 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 		});
 	}
 
+	const checkFileToConvertTo = () =>{
+		Swal.fire({
+			title: "Image Format",
+			text:"hello",
+			html: `
+				<form class="form" id="image_format_form">
+						<select class="form-control text-center" name="image_format" id="image_format" required>
+                        <option class="option px-2 text-capitalize text-center" value="svg">Svg</option>
+                        <option class="option px-2 text-capitalize text-center" value="png">Png</option>
+                        <option class="option px-2 text-capitalize text-center" value="jpg">Jpg</option>
+                        <option class="option px-2 text-capitalize text-center" value="gif">Gif</option>
+                        <option class="option px-2 text-capitalize text-center" value="jpeg">Jpeg</option>
+                 		
+				</form>
+			`,
+			confirmButtonColor: "#48cae4"
+		}).then((willProceed: SwalPromiseObject)=>{
+			//console.log(typeof willProceed);
+			if(willProceed.isConfirmed)
+			{
+				const checker = (elem: any) =>{
+					return elem.val().trim();
+				}
+				jQuery(($)=>{
+					$.noConflict();
+
+					const selectedFormat = checker($("#image_format"));
+
+					setConvertTo(selectedFormat);
+
+					//send the data to the backend
+					$.ajax({
+						url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}&convert_to=${selectedFormat}`,
+						type: "POST",
+						processData: false,
+						contentType: false,
+						success: (response: any) =>{
+							console.log(response);
+						}
+					});
+				})
+			}
+		})
+	}
+
 	return (
 		<React.Fragment>
 
@@ -78,8 +127,8 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 				<section className="file-card">
 					
 						<section className="file-image-container d-flex ">
-							{/*file icon depending on type of file*/}
-							<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+							
+							{/*<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
 							 width="20" height="20" viewBox="0 0 124.000000 124.000000"
 							 preserveAspectRatio="xMidYMid meet">
 
@@ -100,7 +149,7 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 							<path d="M225 380 c-21 -23 -13 -50 14 -50 23 0 56 43 46 60 -10 16 -40 12
 							-60 -10z"/>
 							</g>
-							</svg>
+							</svg>*/}
 							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{`${returnSubString(fileName)}.${fileExtension}`}</p>
 
 						</section>
@@ -111,15 +160,21 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 							<p className="text-light text-muted brand-small-text-2 m-0 text-capitalize">{fileStatusText}</p>
 					</section>
 
+					<section className = {`conversion-status  d-flex align-items-center justify-content-center p-1  rounded-1 brand-white-color-outline mx-1`} onClick={checkFileToConvertTo}>
+							<p className="text-light text-muted brand-small-text-2 text-capitalize m-0">{convertTo}</p>
+					</section>
+
 
 					<section className="conversion-size">
 							<p className="text-muted text-light brand-small-text-2 text-capitalize m-0"> {fileExtension} / {fileSize} </p>
 					</section>
 
+				
 					<section className="cancel-icon" onClick={FadeElement} style={{"cursor":"pointer"}}>
 						<p className="fs-5 text-light text-muted fw-bold m-0">&#10006;</p>
 
 					</section>
+
 
 			</section>
 

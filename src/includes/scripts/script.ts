@@ -6,6 +6,11 @@ export const navigate = (page: string): void => {
 
 
 
+export const convertBytesToKb = (byte: number) =>{
+    return (Math.ceil(byte / 1024));
+}
+
+
 jQuery(($)=>{
 
     $.noConflict();
