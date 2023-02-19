@@ -51,6 +51,10 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 		return word.replace(/[()\[\]{}\-_=+~!@#$%^&*;:'"<>,.?\\|/`\s]/g, '');
 	}
 
+	const returnSubString = (word: any) =>{
+		return (word.length > 5 ) ? word.substr(0, 5) : word;
+	}
+
 	const FadeElement = () =>{
 		
 		const legitFileName = trimWord(fileName);
@@ -58,11 +62,10 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 			$.noConflict();
 			// const legitFileName = fileName.trim();
 			$(`.${legitFileName}`).addClass("fade-away");
-			console.log(legitFileName);
 			$(`.${legitFileName}`).on("animationend",(e:any)=>{
 				$(`.${legitFileName}`).addClass("d-none");
-				$(`.${legitFileName}`).html(" ");
-			})
+				
+			});
 
 		});
 	}
@@ -98,7 +101,7 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 							-60 -10z"/>
 							</g>
 							</svg>
-							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{`${(fileName.length > 5) ? fileName.substr(0, 5) : fileName}.${fileExtension}`}</p>
+							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{`${returnSubString(fileName)}.${fileExtension}`}</p>
 
 						</section>
 						
