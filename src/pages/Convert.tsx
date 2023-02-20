@@ -36,6 +36,7 @@ const Convert = () =>{
     const [conversionUiData, setConversionUIData] = useState<any>(<React.Fragment></React.Fragment>);
     const [convertTo, setConvertTo] = useState("To");
     const [fileConvertStatus, setConvertStatus] = useState(2);
+    const [fileDetails, setFileDetails] = useState<convertAPI.ConvertJSONResponse>();
 
     useEffect(()=>{
         jQuery(($)=>{
@@ -53,7 +54,6 @@ const Convert = () =>{
                 const checkFileToConvertTo = () =>{
                     Swal.fire({
                         title: "Image Format",
-                        text:"hello",
                         html: `
                             <form class="form" id="image_format_form">
                                     <select class="form-control text-center" name="image_format" id="image_format" required>
@@ -83,12 +83,10 @@ const Convert = () =>{
                                         const {id, filename, extension, filesize, converting_to : convertingTo} = data;
 
                                         console.log(data);
-                                        console.log(convertingTo);
+                                        setFileDetails(data);
                                         db.update("BADASS_CONVERSION_STATUS", "1");
                                         setConversionUIData(updateFrontend(selectedFormat));
 
-                                        //setConversionUIData(updateFrontend());
-                                        
                                     });
                                 }
                                 fetchData();
@@ -101,7 +99,6 @@ const Convert = () =>{
                     const testData: JSX.Element[] = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
                         //const sayHi = () => console.log(`${file.lastModified}${file.name}`);
                         const userConvertType = () => checkFileToConvertTo();
-                        console.log(parseInt(db.get("BADASS_CONVERSION_STATUS")));
                         const convertToLegitElement = <ConvertTo convertToText={convertToArg} convertToClick={userConvertType}/>
                         return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {file.name} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {file.type} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />
                     });
@@ -143,6 +140,8 @@ const Convert = () =>{
                      </section>
 
                     <section className="convert-extension-details">
+                        <section className="">
+                        </section>
                     </section>
                      <AppFooter childrenConvertActivePage="current-active-page"/>
             </section>

@@ -37,7 +37,7 @@ body{
 	--brand-search-border-radius:50px;
 	--brand-button-outline-padding: 15px;
 	--brand-status-fail-color: tomato;
-	--brand-status-success-color: green;
+	--brand-status-success-color: lightgreen;
 }
 
 /*Brand primary utility classes*/
