@@ -46,6 +46,8 @@ const Convert = () =>{
 
                 fileArray.forEach((file: any, fileIndex: number)=>{
                     formData.append("files[]", files[fileIndex]);
+                    db.create(`BADASS_INITITAL_DATA_VALUE${fileIndex}`, "To");
+                    db.create(`BADASS_TOTAL_FILES_UPLOADED`, files.length);
                 });
 
 
@@ -75,7 +77,10 @@ const Convert = () =>{
 
                                 const selectedFormat = trimSelectedOption($("#image_format"));
 
+                                for(let i = 0; i < parseInt(db.get("BADASS_TOTAL_FILES_UPLOADED")); i++)
+                                {
 
+                                }
                                 //send the data to the backend
                                 // $.ajax({
                                 //     url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}&convert_to=${selectedFormat}`,

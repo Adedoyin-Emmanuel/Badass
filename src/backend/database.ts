@@ -3,10 +3,10 @@
  **/
 
 class Database {
-	get(key: string): string | undefined {
+	get(key: string): string {
 		let data = localStorage.getItem(key);
 
-		return data != null ? data : undefined;
+		return data != null ? data : "undefined";
 	}
 
 	create(key: string, value: string): void {
