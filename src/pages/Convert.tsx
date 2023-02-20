@@ -65,30 +65,38 @@ const Convert = () =>{
                         `,
                         confirmButtonColor: "#48cae4"
                     }).then((willProceed: SwalPromiseObject)=>{
-                        //console.log(typeof willProceed);
                         if(willProceed.isConfirmed)
                         {
-                            const checker = (elem: any) =>{
+                            const trimSelectedOption = (elem: any) =>{
                                 return elem.val().trim();
                             }
                             jQuery(($)=>{
                                 $.noConflict();
 
-                                const selectedFormat = checker($("#image_format"));
+                                const selectedFormat = trimSelectedOption($("#image_format"));
 
-                                setConvertTo(selectedFormat);
 
                                 //send the data to the backend
-                                $.ajax({
-                                    url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}&convert_to=${selectedFormat}`,
-                                    type: "POST",
-                                    processData: false,
-                                    contentType: false,
-                                    data:formData,
-                                    success: (response: any) =>{
-                                        console.log(response);
-                                    }
-                                });
+                                // $.ajax({
+                                //     url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}&convert_to=${selectedFormat}`,
+                                //     type: "POST",
+                                //     processData: false,
+                                //     contentType: false,
+                                //     data:formData,
+                                //     success: (response: any) =>{
+                                //         console.log(response);
+                                //     }
+                                // });
+
+                                const fetchData = async () =>{
+                                    const response = await convertAPI.connectToBackend(formData, selectedFormat);
+                                    const legitResponse = JSON.stringify(response);
+                                    setConvertTo(selectedFormat);
+
+                                    console.log(response);
+                                }
+
+                                fetchData();
                             })
                         }
                     })

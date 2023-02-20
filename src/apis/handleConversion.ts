@@ -11,9 +11,9 @@ export interface ConvertJSONResponse
 	filesize?: string
 }
 
-export const connectToBackend = (formData: any) =>{
+export const connectToBackend = (formData: any, selectedFormat: string) =>{
 		return $.ajax({
-			url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}`,
+            url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}&convert_to=${selectedFormat}`,
 			type: "POST",
 			data: formData,
 			processData: false,
