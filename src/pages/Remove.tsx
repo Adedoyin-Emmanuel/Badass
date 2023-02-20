@@ -4,9 +4,30 @@ import AppFooter from "./../components/app-footer";
 import Button from "./../components/button";
 import * as navigate from "./../includes/scripts/handleNavigation";
 import Spinner from "./../components/spinner";
+
+
+interface FrontendFileData
+{
+    lastModified?: number,
+    lastModifiedDate?: string,
+    name: string,
+    size: number,
+    type: string
+}
+
+
+
 const Remove = () =>{
 
     navigate.checkIfHomePageSeen();
+
+
+
+
+    useEffect(()=>{
+
+    },[]);
+
     return (
         <React.Fragment>
             <Suspense fallback={<Spinner/>}>
