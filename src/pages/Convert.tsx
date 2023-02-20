@@ -11,7 +11,7 @@ import ConversionCard from "./../components/conversion-card";
 import db from "./../backend/db";
 import * as Badass from "./../apis/BADASS_APIKEY";
 import Swal from "sweetalert2";
-
+import ConvertTo from "./../components/convertTo";
 interface FrontendFileData
 {
     lastModified?: number,
@@ -46,9 +46,10 @@ const Convert = () =>{
 
                 fileArray.forEach((file: any, fileIndex: number)=>{
                     formData.append("files[]", files[fileIndex]);
-                    db.create(`BADASS_INITITAL_DATA_VALUE${fileIndex}`, "To");
-                    db.create(`BADASS_TOTAL_FILES_UPLOADED`, files.length);
+                    db.create(`BADASS_TOTAL_FILES_UPLOADED`, files.length)
                 });
+
+
 
 
                 const checkFileToConvertTo = () =>{
@@ -76,11 +77,9 @@ const Convert = () =>{
                                 $.noConflict();
 
                                 const selectedFormat = trimSelectedOption($("#image_format"));
-
-                                for(let i = 0; i < parseInt(db.get("BADASS_TOTAL_FILES_UPLOADED")); i++)
-                                {
-
-                                }
+                                console.log(selectedFormat);
+                                setConvertTo(selectedFormat);
+                                setConversionUIData(updateFrontend(selectedFormat));
                                 //send the data to the backend
                                 // $.ajax({
                                 //     url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}&convert_to=${selectedFormat}`,
@@ -96,7 +95,6 @@ const Convert = () =>{
                                 const fetchData = async () =>{
                                     const response = await convertAPI.connectToBackend(formData, selectedFormat);
                                     const legitResponse = JSON.stringify(response);
-                                    setConvertTo(selectedFormat);
 
                                     console.log(response);
                                 }
@@ -107,17 +105,22 @@ const Convert = () =>{
                     })
                 }
 
+                   const updateFrontend = (convertToArg: string = "To") =>{
+                    const testData: JSX.Element[] = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
+                        return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {file.name} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {file.type} fileConvertStatus = {2} convertToClick={checkFileToConvertTo} convertToText={convertToArg} />
+                    });
 
-                const testData: JSX.Element[] = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
-                    return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {file.name} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {file.type} fileConvertStatus = {2} convertToClick={checkFileToConvertTo} convertToText={convertTo} />
-                });
+                    return testData;
+                }
 
-                setConversionUIData(testData);
+
+
+                setConversionUIData(updateFrontend());
             });
         });
 
        
-    }, []);
+    });
     return (
         <React.Fragment>
             <section className="container-fluid p-0">
