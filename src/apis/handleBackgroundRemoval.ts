@@ -1,14 +1,14 @@
-import jQuery from "jQuery";
+import jQuery from "jquery";
 import * as REMOVE_API from "./REMOVE_BG_APIKEY";
 import Swal from "sweetalert2";
-
+import db from "./../backend/db";
 interface SwalPromise
 {
 	isConfirmed: boolean,
 }
 
-const removeUploadedFileBackground = (element: HTML.Element) =>{
-	element.on("change", (e: any)=>{
+export const removeUploadedFileBackground = (element:any) =>{
+	$(`${element}`).on("change", (e: any)=>{
 		const files= e.target.files;
 		const formData = new FormData(), fileArray = [...files];
 
@@ -21,7 +21,7 @@ const removeUploadedFileBackground = (element: HTML.Element) =>{
              fetch('https://clipdrop-api.co/remove-background/v1', {
 				  method: 'POST',
 				  headers: {
-				    'x-api-key': REMOVE_API.API_KEY;
+				    'x-api-key': REMOVE_API.API_KEY
 				  },
 				  body: formData,
 				})

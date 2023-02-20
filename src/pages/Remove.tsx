@@ -1,10 +1,11 @@
-import React, {Suspense} from "react";
+import React, {Suspense, useEffect} from "react";
 import AppHeader from "./../components/app-header";
 import AppFooter from "./../components/app-footer";
 import Button from "./../components/button";
 import * as navigate from "./../includes/scripts/handleNavigation";
 import Spinner from "./../components/spinner";
-
+import jQuery from "jquery";
+import {removeUploadedFileBackground} from "./../apis/handleBackgroundRemoval";
 
 interface FrontendFileData
 {
@@ -22,10 +23,18 @@ const Remove = () =>{
     navigate.checkIfHomePageSeen();
 
 
-
+    const getFileDetails = (e: any) =>{
+        const files = e.target.files;
+        console.log(files);
+    }
 
     useEffect(()=>{
+        jQuery(($)=>{
+            $.noConflict();
 
+            //removeUploadedFileBackground
+            //removeUploadedFileBackground(remove_bg_file);
+        })
     },[]);
 
     return (
@@ -45,7 +54,7 @@ const Remove = () =>{
                                 <form className="form w-100 d-flex align-items-center justify-content-center">
                                 <div className="brand-white-button brand-button-4 text-center fs-6 my-3">
                                     <label>
-                                        <input type="file" className="form-control w-75 width-toggle brand-primary-color" hidden/>  
+                                        <input type="file" className="form-control w-75 width-toggle brand-primary-color" id="remove_bg_file" hidden/>  
                                         choose files      
                                     </label>
                                 </div>
