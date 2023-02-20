@@ -48,7 +48,7 @@ const Convert = () =>{
 
                 fileArray.forEach((file: any, fileIndex: number)=>{
                     formData.append("files[]", files[fileIndex]);
-                    db.create(`BADASS_TOTAL_FILES_UPLOADED`, files.length)
+                    db.create(`BADASS_CONVERT_TOTAL_FILES_UPLOADED`, files.length)
                 });
 
                 const checkFileToConvertTo = () =>{

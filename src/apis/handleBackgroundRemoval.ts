@@ -1,97 +1,83 @@
+import jQuery from "jQuery";
+import * as REMOVE_API from "./REMOVE_BG_APIKEY";
+import Swal from "sweetalert2";
 
-			const foto = document.getElementById("foto");
+interface SwalPromise
+{
+	isConfirmed: boolean,
+}
 
+const removeUploadedFileBackground = (element: HTML.Element) =>{
+	element.on("change", (e: any)=>{
+		const files= e.target.files;
+		const formData = new FormData(), fileArray = [...files];
 
-			  foto.addEventListener('change', (event) => {
-				    const selectedFile = event.target.files[0];
-				    const fileName = selectedFile.name;
-					const form = new FormData();
-					form.append('image_file', selectedFile);
+		fileArray.forEach((file: any, fileIndex: number)=>{
+			 formData.append("image_file", files[fileIndex]);
+			 let fileName = file.filename;
+             db.create(`BADASS_REMOVE_TOTAL_FILES_UPLOADED`, files.length);
 
+             //connect to the API
+             fetch('https://clipdrop-api.co/remove-background/v1', {
+				  method: 'POST',
+				  headers: {
+				    'x-api-key': REMOVE_API.API_KEY;
+				  },
+				  body: formData,
+				})
+         	 	.then(response => response.arrayBuffer())
+         	 	.then(buffer => {
+					 console.log(buffer);
 
+				     //binaryData is the binary representation of the image returned from the API
+				     const binaryData = buffer;
+					 const imageArrayBuffer = buffer;
 
+					 const header = new Uint8Array(imageArrayBuffer, 0, 16);
+					 let extension = '';
 
-						fetch('https://clipdrop-api.co/remove-background/v1', {
-						  method: 'POST',
-						  headers: {
-						    'x-api-key': "3ac5c163b0dcfff7ff7349fa2d2dcb810f4aae1375d3b8df38a0a6abe31c4fe5f7ef7d2f15432cc1cead52d26646cdc4",
-						  },
-						  body: form,
-						})
-
-					  .then(response => response.arrayBuffer())
-					  .then(buffer => {
-
-					  	console.log(buffer);
-
-				  		// Assume binaryData is the binary representation of the image returned from the API
-						const binaryData =buffer /* your binary image data */;
-
-							const imageArrayBuffer = buffer /* your image ArrayBuffer */;
-
-					// Check the first few bytes of the ArrayBuffer to determine the file type
-					const header = new Uint8Array(imageArrayBuffer, 0, 16);
-					let extension = '';
-
-					if (header[0] === 0xff && header[1] === 0xd8) {
-					  extension = 'jpg';
-					} else if (header[0] === 0x89 && header[1] === 0x50 && header[2] === 0x4e && header[3] === 0x47) {
+					 if (header[0] === 0xff && header[1] === 0xd8) 
+					 {
+					   extension = 'jpg';
+					 } else if (header[0] === 0x89 && header[1] === 0x50 && header[2] === 0x4e && header[3] === 0x47) 
+					 {
 					  extension = 'png';
-					} else if (header[0] === 0x47 && header[1] === 0x49 && header[2] === 0x46 && header[3] === 0x38) {
+					 } else if (header[0] === 0x47 && header[1] === 0x49 && header[2] === 0x46 && header[3] === 0x38) 
+					 {
 					  extension = 'gif';
-					} else if (header[0] === 0x42 && header[1] === 0x4d) {
-					  extension = 'bmp';
+					 } else if (header[0] === 0x42 && header[1] === 0x4d) 
+					 {
+					   extension = 'bmp';
+					 }
+
+					const blob = new Blob([binaryData], { type: `image/${extension}` });
+
+					const url = URL.createObjectURL(blob);
+
+					if (!extension) {
+					 	Swal.fire({
+					 		text:"unrecognised file type!",
+					 		toast:true,
+					 		timer:4000,
+					 		showConfirmButton:false
+					 	}).then((willProceed: SwalPromise)=>{
+					 		return;
+					 	});
 					}
+					const link = document.createElement('a');
 
-						// Create a blob from the binary data
-						const blob = new Blob([binaryData], { type: `image/${extension}` });
+					link.href = url;
 
-						// Create a URL for the blob
-						const url = URL.createObjectURL(blob);
+					link.setAttribute('download', `${fileName}.${extension}`);
 
-						// Assume imageArrayBuffer is the ArrayBuffer that represents the image data
+					document.body.appendChild(link);
 				
+					link.click();
 
-					if (extension) {
-					  console.log(`The file extension is ${extension}`);
-					} else {
-					  console.log('The file type is not recognized');
-					}
+					URL.revokeObjectURL(url);
 
+				});
 
-
-						// Create an <a> element with the URL as its href attribute
-							const link = document.createElement('a');
-							link.href = url;
-
-							// Set the download attribute to specify the file name
-							link.setAttribute('download', `myImage.${extension}`);
-
-							// Append the <a> element to the document
-							document.body.appendChild(link);
-
-							// Trigger a click event on the <a> element to download the file
-							link.click();
-
-
-						// Create an <img> element and set its src attribute to the URL
-						//const img = document.createElement('img');
-						//img.src = url;
-
-						// Append the <img> element to the document
-						//document.body.appendChild(img);
-
-						// Clean up by revoking the URL object
-						URL.revokeObjectURL(url);
-
-
-					  });
-
-
-
-
-				   	
-			  });
-
-
-			
+		});
+	});
+}
