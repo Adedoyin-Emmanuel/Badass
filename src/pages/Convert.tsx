@@ -12,6 +12,7 @@ import db from "./../backend/db";
 import * as Badass from "./../apis/BADASS_APIKEY";
 import Swal from "sweetalert2";
 import ConvertTo from "./../components/convertTo";
+
 interface FrontendFileData
 {
     lastModified?: number,
@@ -34,13 +35,13 @@ const Convert = () =>{
 
     const [conversionUiData, setConversionUIData] = useState<any>(<React.Fragment></React.Fragment>);
     const [convertTo, setConvertTo] = useState("To");
-
+    const [fileConvertStatus, setConvertStatus] = useState(2);
 
     useEffect(()=>{
         jQuery(($)=>{
             $.noConflict();
             $("#file_uploaded").on("change",(e: any)=>{
-
+                db.create("BADASS_CONVERSION_STATUS", "2");
                 const files = e.target.files;
                 const formData = new FormData(), fileArray = [...files];
 
@@ -48,9 +49,6 @@ const Convert = () =>{
                     formData.append("files[]", files[fileIndex]);
                     db.create(`BADASS_TOTAL_FILES_UPLOADED`, files.length)
                 });
-
-
-
 
                 const checkFileToConvertTo = () =>{
                     Swal.fire({
@@ -77,28 +75,22 @@ const Convert = () =>{
                                 $.noConflict();
 
                                 const selectedFormat = trimSelectedOption($("#image_format"));
-                                console.log(selectedFormat);
-                                setConvertTo(selectedFormat);
-                                setConversionUIData(updateFrontend(selectedFormat));
-                                //send the data to the backend
-                                // $.ajax({
-                                //     url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}&convert_to=${selectedFormat}`,
-                                //     type: "POST",
-                                //     processData: false,
-                                //     contentType: false,
-                                //     data:formData,
-                                //     success: (response: any) =>{
-                                //         console.log(response);
-                                //     }
-                                // });
-
                                 const fetchData = async () =>{
                                     const response = await convertAPI.connectToBackend(formData, selectedFormat);
-                                    const legitResponse = JSON.stringify(response);
+                                    const legitResponse = JSON.parse(response);
+                                    
+                                    legitResponse.forEach((data: convertAPI.ConvertJSONResponse, dataIndex: number)=>{
+                                        const {id, filename, extension, filesize, converting_to : convertingTo} = data;
 
-                                    console.log(response);
+                                        console.log(data);
+                                        console.log(convertingTo);
+                                        db.update("BADASS_CONVERSION_STATUS", "1");
+                                        setConversionUIData(updateFrontend(selectedFormat));
+
+                                        //setConversionUIData(updateFrontend());
+                                        
+                                    });
                                 }
-
                                 fetchData();
                             })
                         }
@@ -107,7 +99,11 @@ const Convert = () =>{
 
                    const updateFrontend = (convertToArg: string = "To") =>{
                     const testData: JSX.Element[] = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
-                        return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {file.name} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {file.type} fileConvertStatus = {2} convertToClick={checkFileToConvertTo} convertToText={convertToArg} />
+                        //const sayHi = () => console.log(`${file.lastModified}${file.name}`);
+                        const userConvertType = () => checkFileToConvertTo();
+                        console.log(parseInt(db.get("BADASS_CONVERSION_STATUS")));
+                        const convertToLegitElement = <ConvertTo convertToText={convertToArg} convertToClick={userConvertType}/>
+                        return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {file.name} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {file.type} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />
                     });
 
                     return testData;
@@ -118,8 +114,6 @@ const Convert = () =>{
                 setConversionUIData(updateFrontend());
             });
         });
-
-       
     });
     return (
         <React.Fragment>

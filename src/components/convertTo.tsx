@@ -4,10 +4,10 @@ import React from "react";
 interface ConvertProp
 {
 	convertToText: string,
-	convertToClick: () => any
+	convertToClick: () => void
 }
 
-const ConvertTo = ({convertToText, convertToClick}) =>{
+const ConvertTo = ({convertToText, convertToClick} : ConvertProp) =>{
 	return (
 
 		<React.Fragment>
@@ -21,4 +21,4 @@ const ConvertTo = ({convertToText, convertToClick}) =>{
 	)
 }
 
-export default convertTo;
+export default ConvertTo;

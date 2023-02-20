@@ -9,6 +9,7 @@ export interface ConvertJSONResponse
 	filename?: string,
 	extension?: string,
 	filesize?: string
+	converting_to?: string
 }
 
 export const connectToBackend = (formData: any, selectedFormat: string) =>{

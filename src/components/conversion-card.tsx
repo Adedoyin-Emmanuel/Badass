@@ -11,12 +11,11 @@ interface ConvertCardProps
 	fileConvertStatus?: number,
 	fileExtension?: string,
 	fileSize?: string,
-	convertToClick?: () => void,
-	convertToText?: string
+	convertToElement: any
 
 }
 
-const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, fileSize, convertToClick, convertToText}: ConvertCardProps): JSX.Element =>{
+const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, fileSize, convertToElement}: ConvertCardProps): JSX.Element =>{
 
 	const [fileClassStatus, setFileClassStatus] = useState("brand-light-color-outline");
 	const [fileStatusText, setFileStatusText]   = useState("pending");
@@ -46,7 +45,7 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 	}
 
 
-	useMemo(checkConvertStatus, []);
+	useMemo(checkConvertStatus, [fileConvertStatus]);
 
 	const trimWord = (word: any) =>{
 		return word.replace(/[()\[\]{}\-_=+~!@#$%^&*;:'"<>,.?\\|/`\s]/g, '');
@@ -112,9 +111,10 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 							<p className="text-light text-muted brand-small-text-2 m-0 text-capitalize">{fileStatusText}</p>
 					</section>
 
-					<section className = {`conversion-status  d-flex align-items-center justify-content-center p-1  rounded-1 brand-white-color-outline mx-1`} onClick={convertToClick}>
-							<p className="text-light text-muted brand-small-text-2 text-capitalize m-0">{convertToText}</p>
-					</section>
+					
+					{
+						convertToElement
+					}
 
 
 					<section className="conversion-size">
