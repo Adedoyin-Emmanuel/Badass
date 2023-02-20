@@ -2,6 +2,7 @@ import React, {useState, useMemo} from "react";
 import jQuery from "jquery";
 import Swal from "sweetalert2";
 import * as Badass from "./../apis/BADASS_APIKEY";
+
 interface ConvertCardProps
 {	
 	
@@ -10,20 +11,16 @@ interface ConvertCardProps
 	fileConvertStatus?: number,
 	fileExtension?: string,
 	fileSize?: string,
+	convertToClick?: () => void,
+	convertToText?: string
 
 }
 
-interface SwalPromiseObject
-{
-	isConfirmed: boolean,
-	//isDismissed?: boolean
-
-}
-const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, fileSize}: ConvertCardProps): JSX.Element =>{
+const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, fileSize, convertToClick, convertToText}: ConvertCardProps): JSX.Element =>{
 
 	const [fileClassStatus, setFileClassStatus] = useState("brand-light-color-outline");
 	const [fileStatusText, setFileStatusText]   = useState("pending");
-	const [convertTo, setConvertTo] 			= useState("To");
+	//const [convertTo, setConvertTo] 			= useState("To");
 	const checkConvertStatus = () =>{
 
 			switch(fileConvertStatus)
@@ -74,51 +71,6 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 		});
 	}
 
-	const checkFileToConvertTo = () =>{
-		Swal.fire({
-			title: "Image Format",
-			text:"hello",
-			html: `
-				<form class="form" id="image_format_form">
-						<select class="form-control text-center" name="image_format" id="image_format" required>
-                        <option class="option px-2 text-capitalize text-center" value="svg">Svg</option>
-                        <option class="option px-2 text-capitalize text-center" value="png">Png</option>
-                        <option class="option px-2 text-capitalize text-center" value="jpg">Jpg</option>
-                        <option class="option px-2 text-capitalize text-center" value="gif">Gif</option>
-                        <option class="option px-2 text-capitalize text-center" value="jpeg">Jpeg</option>
-                 		
-				</form>
-			`,
-			confirmButtonColor: "#48cae4"
-		}).then((willProceed: SwalPromiseObject)=>{
-			//console.log(typeof willProceed);
-			if(willProceed.isConfirmed)
-			{
-				const checker = (elem: any) =>{
-					return elem.val().trim();
-				}
-				jQuery(($)=>{
-					$.noConflict();
-
-					const selectedFormat = checker($("#image_format"));
-
-					setConvertTo(selectedFormat);
-
-					//send the data to the backend
-					$.ajax({
-						url:`http://localhost/badass-backend/api/convert/?app_id=${Badass.API_KEY}&convert_to=${selectedFormat}`,
-						type: "POST",
-						processData: false,
-						contentType: false,
-						success: (response: any) =>{
-							console.log(response);
-						}
-					});
-				})
-			}
-		})
-	}
-
 	return (
 		<React.Fragment>
 
@@ -150,7 +102,7 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 							-60 -10z"/>
 							</g>
 							</svg>*/}
-							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{`${returnSubString(fileName)}.${fileExtension}`}</p>
+							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{`${returnSubString(fileName)}`}</p>
 
 						</section>
 						
@@ -160,13 +112,13 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 							<p className="text-light text-muted brand-small-text-2 m-0 text-capitalize">{fileStatusText}</p>
 					</section>
 
-					<section className = {`conversion-status  d-flex align-items-center justify-content-center p-1  rounded-1 brand-white-color-outline mx-1`} onClick={checkFileToConvertTo}>
-							<p className="text-light text-muted brand-small-text-2 text-capitalize m-0">{convertTo}</p>
+					<section className = {`conversion-status  d-flex align-items-center justify-content-center p-1  rounded-1 brand-white-color-outline mx-1`} onClick={convertToClick}>
+							<p className="text-light text-muted brand-small-text-2 text-capitalize m-0">{convertToText}</p>
 					</section>
 
 
 					<section className="conversion-size">
-							<p className="text-muted text-light brand-small-text-2 text-capitalize m-0"> {fileExtension} / {fileSize} </p>
+							<p className="text-muted text-light brand-small-text-2 text-capitalize m-0">{fileSize} </p>
 					</section>
 
 				
