@@ -6,7 +6,7 @@ import * as navigate from "./../includes/scripts/handleNavigation";
 import Spinner from "./../components/spinner";
 import jQuery from "jquery";
 import {removeUploadedFileBackground} from "./../apis/handleBackgroundRemoval";
-import {convertBytesToKb} from "./../includes/scripts/script";
+import {convertBytesToKb, isImage} from "./../includes/scripts/script";
 import ConversionCard from "./../components/conversion-card";
 import db from "./../backend/db";
 import Swal from "sweetalert2";
@@ -26,7 +26,7 @@ const Remove = () =>{
     navigate.checkIfHomePageSeen();
     const [frontendUploadData, setFrontendUploadData] = useState <any>(<React.Fragment></React.Fragment>);
     const [backgroundRemovalStatus, setBackgroundRemovalStatus] = useState <number>(2);
-
+    const [validFile, setValidFile] = useState<boolean>(false);
     const getFileDetails = (e: any) =>{
 
         const files = e.target.files;
@@ -36,31 +36,30 @@ const Remove = () =>{
         const frontendData = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
             const {lastModified, lastModifiedDate, name : filename, size : filesize, type : filetype} = file;
 
-            if (file.type.startsWith("image/"))
-            {
-                console.log(lastModified);
-                console.log(lastModifiedDate);
-                console.log(filename);
-                console.log(convertBytesToKb(filesize));
-                console.log(filetype);
+               if (isImage(files[fileIndex]))
+                    {
+                        setValidFile(true);
+                        db.create("BADASS_REMOVE_BG_VALID_FILE", "true");
 
-                return <ConversionCard key = {`${lastModified}${filename}`} fileName = {filename} fileSize = {`${convertBytesToKb(filesize)}Kb`} fileExtension = {filetype} fileConvertStatus = {backgroundRemovalStatus} convertToElement={<React.Fragment></React.Fragment>} />
+                    }else
+                    {
+                        setValidFile(false);
+                        db.create("BADASS_REMOVE_BG_VALID_FILE", "false");
 
-            }else{
-                Swal.fire({
-                    toast:true,
-                    title:"Only image file are allowed",
-                    icon:"info",
-                    timer:4000,
-                    showConfirmButton: false,
-                    position:"top"
-                }).then((willProceed)=>{
+                        Swal.fire({
+                            toast:true,
+                            text:"Only image files are allowed",
+                            icon:"info",
+                            timer:4000,
+                            showConfirmButton: false,
+                            position:"top"
+                        }).then((willProceed)=>{
+                            return;
+                        });
+
+
                         return;
-                });
-
-                return;
-             }
-           
+                    }
         });
 
         setFrontendUploadData(frontendData);
@@ -105,7 +104,9 @@ const Remove = () =>{
 
                              <section className="conversion-area" id="conversion-area">
 
-                                 {frontendUploadData}
+                                
+                                {(frontendUploadData === true && db.get("BADASS_VALID_FILE") === "true") ? frontendUploadData : <React.Fragment></React.Fragment>}
+
 
                             </section>
 

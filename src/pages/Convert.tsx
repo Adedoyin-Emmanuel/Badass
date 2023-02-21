@@ -38,6 +38,7 @@ const Convert = () =>{
     const [fileConvertStatus, setConvertStatus] = useState(2);
     const [fileDetails, setFileDetails] = useState<convertAPI.ConvertJSONResponse>();
     const [validFile, setValidFile] = useState<boolean>(false);
+    
     useEffect(()=>{
         jQuery(($)=>{
             $.noConflict();
