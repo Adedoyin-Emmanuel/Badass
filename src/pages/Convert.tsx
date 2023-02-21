@@ -47,6 +47,21 @@ const Convert = () =>{
                 const files = e.target.files;
                 const formData = new FormData(), fileArray = [...files];
 
+                if (!navigator.onLine) 
+                {
+                Swal.fire({
+                    toast:true,
+                    timer:4000,
+                    text:"No internet connection",
+                    icon:"error",
+                    showConfirmButton:false,
+                    position:"top"
+                });
+
+                return false;
+                }
+
+
                 fileArray.forEach((file: any, fileIndex: number)=>{
                     if (isImage(files[fileIndex]))
                     {

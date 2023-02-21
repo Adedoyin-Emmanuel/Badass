@@ -26,7 +26,6 @@ const Remove = () =>{
 
     navigate.checkIfHomePageSeen();
     const [frontendUploadData, setFrontendUploadData] = useState <any>(<React.Fragment></React.Fragment>);
-    const [backgroundRemovalStatus, setBackgroundRemovalStatus] = useState <number>(2);
     const [validFile, setValidFile] = useState<boolean>(false);
     const [removeBgFileStatus, setRemoveBgFileStatus] = useState<number>(2);
     let frontendDataDuplicate: JSX.Element = <React.Fragment></React.Fragment>;
@@ -45,7 +44,7 @@ const Remove = () =>{
                     const files = e.target.files;
                     const fileArray = [...files], formData = new FormData();
 
-                    //db.create("BADASS_REMOVE_BG_FILE_STATUS", 2);
+                    db.create("BADASS_REMOVE_BG_FILE_STATUS", "2");
 
                     const frontendData = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
                         const {lastModified, lastModifiedDate, name : filename, size : filesize, type : filetype} = file;
@@ -73,14 +72,19 @@ const Remove = () =>{
                                 return;
                            }
                          
-                        return <ConversionCard key = {`${lastModified}${filename}`} fileName = {filename} fileSize = {`${convertBytesToKb(filesize)}Kb`} fileExtension = {filetype} fileConvertStatus = {removeBgFileStatus} convertToElement={<React.Fragment></React.Fragment>} />;
+                        return <ConversionCard key = {`${lastModified}${filename}`} fileName = {filename} fileSize = {`${convertBytesToKb(filesize)}Kb`} fileExtension = {filetype} fileConvertStatus = {parseInt(db.get("BADASS_REMOVE_BG_FILE_STATUS"))} convertToElement={<React.Fragment></React.Fragment>} />;
             });
 
-                setFrontendUploadData(frontendData);
+                    setFrontendUploadData(frontendData);
 
                     fileArray.forEach((file:FrontendFileData, fileIndex:number)=>{
                         formData.append("image_file", files[fileIndex]);
                         const backgroundRemovalStatus = removeUploadedFileBackground(formData, files[fileIndex].filename);
+
+                        (backgroundRemovalStatus) ?  db.update("BADASS_REMOVE_BG_FILE_STATUS", "1"):  db.update("BADASS_REMOVE_BG_FILE_STATUS", "0");
+                        setFrontendUploadData(frontendData);
+                        console.log(frontendData);
+                        console.log(db.get("BADASS_REMOVE_BG_FILE_STATUS"));
                     });
                 });
             });

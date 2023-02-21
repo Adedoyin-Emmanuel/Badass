@@ -21,7 +21,9 @@ export const removeUploadedFileBackground = (formData: any, filename: string) =>
                     icon:"error",
                     showConfirmButton:false,
                     position:"top"
-                })
+                });
+
+                return false;
              }
 
              //connect to the API
@@ -68,8 +70,10 @@ export const removeUploadedFileBackground = (formData: any, filename: string) =>
                             timer:4000,
                             showConfirmButton:false
                         }).then((willProceed: SwalPromise)=>{
-                            return;
+                            return false;
                         });
+
+                        return false;
                     }
                     const link = document.createElement('a');
 
@@ -90,7 +94,7 @@ export const removeUploadedFileBackground = (formData: any, filename: string) =>
                         position:"top",
                         showConfirmButton:false
                      }).then((willProceed)=>{
-                        return;
+                        return true;
                      });
 
                     return true;
