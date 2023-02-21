@@ -4,7 +4,7 @@ import AppHeader from "./../components/app-header";
 import AppFooter from "./../components/app-footer";
 import Button from "./../components/button";
 import * as navigate from "./../includes/scripts/handleNavigation";
-import {convertBytesToKb} from "./../includes/scripts/script";
+import {convertBytesToKb, isImage} from "./../includes/scripts/script";
 import Spinner from "./../components/spinner";
 import * as convertAPI from "./../apis/handleConversion";
 import ConversionCard from "./../components/conversion-card";
@@ -37,7 +37,7 @@ const Convert = () =>{
     const [convertTo, setConvertTo] = useState("To");
     const [fileConvertStatus, setConvertStatus] = useState(2);
     const [fileDetails, setFileDetails] = useState<convertAPI.ConvertJSONResponse>();
-
+    const [validFile, setValidFile] = useState<boolean>(false);
     useEffect(()=>{
         jQuery(($)=>{
             $.noConflict();
@@ -47,8 +47,33 @@ const Convert = () =>{
                 const formData = new FormData(), fileArray = [...files];
 
                 fileArray.forEach((file: any, fileIndex: number)=>{
-                    formData.append("files[]", files[fileIndex]);
-                    db.create(`BADASS_CONVERT_TOTAL_FILES_UPLOADED`, files.length)
+                    if (isImage(files[fileIndex]))
+                    {
+                        formData.append("files[]", files[fileIndex]);
+                        db.create(`BADASS_CONVERT_TOTAL_FILES_UPLOADED`, files.length);
+                        setValidFile(true);
+                        db.create("BADASS_VALID_FILE", "true");
+
+                    }else
+                    {
+                        setValidFile(false);
+                        db.create("BADASS_VALID_FILE", "false");
+
+                        Swal.fire({
+                            toast:true,
+                            text:"Only image files are allowed",
+                            icon:"info",
+                            timer:4000,
+                            showConfirmButton: false,
+                            position:"top"
+                        }).then((willProceed)=>{
+                            return;
+                        });
+
+
+                        return;
+                    }
+                    
                 });
 
                 const checkFileToConvertTo = () =>{
@@ -78,7 +103,7 @@ const Convert = () =>{
                                 const fetchData = async () =>{
                                     const response = await convertAPI.connectToBackend(formData, selectedFormat);
                                     const legitResponse = JSON.parse(response);
-                                    
+                                    setValidFile(true);
                                     legitResponse.forEach((data: convertAPI.ConvertJSONResponse, dataIndex: number)=>{
                                         const {id, filename, extension, filesize, converting_to : convertingTo} = data;
 
@@ -95,15 +120,16 @@ const Convert = () =>{
                     })
                 }
 
-                   const updateFrontend = (convertToArg: string = "To") =>{
-                    const testData: JSX.Element[] = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
+                const updateFrontend = (convertToArg: string = "To") =>{
+                    const conversionCardContent: JSX.Element[] = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
                         //const sayHi = () => console.log(`${file.lastModified}${file.name}`);
                         const userConvertType = () => checkFileToConvertTo();
                         const convertToLegitElement = <ConvertTo convertToText={convertToArg} convertToClick={userConvertType}/>
-                        return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {file.name} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {file.type} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />
+                        return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {file.name} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {file.type} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />;
+                        
                     });
 
-                    return testData;
+                    return conversionCardContent;
                 }
 
 
@@ -124,7 +150,7 @@ const Convert = () =>{
 
                      <section className="conversion-area" id="conversion-area">
 
-                        {conversionUiData}
+                        {(validFile === true && db.get("BADASS_VALID_FILE") === "true") ? conversionUiData : <React.Fragment></React.Fragment>}
 
                      </section>
 

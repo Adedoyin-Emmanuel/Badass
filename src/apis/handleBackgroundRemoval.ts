@@ -7,8 +7,8 @@ interface SwalPromise
 	isConfirmed: boolean,
 }
 
-export const removeUploadedFileBackground = (element:any) =>{
-	$(`${element}`).on("change", (e: any)=>{
+export const removeUploadedFileBackground = (element:any) => {
+	$(`#${element}`).on("change", (e: any)=>{
 		const files= e.target.files;
 		const formData = new FormData(), fileArray = [...files];
 
@@ -75,6 +75,8 @@ export const removeUploadedFileBackground = (element:any) =>{
 					link.click();
 
 					URL.revokeObjectURL(url);
+
+					return true;
 
 				});
 
