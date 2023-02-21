@@ -44,7 +44,7 @@ const Remove = () =>{
                     const files = e.target.files;
                     const fileArray = [...files], formData = new FormData();
 
-                    db.create("BADASS_REMOVE_BG_FILE_STATUS", "2");
+                    db.create("BADASS_REMOVE_BG_FILE_STATUS", "1");
 
                     const frontendData = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
                         const {lastModified, lastModifiedDate, name : filename, size : filesize, type : filetype} = file;
@@ -64,7 +64,7 @@ const Remove = () =>{
                                     icon:"info",
                                     timer:4000,
                                     showConfirmButton: false,
-                                    position:"top"
+                                    position:"top",
                                 }).then((willProceed)=>{
                                     return;
                                 });
@@ -82,9 +82,9 @@ const Remove = () =>{
                         const backgroundRemovalStatus = removeUploadedFileBackground(formData, files[fileIndex].filename);
 
                         (backgroundRemovalStatus) ?  db.update("BADASS_REMOVE_BG_FILE_STATUS", "1"):  db.update("BADASS_REMOVE_BG_FILE_STATUS", "0");
+
                         setFrontendUploadData(frontendData);
-                        console.log(frontendData);
-                        console.log(db.get("BADASS_REMOVE_BG_FILE_STATUS"));
+                       
                     });
                 });
             });
