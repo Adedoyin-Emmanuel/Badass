@@ -79,7 +79,7 @@ export const removeUploadedFileBackground = (formData: any, filename: string) =>
 
                     link.href = url;
 
-                    link.setAttribute('download', `removed_bg_${fileName}.${extension}`);
+                    link.setAttribute('download', `removed_bg_.${extension}`);
 
                     document.body.appendChild(link);
                 

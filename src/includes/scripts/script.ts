@@ -26,6 +26,14 @@ export const isImage = (file: any): boolean => {
 
 }
 
+
+export const returnFileExtension = (file: File): string =>{
+    const fileName: string = file.name;
+    const fileExtension: string = fileName.split('.').pop()!;
+
+    return fileExtension;
+}
+
 jQuery(($)=>{
 
     $.noConflict();

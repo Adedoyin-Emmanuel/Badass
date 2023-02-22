@@ -6,7 +6,7 @@ import * as navigate from "./../includes/scripts/handleNavigation";
 import Spinner from "./../components/spinner";
 import jQuery from "jquery";
 import {removeUploadedFileBackground} from "./../apis/handleBackgroundRemoval";
-import {convertBytesToKb, isImage} from "./../includes/scripts/script";
+import {convertBytesToKb, isImage, returnFileExtension} from "./../includes/scripts/script";
 import ConversionCard from "./../components/conversion-card";
 import db from "./../backend/db";
 import Swal from "sweetalert2";
@@ -72,14 +72,15 @@ const Remove = () =>{
                                 return;
                            }
                          
-                        return <ConversionCard key = {`${lastModified}${filename}`} fileName = {filename} fileSize = {`${convertBytesToKb(filesize)}Kb`} fileExtension = {filetype} fileConvertStatus = {parseInt(db.get("BADASS_REMOVE_BG_FILE_STATUS"))} convertToElement={<React.Fragment></React.Fragment>} />;
+                        return <ConversionCard key = {`${lastModified}${filename}`} fileName = {`${filename}${returnFileExtension(files[fileIndex])}`} fileSize = {`${convertBytesToKb(filesize)}Kb`} fileExtension = {filetype} fileConvertStatus = {parseInt(db.get("BADASS_REMOVE_BG_FILE_STATUS"))} convertToElement={<React.Fragment></React.Fragment>} />;
             });
 
                     setFrontendUploadData(frontendData);
 
                     fileArray.forEach((file:FrontendFileData, fileIndex:number)=>{
                         formData.append("image_file", files[fileIndex]);
-                        const backgroundRemovalStatus = removeUploadedFileBackground(formData, files[fileIndex].filename);
+                        console.log(file);
+                        const backgroundRemovalStatus = removeUploadedFileBackground(formData, file.name);
 
                         (backgroundRemovalStatus) ?  db.update("BADASS_REMOVE_BG_FILE_STATUS", "1"):  db.update("BADASS_REMOVE_BG_FILE_STATUS", "0");
 

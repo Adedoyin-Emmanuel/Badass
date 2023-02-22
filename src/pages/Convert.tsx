@@ -118,16 +118,31 @@ const Convert = () =>{
                                 const selectedFormat = trimSelectedOption($("#image_format"));
                                 const fetchData = async () =>{
                                     const response = await convertAPI.connectToBackend(formData, selectedFormat);
-                                    const legitResponse = JSON.parse(response);
+                                    const legitResponse = await JSON.parse(response);
+                                    console.log(response);
                                     setValidFile(true);
+
                                     legitResponse.forEach((data: convertAPI.ConvertJSONResponse, dataIndex: number)=>{
-                                        const {id, filename, extension, filesize, converting_to : convertingTo} = data;
+                                        const {id, filename, extension, filesize, converting_to : convertingTo, convert_status : convertStatus, message, image_data : imageData} = data;
 
                                         console.log(data);
                                         setFileDetails(data);
                                         db.update("BADASS_CONVERSION_STATUS", "1");
                                         setConversionUIData(updateFrontend(selectedFormat));
+                                        /*
+                                        const arrayBuffer = new ArrayBuffer(imageData.length);
+                                        const uintArray = new Uint8Array(arrayBuffer);
+                                        for (let i = 0; i < imageData.length; i++) {
+                                          uintArray[i] = imageData.charCodeAt(i);
+                                        }
+                                        const blob = new Blob([arrayBuffer], { type: 'image/png' }); // Create blob from array buffer
+                                        const url = URL.createObjectURL(blob); // Create object URL from blob
+                                        const link = document.createElement('a');
+                                        link.href = url;
+                                        link.download = 'image.png';
+                                        link.click();
 
+                                        */
                                     });
                                 }
                                 fetchData();
