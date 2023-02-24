@@ -8,25 +8,30 @@ const trimSearch = (element:any) =>{
 
 
 
-export const searchImage= (element: string) =>{
-	$(`#${element}`).on("submit", (e: any)=>{
+export const searchImage = () =>{
+	//$(`#${element}`).on("submit", (e: any)=>{
 
-		e.preventDefault();
+		//e.preventDefault();
 
 		const searchData = trimSearch($("#image-search"));
-		if(searchData == "" || searchData == " ")
-		{
-			Swal.fire({
-				toast:true,
-				text:"Enter a valid text",
-				icon:"warning",
-				timer:3000,
-				showConfirmButton:false,
-				position:"top"
-			})
-		}
-		$("#image-search").val("");
+		db.update("BADASS_SEARCH_ITEM", searchData);
+		console.log(db.get("BADASS_SEARCH_ITEM"));
+		console.log(searchData);
+		// if(searchData == "" || searchData == " ")
+		// {
+		// 	Swal.fire({
+		// 		toast:true,
+		// 		text:"Enter a valid text",
+		// 		icon:"warning",
+		// 		timer:3000,
+		// 		showConfirmButton:false,
+		// 		position:"top"
+		// 	})
+		// }
+		//$("#image-search").val("");
 
-		console.log(searchData.trim());
-	});
+		return db.get("BADASS_SEARCH_ITEM");
+	//});
+
+	//return db.get("BADASS_SEARCH_ITEM")	;
 }

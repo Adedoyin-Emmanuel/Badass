@@ -97,6 +97,10 @@ body{
 	font-size:var(--brand-small-text);
 }
 
+.brand-primary-text{
+	color:var(--brand-primary-light-color);
+}
+
 .brand-small-text-2{
 	font-size: calc(var(--brand-small-text) - .1rem);
 }
