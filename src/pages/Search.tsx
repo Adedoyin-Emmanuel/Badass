@@ -1,13 +1,18 @@
-import React, {Suspense} from "react";
+import React, {Suspense, useState, useEffect} from "react";
 import AppHeader from "./../components/app-header";
 import AppFooter from "./../components/app-footer";
 import Button from "./../components/button";
 import * as navigate from "./../includes/scripts/handleNavigation";
 import Spinner from "./../components/spinner";
-
+import * as searchAPI from "./../apis/handleImageSearch";
 const Search = () =>{
 
     navigate.checkIfHomePageSeen();
+    
+    useEffect(()=>{
+        searchAPI.searchImage("search-form");
+
+    });    
     return (
         <React.Fragment>
             <Suspense fallback={<Spinner/>}>
@@ -22,9 +27,9 @@ const Search = () =>{
 
 
                              <section className="m-auto d-flex align-items-center justify-content-center">
-                                <form className="form w-100 d-flex align-items-center justify-content-center">
+                                <form className="form w-100 d-flex align-items-center justify-content-center" id="search-form">
                                     <div>
-                                        <input type="search" placeholder="search images eg home, book, gift" className="form-control p-3 shadow brand-small-text search-element"/>
+                                        <input type="search" placeholder="search images eg home, book, gift" id="image-search" className="form-control w-100 p-3 shadow brand-small-text search-element"/>
                                     </div>
                                 </form>
                              </section>
