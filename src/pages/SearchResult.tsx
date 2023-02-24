@@ -21,3 +21,6 @@ const SearchResult = (): JSX.Element =>{
 
 	)
 }
+
+
+export default SearchResult;

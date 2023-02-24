@@ -1,4 +1,5 @@
-import React, {Suspense, useState, useEffect, useMemo} from "react";
+import React, {Suspense, useState, useEffect, useMemo, useRef} from "react";
+import {useNavigate} from "react-router-dom";
 import AppHeader from "./../components/app-header";
 import AppFooter from "./../components/app-footer";
 import Button from "./../components/button";
@@ -11,8 +12,13 @@ const Search = () =>{
 
     const [searchData, setSearchData] = useState<string>("");
     const [dataDonArrive, setDataDonArrive] = useState<boolean>(false);
+    const navigateTo = useNavigate();
     let userSearchItem = " ";
     navigate.checkIfHomePageSeen();
+
+    const test = () =>{
+       navigateTo(`${searchData}`)
+    }
     
     useEffect(()=>{
         //if(searchAPI.searchImage("search-form"))
@@ -24,19 +30,16 @@ const Search = () =>{
                 console.log("data don arrive is " + dataDonArrive);
                 setDataDonArrive(true);
                 setSearchData(searchResult);
+
                 $("#search-image").val("");
             })  
            
-
         }
 
-        //setSearchData(searchItem);
         getData();
     }); 
 
-   /* useMemo(()=>{
 
-    }, dataDonArrive);*/
     return (
         <React.Fragment>
             <Suspense fallback={<Spinner/>}>
@@ -53,13 +56,13 @@ const Search = () =>{
                              <section className="m-auto d-flex align-items-center justify-content-center">
                                 <form className="form w-100 d-flex align-items-center justify-content-center p-2" id="search-form">
                                     <div>
-                                        <input type="text" placeholder="search images eg bats, cars, gift" id="image-search" className="form-control w-100 p-3 shadow brand-small-text search-element"/>
+                                        <input type="text" placeholder="search images eg bats, cars, gift" name="searchItem" id="image-search" className="form-control w-100 p-3 shadow brand-small-text search-element"/>
                                     </div>
                                 </form>
                              </section>
 
                             <section className="search-results-container my-3">
-                               {(dataDonArrive) && <p className="text-capitalize brand-small-text mx-2 text-light">search result for <span className="brand-primary-text fw-bold">{searchData}</span></p>} 
+                               {(dataDonArrive) && <p className="text-capitalize brand-small-text mx-2 text-light">search result for <span className="brand-primary-text fw-bold" id="searchTerm" onClick={test}>{searchData}</span></p>} 
 
                                 
                                 <section className="d-flex align-items-center justify-content-center m-auto py-4">
