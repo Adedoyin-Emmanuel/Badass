@@ -24,7 +24,7 @@ const AppHeader = (props: Prop): JSX.Element => {
 	return (
 		<React.Fragment>
 			<nav
-				className="navbar navbar-expand-sm brand-primary-color fixed-top"
+				className="navbar navbar-expand-md brand-primary-color fixed-top"
 				aria-label="Badass navbar">
 				<div className="container-fluid">
 					<a className="navbar-brand text-dark fw-bold d-md-none" href="#">

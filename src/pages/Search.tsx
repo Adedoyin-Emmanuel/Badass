@@ -64,11 +64,11 @@ const Search = () =>{
                              <p className="text-muted text-light text-start p-2">Download multiple images at once</p>
 
 
-                             <section className="m-auto d-flex align-items-center justify-content-center">
-                                <form className="form w-100 d-flex align-items-center justify-content-center p-2" id="search-form">
-                                    <div>
+                             <section className="form-container m-auto width-toggle-7">
+                                <form className="d-flex align-items-center justify-content-center p-2" id="search-form">
+                                  
                                         <input type="text" placeholder="search images eg bats, cars, gift" name="searchItem" id="image-search" className="form-control w-100 p-3 shadow brand-small-text-2 search-element" autoComplete={"false"}/>
-                                    </div>
+                                    
                                 </form>
                              </section>
 

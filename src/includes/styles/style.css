@@ -258,6 +258,11 @@ body {
 	outline: 3px solid var(--brand-primary-light-color);
 }
 
+.form-container
+{
+	width:90%;
+}
+
 /*custom animations*/
 
 .fade-away
@@ -296,6 +301,9 @@ body {
 	}
 	.width-toggle-4{
 		width:30%;
+	}
+	.width-toggle-7{
+		width:40%;
 	}
 	.width-toggle-6{
 		width:25%;
