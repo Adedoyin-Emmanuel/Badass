@@ -4,9 +4,23 @@ import * as navigate from "./../includes/scripts/handleNavigation";
 interface Prop 
 {
 	title: string
+	backButtonClick?: ()=> void
 }
 
 const AppHeader = (props: Prop): JSX.Element => {
+
+	const checkIfThereIsCustomDefinedNavigation = () =>{
+		//checks if there is a custom navigation function defined else navigate to default route /
+		if(props.backButtonClick)
+		{
+			navigate.navigateToHome();
+		}else
+
+		{
+			 props.backButtonClick();
+
+		}
+	}
 	return (
 		<React.Fragment>
 			<nav
@@ -19,7 +33,7 @@ const AppHeader = (props: Prop): JSX.Element => {
 							id="Layer_1"
 							version="1.1"
 							fill="#fff"
-							onClick={navigate.navigateToApp}
+							onClick={checkIfThereIsCustomDefinedNavigation}
 							viewBox="0 0 512 512"
 							width={"30"}
 							xmlns="http://www.w3.org/2000/svg">

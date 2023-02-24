@@ -9,14 +9,9 @@ const trimSearch = (element:any) =>{
 
 
 export const searchImage = () =>{
-	//$(`#${element}`).on("submit", (e: any)=>{
-
-		//e.preventDefault();
 
 		const searchData = trimSearch($("#image-search"));
 		db.update("BADASS_SEARCH_ITEM", searchData);
-		console.log(db.get("BADASS_SEARCH_ITEM"));
-		console.log(searchData);
 		// if(searchData == "" || searchData == " ")
 		// {
 		// 	Swal.fire({
@@ -31,7 +26,5 @@ export const searchImage = () =>{
 		//$("#image-search").val("");
 
 		return db.get("BADASS_SEARCH_ITEM");
-	//});
 
-	//return db.get("BADASS_SEARCH_ITEM")	;
 }
