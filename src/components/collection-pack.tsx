@@ -20,7 +20,7 @@ const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, preview
 	return (
 
 		<React.Fragment>	
-				<div className="container mt-5">
+				<div className="container-fluid mt-5">
 				  <div className="card shadow">
 				    <div id={`${removeSymbols(coverPhotoId)}`} className="carousel slide" data-bs-ride="carousel">
 				      <div className="carousel-indicators">
