@@ -36,11 +36,8 @@ const Search = () =>{
                 setFormSubmitted(true);
                 setTimeout(()=>{
                        let searchResult = searchAPI.searchImage();
-                        // console.log("seach result is " + searchAPI.searchImage());
-                        // console.log("data don arrive is " + dataDonArrive);
                         setDataDonArrive(true);
                         setSearchData(searchResult);
-
                        
                    }, 2000);
                 setDataDonArrive(false);
@@ -72,7 +69,7 @@ const Search = () =>{
                                 </form>
                              </section>
 
-                            <section className="search-results-container my-3">
+                            <section className="search-results-container my-2">
                                {(dataDonArrive) && <p className="text-capitalize brand-small-text mx-2 text-light px-2">search results for <span className="brand-primary-text fw-bold" id="searchTerm" onClick={test}>{searchData}</span></p>} 
                                 
                                 {
@@ -82,16 +79,23 @@ const Search = () =>{
                                 } 
                             </section>
 
-                            <section>
+                            <section className="container">
+                                <section className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                                        <CollectionPack/>
+                                        <CollectionPack/>
+                                        <CollectionPack/>
+                                        <CollectionPack/>
+                                        <CollectionPack/>
+                                        <CollectionPack/>
+                                        <br/>
 
-                                <CollectionPack/>
+                                        <br/>
 
-                                <br/>
+                                        <br/>
+                                        <br/>
 
-                                <br/>
+                                </section>
 
-                                <br/>
-                                <br/>
                             </section>
                              <AppFooter childrenSearchActivePage="current-active-page"/>
                     </section>
