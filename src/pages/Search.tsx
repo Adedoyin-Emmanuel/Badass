@@ -75,7 +75,6 @@ const Search = () =>{
     return (
         <React.Fragment>
             <Suspense fallback={<Spinner/>}>
-                    <Spinner/>
                     <section className="container-fluid p-0 d-flex flex-column">
                             <AppHeader title="Search Images" backButtonClick={navigateBack}/>
                                 <br/>
