@@ -7,6 +7,18 @@ const trimSearch = (element:any) =>{
 }
 
 
+export interface CollectionPackProps
+{
+	title?:string,
+	total?: number,
+	previewPhotoOne?: string,
+	previewPhotoTwo?: string,
+	previewPhotoThree?: string,
+	user?: string,
+	id?: number | string,
+	altDescription?: string
+}
+
 
 export const searchImage = () =>{
 
@@ -15,16 +27,10 @@ export const searchImage = () =>{
 
 		const key = "g7d7KRxOl8fE437qOTxlsf9XYcd3ApDgtZlLs5XMa3Y";
 
-		$.ajax({
+		return $.ajax({
 			url:`https://api.unsplash.com/search/collections/?per_page=20&client_id=${key}&query=${searchData}`,
 			processData:false,
-			success: (response) =>{
-				const legit_response = response.results;
-
-				console.log(legit_response);
-			}
-		})
-
-		return db.get("BADASS_SEARCH_ITEM");
+			contentType:false,
+		});
 
 }

@@ -8,6 +8,7 @@ import Spinner from "./../components/spinner";
 import * as searchAPI from "./../apis/handleImageSearch";
 import db from "./../backend/db";
 import CollectionPack from "./../components/collection-pack";
+
 import $ from "jquery";
 
 const Search = () =>{
@@ -15,6 +16,8 @@ const Search = () =>{
     const [searchData, setSearchData] = useState<string>("");
     const [dataDonArrive, setDataDonArrive] = useState<boolean>(false);
     const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+    const [apiReturnedData, setApiReturnedData] = useState<any>();
+
 
     const navigateTo = useNavigate();
     let userSearchItem = " ";
@@ -34,12 +37,21 @@ const Search = () =>{
             $("#search-form").on("submit", (e: any)=>{
                 e.preventDefault();
                 setFormSubmitted(true);
-                setTimeout(()=>{
-                       let searchResult = searchAPI.searchImage();
+                setTimeout(async ()=>{
+                        let searchResult = await searchAPI.searchImage();
+                        db.create("BADASS_TOTAL_SEARCH_IMAGES", searchResult.total);
+                        db.create("BADASS_TOTAL_SEARCH_PAGES", searchResult.total_pages);
+
+                        setApiReturnedData(searchResult.results.map((data:any)=>{
+                             return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description}/>
+                        }));
+
+                        console.log(searchResult.results);
+                        let searchItem = db.get("BADASS_SEARCH_ITEM");
                         setDataDonArrive(true);
-                        setSearchData(searchResult);
+                        setSearchData(searchItem);
                        
-                   }, 2000);
+                   }, 0);
                 setDataDonArrive(false);
             })  
            
@@ -47,7 +59,6 @@ const Search = () =>{
 
         getData();
     }); 
-
 
     return (
         <React.Fragment>
@@ -62,9 +73,9 @@ const Search = () =>{
 
 
                              <section className="form-container m-auto width-toggle-7">
-                                <form className="d-flex align-items-center justify-content-center p-2" id="search-form">
+                                <form className="d-flex align-items-center justify-content-center p-2" id="search-form" >
                                   
-                                        <input type="text" placeholder="search images eg bats, cars, gift" name="searchItem" id="image-search" className="form-control w-100 p-3 shadow brand-small-text-2 search-element" autoComplete={"false"}/>
+                                        <input type="text" placeholder="search images eg bats, cars, gift" name="searchItem" id="image-search" className="form-control w-100 p-3 shadow brand-small-text-2 search-element" autoComplete={"off"}/>
                                     
                                 </form>
                              </section>
@@ -81,19 +92,10 @@ const Search = () =>{
 
                             <section className="container">
                                 <section className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                                        <CollectionPack/>
-                                        <CollectionPack/>
-                                        <CollectionPack/>
-                                        <CollectionPack/>
-                                        <CollectionPack/>
-                                        <CollectionPack/>
-                                        <br/>
 
+                                       {(dataDonArrive) && apiReturnedData}
                                         <br/>
-
                                         <br/>
-                                        <br/>
-
                                 </section>
 
                             </section>

@@ -13,7 +13,7 @@ interface CollectionPackProps
 	altDescription?: string
 }
 
-const CollectionPack: React.FC = ({title, total, previewPhotoOne, previewPhotoTwo, previewPhotoThree, user, id, altDescription}: CollectionPackProps) =>{
+const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, previewPhotoThree, user, id, altDescription}: CollectionPackProps) =>{
 	return (
 
 		<React.Fragment>	
@@ -31,10 +31,10 @@ const CollectionPack: React.FC = ({title, total, previewPhotoOne, previewPhotoTw
 				          <img src={previewPhotoOne} alt={altDescription}  className="d-block w-100" />
 				        </div>
 				        <div className="carousel-item shadow-sm">
-				          <img src={previewPhotoTwo} alt={`photo relating to ${title}`} className="d-block w-100" />
+				          <img src={previewPhotoTwo} alt={`photo relating to ${title}`} className="d-block w-100  h-100" />
 				        </div>
 				        <div className="carousel-item shadow-sm">
-				          <img src={previewPhotoThree} alt={`photo relating to ${title}`} className="d-block w-100"/>
+				          <img src={previewPhotoThree} alt={`photo relating to ${title}`} className="d-block w-100 h-100"/>
 				        </div>
 				        				    	
 				      </div>

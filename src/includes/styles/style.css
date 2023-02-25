@@ -270,6 +270,13 @@ body {
 	outline: 3px solid var(--brand-primary-light-color);
 }
 
+
+
+.carousel-item img {
+  height: 200px; /* set the height of the images to 100% of the carousel height */
+  object-fit: cover; /* use object-fit to ensure the images fill the container while preserving their aspect ratio */
+}
+
 .form-container
 {
 	width:90%;
