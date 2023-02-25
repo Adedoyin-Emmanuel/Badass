@@ -304,8 +304,8 @@ body {
 }
 
 .image-card-container{
-	height:400px;
-	border:2px solid var(--brand-primary-light-color);
+	height:300px;
+	border:1px solid var(--brand-primary-light-color);
 }
 .image-container img
 {

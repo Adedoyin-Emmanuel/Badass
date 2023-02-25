@@ -95,7 +95,7 @@ const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, preview
 						    <path d="M14.5 13.5v1a.5.5 0 0 1-.5.5h-12a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .5.5z"/>
 						  </svg> Download
 						</button>
-				      <button type="button" className="p-1 px-2 rounded brand-small-text-2 text-capitalize brand-view-image-btn">view images</button>
+				      <button type="button" className="p-1 px-2 rounded brand-small-text-2 text-capitalize brand-view-image-btn" onClick={handleViewImageClick}>view images</button>
 				    </div>
 				  </div>
 				</div>

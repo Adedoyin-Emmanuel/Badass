@@ -27,7 +27,7 @@ const AppHeader = (props: Prop): JSX.Element => {
 				className="navbar navbar-expand-md brand-primary-color fixed-top"
 				aria-label="Badass navbar">
 				<div className="container-fluid">
-					<a className="navbar-brand text-dark fw-bold d-md-none" href="#">
+					<span className="navbar-brand text-dark fw-bold d-md-none">
 						<svg
 							height={"30"}
 							id="Layer_1"
@@ -39,9 +39,9 @@ const AppHeader = (props: Prop): JSX.Element => {
 							xmlns="http://www.w3.org/2000/svg">
 							<polygon points="352,128.4 319.7,96 160,256 160,256 160,256 319.7,416 352,383.6 224.7,256 " />
 						</svg>
-					</a>
+					</span>
 
-					<a className="text-decoration-none fs-5 text-dark fw-bold d-md-none" href="#">
+					<a className="text-decoration-none fs-5 text-dark fw-bold d-md-none" href="">
 						{props.title}
 					</a>
 					<button

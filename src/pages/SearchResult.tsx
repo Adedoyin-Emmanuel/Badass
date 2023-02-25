@@ -20,7 +20,7 @@ const SearchResult = (): JSX.Element =>{
 
 	const [imageTitle, setImageTitle] = useState(()=> db.get("BADASS_IMAGE_TITLE"));
 	const [imageUser, setImageUser] = useState(()=> db.get("BADASS_IMAGE_USER"));
-	
+
  
 	useEffect( ()=>{
 
@@ -40,9 +40,17 @@ const SearchResult = (): JSX.Element =>{
 	                    <br/>
 
 	                  <section className="search-content-container my-2 p-1">
-	                    <p className="text-capitalize brand-small-text text-light"><span className="brand-text-primary-color text-captitalize fw-bold">bats </span> by josh</p>
+	                    <p className="text-capitalize brand-small-text text-light"><span className="brand-text-primary-color text-captitalize fw-bold">{imageTitle} </span> by user {imageUser}</p>
 	                    <p className="text-capitalize brand-small-text-2 text-light text-muted p-0">*you can preview an image by clicking or tapping on it</p>
 	                  </section>
+	                  <section className="container">
+                        <section className="d-flex flex-md-row flex-column align-items-center justify-content-around">
+	                 		 <ImagePreviewCard/>
+	                 		 <ImagePreviewCard/>
+	                 		 <ImagePreviewCard/>
+                        </section>
+
+                     </section>
                     <AppFooter childrenSearchActivePage="current-active-page"/>
 
 				</section>
