@@ -62,7 +62,6 @@ const Search = () =>{
                                 <br/>
                                 <br/>
                              <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light text-capitalize">Bulk image downloader</h3>
-                             <p className="text-muted text-light text-start p-2">Download multiple images at once</p>
 
 
                              <section className="form-container m-auto width-toggle-7">
@@ -74,7 +73,7 @@ const Search = () =>{
                              </section>
 
                             <section className="search-results-container my-3">
-                               {(dataDonArrive) && <p className="text-capitalize brand-small-text mx-2 text-light ">search result for <span className="brand-primary-text fw-bold" id="searchTerm" onClick={test}>{searchData}</span></p>} 
+                               {(dataDonArrive) && <p className="text-capitalize brand-small-text mx-2 text-light px-2">search results for <span className="brand-primary-text fw-bold" id="searchTerm" onClick={test}>{searchData}</span></p>} 
 
                                 
                                 {
