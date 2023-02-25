@@ -182,20 +182,29 @@ body{
 }
 
 .brand-view-image-btn{
-	border: 2px solid var(--brand-primary-dark-color);
+	border: 1px solid var(--brand-primary-dark-color);
 	background:transparent;
-
+	transition: .5s;
+	color: var(--brand-primary-dark-color);
 }
 
 .brand-download-image-btn{
 	background:var(--brand-primary-dark-color);
 	border:none;
 	outline:none;
+	color:var(--brand-white-color);
+	transition: .5s;
 }
 
-.brand-download-image-btn: hover{
-	color:var(--brand-primary-light-color);
+.brand-download-image-btn:hover{
+	border: 1px solid var(--brand-primary-dark-color);
+	background:transparent;
+	color:var(--brand-primary-dark-color);
+}
+
+.brand-view-image-btn:hover{
 	background:var(--brand-primary-dark-color);
+	color:var(--brand-white-color);
 }
 
 .get-started {
