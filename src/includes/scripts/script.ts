@@ -26,6 +26,11 @@ export const isImage = (file: any): boolean => {
 
 }
 
+export const removeSymbols = (str: string): string =>{
+  return str.replace(/[^a-zA-Z]/g, '');
+}
+
+
 
 export const returnFileExtension = (file: File): string =>{
     const fileName: string = file.name;

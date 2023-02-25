@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import JSZip from "jszip";
+import {removeSymbols} from "./../includes/scripts/script";
 
 interface CollectionPackProps
 {
@@ -20,14 +21,15 @@ const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, preview
 		<React.Fragment>	
 				<div className="container mt-5">
 				  <div className="card shadow">
-				    <div id={`${coverPhotoId}`} className="carousel slide" data-bs-ride="carousel">
+				    <div id={`${removeSymbols(coverPhotoId)}`} className="carousel slide" data-bs-ride="carousel">
 				      <div className="carousel-indicators">
-				        <button type="button" data-bs-target={`#${coverPhotoId}`} data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-				        <button type="button" data-bs-target={`#${coverPhotoId}`} data-bs-slide-to="1" aria-label="Slide 2"></button>
-				        <button type="button" data-bs-target={`#${coverPhotoId}`} data-bs-slide-to="2" aria-label="Slide 3"></button>
+				        <button type="button" data-bs-target={`#${removeSymbols(coverPhotoId)}`} data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+				        <button type="button" data-bs-target={`#${removeSymbols(coverPhotoId)}`} data-bs-slide-to="1" aria-label="Slide 2"></button>
+				        <button type="button" data-bs-target={`#${removeSymbols(coverPhotoId)}`} data-bs-slide-to="2" aria-label="Slide 3"></button>
 				      </div>
 
-				      <div className="carousel-inner shadow-sm">
+				     {
+				     	(total > 2) &&  <div className="carousel-inner shadow-sm">
 				        <div className="carousel-item active">
 				          <img src={previewPhotoOne} alt={altDescription}  className="d-block w-100" />
 				        </div>
@@ -36,20 +38,41 @@ const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, preview
 				        </div>
 				        <div className="carousel-item shadow-sm">
 				          <img src={previewPhotoThree} alt={`photo relating to ${title}`} className="d-block w-100"/>
+				        </div>			        				    	
+				      </div>
+				     }
+
+				     {
+				     	(total == 2) && <div className="carousel-inner shadow-sm">
+				        <div className="carousel-item active">
+				          <img src={previewPhotoOne} alt={altDescription}  className="d-block w-100" />
 				        </div>
-				        				    	
+				        <div className="carousel-item shadow-sm">
+				          <img src={previewPhotoTwo} alt={`photo relating to ${title}`} className="d-block w-100" />
+				        </div>			        				    	
 				      </div>
 
-				      <button className="carousel-control-prev" type="button" data-bs-target={`#${coverPhotoId}`} data-bs-slide="prev">
+				     }
+
+				     {
+				     	(total == 1) && <div className="carousel-inner shadow-sm">
+				        <div className="carousel-item active">
+				          <img src={previewPhotoOne} alt={altDescription}  className="d-block w-100" />
+				        </div>		        				    	
+				      </div>
+
+				     }
+
+				      <button className="carousel-control-prev" type="button" data-bs-target={`#${removeSymbols(coverPhotoId)}`} data-bs-slide="prev">
 				        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
 				        <span className="visually-hidden">Previous</span>
 				      </button>
-				      <button className="carousel-control-next" type="button" data-bs-target={`#${coverPhotoId}`} data-bs-slide="next">
+				      <button className="carousel-control-next" type="button" data-bs-target={`#${removeSymbols(coverPhotoId)}`} data-bs-slide="next">
 				        <span className="carousel-control-next-icon" aria-hidden="true"></span>
 				        <span className="visually-hidden">Next</span>
 				      </button>
 				    		<p className="text-capitalize text-center brand-small-text my-2 fw-bold">{title}</p>
-				    		<p className="text-capitalize text-center brand-small-text-2 my-2">{total} images</p>
+				    		<p className="text-capitalize text-center brand-small-text-2 my-2">{total} {(total > 1) ? "images" : "image"}</p>
 				    </div>
 
 				    <div className="d-flex justify-content-around mt-3 my-2">
@@ -63,6 +86,7 @@ const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, preview
 				    </div>
 				  </div>
 				</div>
+				
 		</React.Fragment>
 	);
 }
