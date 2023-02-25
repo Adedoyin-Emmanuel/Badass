@@ -74,7 +74,6 @@ const Search = () =>{
 
                             <section className="search-results-container my-3">
                                {(dataDonArrive) && <p className="text-capitalize brand-small-text mx-2 text-light px-2">search results for <span className="brand-primary-text fw-bold" id="searchTerm" onClick={test}>{searchData}</span></p>} 
-
                                 
                                 {
                                     (!dataDonArrive && formSubmitted) && <section className="d-flex align-items-center justify-content-center m-auto py-4">

@@ -1,6 +1,4 @@
 import React from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
 import JSZip from "jszip";
 
 
@@ -39,7 +37,8 @@ const CollectionPack: React.FC = () =>{
 				        <span className="carousel-control-next-icon" aria-hidden="true"></span>
 				        <span className="visually-hidden">Next</span>
 				      </button>
-				    		<p className="text-capitalize text-center brand-small-text my-2">75 images</p>
+				    		<p className="text-capitalize text-center brand-small-text my-2 fw-bold">Bats by Josh</p>
+				    		<p className="text-capitalize text-center brand-small-text-2 my-2">75 images</p>
 				    </div>
 
 				    <div className="d-flex justify-content-around mt-3 my-2">

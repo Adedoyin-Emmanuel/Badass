@@ -12,18 +12,18 @@ export const searchImage = () =>{
 
 		const searchData = trimSearch($("#image-search"));
 		db.update("BADASS_SEARCH_ITEM", searchData);
-		// if(searchData == "" || searchData == " ")
-		// {
-		// 	Swal.fire({
-		// 		toast:true,
-		// 		text:"Enter a valid text",
-		// 		icon:"warning",
-		// 		timer:3000,
-		// 		showConfirmButton:false,
-		// 		position:"top"
-		// 	})
-		// }
-		//$("#image-search").val("");
+
+		const key = "g7d7KRxOl8fE437qOTxlsf9XYcd3ApDgtZlLs5XMa3Y";
+
+		$.ajax({
+			url:`https://api.unsplash.com/search/collections/?per_page=20&client_id=${key}&query=${searchData}`,
+			processData:false,
+			success: (response) =>{
+				const legit_response = response.results;
+
+				console.log(legit_response);
+			}
+		})
 
 		return db.get("BADASS_SEARCH_ITEM");
 
