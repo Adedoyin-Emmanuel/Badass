@@ -294,6 +294,15 @@ body {
   object-fit: cover; 
 }
 
+.image-card-container{
+	height:400px;
+	border:2px solid var(--brand-primary-light-color);
+}
+.image-container img
+{
+	height:200px;
+	object-fit: cover;
+}
 .form-container
 {
 	width:90%;

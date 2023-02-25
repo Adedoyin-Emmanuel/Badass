@@ -51,17 +51,17 @@ const Search = () =>{
                 e.preventDefault();
                 setFormSubmitted(true);
                 setTimeout(async ()=>{
-                        let searchResult = await searchAPI.searchImage();
-                        db.create("BADASS_TOTAL_SEARCH_IMAGES", searchResult.total);
-                        db.create("BADASS_TOTAL_SEARCH_PAGES", searchResult.total_pages);
-                        $("#image-search").blur();
-                        setApiReturnedData(searchResult.results.map((data:any) =>{
-                             return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description} coverPhotoId={data.cover_photo.id}/>
-                        }));
+                    let searchResult = await searchAPI.searchImage();
+                    db.create("BADASS_TOTAL_SEARCH_IMAGES", searchResult.total);
+                    db.create("BADASS_TOTAL_SEARCH_PAGES", searchResult.total_pages);
+                    $("#image-search").blur();
+                    setApiReturnedData(searchResult.results.map((data:any) =>{
+                         return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description} coverPhotoId={data.cover_photo.id}/>
+                    }));
 
-                        let searchItem = db.get("BADASS_SEARCH_ITEM");
-                        setDataDonArrive(true);
-                        setSearchData(searchItem);
+                    let searchItem = db.get("BADASS_SEARCH_ITEM");
+                    setDataDonArrive(true);
+                    setSearchData(searchItem);
                        
                    }, 0);
                 setDataDonArrive(false);
@@ -92,7 +92,7 @@ const Search = () =>{
                              </section>
 
                             <section className="search-results-container my-2">
-                               {(dataDonArrive) && <p className="text-capitalize brand-small-text mx-2 text-light px-2">search results for <span className="brand-primary-text fw-bold" id="searchTerm" onClick={test}>{searchData}</span> <span className="brand-small-text-2">{db.get("BADASS_TOTAL_SEARCH_IMAGES")} {(parseInt(db.get("BADASS_TOTAL_SEARCH_IMAGES")) > 1) ? "images" : "image" }</span></p>} 
+                               {(dataDonArrive) && <p className="text-capitalize brand-small-text mx-2 text-light px-2">search results for <span className="brand-primary-text fw-bold" id="searchTerm">{searchData}</span> <span className="brand-small-text-2">{db.get("BADASS_TOTAL_SEARCH_IMAGES")} {(parseInt(db.get("BADASS_TOTAL_SEARCH_IMAGES")) > 1) ? "images" : "image" }</span></p>} 
                                 
                                 {
                                     (!dataDonArrive && formSubmitted) && <section className="d-flex align-items-center justify-content-center m-auto py-4">

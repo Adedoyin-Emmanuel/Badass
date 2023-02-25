@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import * as navigate from "./../includes/scripts/handleNavigation";
 import Spinner from "./../components/spinner";
 import AppFooter from "./../components/app-footer";
 import AppHeader from "./../components/app-header";
 import db from "./../backend/db";
+import ImagePreviewCard from "./../components/image-preview-card";
+import * as searchAPI from "./../apis/handleImageSearch";
 
 const SearchResult = (): JSX.Element =>{
 	navigate.checkIfHomePageSeen();
@@ -12,13 +14,20 @@ const SearchResult = (): JSX.Element =>{
 	const navigateTo = useNavigate();
 	const {searchItem} = useParams();
 
-
-	
-
 	const navigatePrevious = () =>{
 		navigateTo(-1);
-
 	}
+
+	const [imageTitle, setImageTitle] = useState(()=> db.get("BADASS_IMAGE_TITLE"));
+	const [imageUser, setImageUser] = useState(()=> db.get("BADASS_IMAGE_USER"));
+	
+ 
+	useEffect( ()=>{
+
+
+
+
+	});
 	return (
 
 		<React.Fragment>

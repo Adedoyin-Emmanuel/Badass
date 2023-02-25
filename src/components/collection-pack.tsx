@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import JSZip from "jszip";
+import {useNavigate} from "react-router-dom";
 import {removeSymbols} from "./../includes/scripts/script";
-
+import db from "./../backend/db";
 
 interface CollectionPackProps
 {
@@ -17,6 +18,17 @@ interface CollectionPackProps
 }
 
 const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, previewPhotoThree, user, id, altDescription, coverPhotoId}: CollectionPackProps) =>{
+
+	const navigateTo = useNavigate();
+
+	const handleViewImageClick = (): void => {
+		navigateTo(`${id}`);
+		db.create("BADASS_IMAGE_TITLE", title);
+		db.create("BADASS_IMAGE_USER", user);
+
+	}	
+
+
 	return (
 
 		<React.Fragment>	
