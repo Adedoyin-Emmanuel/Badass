@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import JSZip from "jszip";
 import {removeSymbols} from "./../includes/scripts/script";
 
+
 interface CollectionPackProps
 {
 	title?:string,
@@ -86,7 +87,7 @@ const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, preview
 				    </div>
 				  </div>
 				</div>
-				
+
 		</React.Fragment>
 	);
 }

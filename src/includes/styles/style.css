@@ -270,6 +270,17 @@ body {
 	outline: 3px solid var(--brand-primary-light-color);
 }
 
+.back-to-top
+{
+	border-radius:50%;
+	width:35px;
+	height:35px;
+	display: block;
+	position: fixed;
+	bottom:20px;
+	right: 20px;
+	z-index: 100000;
+}
 
 
 .carousel-item img {

@@ -9,6 +9,7 @@ import * as searchAPI from "./../apis/handleImageSearch";
 import db from "./../backend/db";
 import CollectionPack from "./../components/collection-pack";
 import $ from "jquery";
+import BackToTop from "./../components/back-to-top";
 
 interface CollectionPackProps
 {
@@ -83,7 +84,7 @@ const Search = () =>{
                                 <br/>
                              <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light text-capitalize">Bulk image downloader</h3>
 
-
+                             <BackToTop/>
                              <section className="form-container m-auto width-toggle-7">
                                 <form className="d-flex align-items-center justify-content-center p-2" id="search-form" >
                                   
@@ -111,7 +112,6 @@ const Search = () =>{
                                 </section>
 
                             </section>
-                             <AppFooter childrenSearchActivePage="current-active-page"/>
                     </section>
             </Suspense>
         </React.Fragment>
