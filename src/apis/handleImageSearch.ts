@@ -7,17 +7,6 @@ const trimSearch = (element:any) =>{
 }
 
 
-export interface CollectionPackProps
-{
-	title?:string,
-	total?: number,
-	previewPhotoOne?: string,
-	previewPhotoTwo?: string,
-	previewPhotoThree?: string,
-	user?: string,
-	id?: number | string,
-	altDescription?: string
-}
 
 
 export const searchImage = () =>{

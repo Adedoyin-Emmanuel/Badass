@@ -8,8 +8,20 @@ import Spinner from "./../components/spinner";
 import * as searchAPI from "./../apis/handleImageSearch";
 import db from "./../backend/db";
 import CollectionPack from "./../components/collection-pack";
-
 import $ from "jquery";
+
+interface CollectionPackProps
+{
+    title?:string,
+    total?: number,
+    previewPhotoOne?: string,
+    previewPhotoTwo?: string,
+    previewPhotoThree?: string,
+    user?: string,
+    id?: number | string,
+    altDescription?: string
+}
+
 
 const Search = () =>{
 
@@ -42,11 +54,11 @@ const Search = () =>{
                         db.create("BADASS_TOTAL_SEARCH_IMAGES", searchResult.total);
                         db.create("BADASS_TOTAL_SEARCH_PAGES", searchResult.total_pages);
 
-                        setApiReturnedData(searchResult.results.map((data:any)=>{
-                             return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description}/>
+                        setApiReturnedData(searchResult.results.map((data:any) =>{
+                             return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description} coverPhotoId={data.cover_photo.id}/>
                         }));
 
-                        console.log(searchResult.results);
+                        console.log(searchResult.results[0].cover_photo.id);
                         let searchItem = db.get("BADASS_SEARCH_ITEM");
                         setDataDonArrive(true);
                         setSearchData(searchItem);

@@ -273,8 +273,8 @@ body {
 
 
 .carousel-item img {
-  height: 200px; /* set the height of the images to 100% of the carousel height */
-  object-fit: cover; /* use object-fit to ensure the images fill the container while preserving their aspect ratio */
+  height: 200px; 
+  object-fit: cover; 
 }
 
 .form-container
