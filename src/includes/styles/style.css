@@ -181,6 +181,17 @@ body{
 	border: 1px solid var(--brand-status-success-color);
 }
 
+.brand-view-image-btn{
+	border: 2px solid var(--brand-primary-dark-color);
+	background:transparent;
+
+}
+
+.brand-download-image-btn{
+	background:var(--brand-primary-dark-color);
+	border:none;
+	outline:none;
+}
 
 .get-started {
 	transition: 0.4s;
@@ -251,6 +262,7 @@ body {
 	border:none;
 	outline:3px solid var(--brand-primary-light-color-3);
 	transition: .6s;
+	height:45px;
 }
 
 

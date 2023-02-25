@@ -7,6 +7,7 @@ import * as navigate from "./../includes/scripts/handleNavigation";
 import Spinner from "./../components/spinner";
 import * as searchAPI from "./../apis/handleImageSearch";
 import db from "./../backend/db";
+import CollectionPack from "./../components/collection-pack";
 import $ from "jquery";
 
 const Search = () =>{
@@ -78,9 +79,21 @@ const Search = () =>{
                                 
                                 {
                                     (!dataDonArrive && formSubmitted) && <section className="d-flex align-items-center justify-content-center m-auto py-4">
-                                                                <section className="dot-windmill"></section>
-                                                        </section>
-                                }
+                                                                            <section className="dot-windmill"></section>
+                                                                         </section>
+                                } 
+                            </section>
+
+                            <section>
+
+                                <CollectionPack/>
+
+                                <br/>
+
+                                <br/>
+
+                                <br/>
+                                <br/>
                             </section>
                              <AppFooter childrenSearchActivePage="current-active-page"/>
                     </section>
