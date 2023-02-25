@@ -193,6 +193,11 @@ body{
 	outline:none;
 }
 
+.brand-download-image-btn: hover{
+	color:var(--brand-primary-light-color);
+	background:var(--brand-primary-dark-color);
+}
+
 .get-started {
 	transition: 0.4s;
     border-radius:var(--brand-button-border-radius);

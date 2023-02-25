@@ -41,7 +41,7 @@ const Search = () =>{
     }
 
     const navigateBack = () =>{
-        navigateTo(`/search`);
+        navigateTo(-1);
     }
     
     useEffect(()=>{
@@ -54,7 +54,7 @@ const Search = () =>{
                         let searchResult = await searchAPI.searchImage();
                         db.create("BADASS_TOTAL_SEARCH_IMAGES", searchResult.total);
                         db.create("BADASS_TOTAL_SEARCH_PAGES", searchResult.total_pages);
-
+                        $("#image-search").blur();
                         setApiReturnedData(searchResult.results.map((data:any) =>{
                              return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description} coverPhotoId={data.cover_photo.id}/>
                         }));
