@@ -30,7 +30,10 @@ const SearchResult = (): JSX.Element =>{
 	                    <br/>
 	                    <br/>
 
-	                    <h5>{searchItem}</h5>
+	                  <section className="search-content-container my-2 p-1">
+	                    <p className="text-capitalize brand-small-text text-light"><span className="brand-text-primary-color text-captitalize fw-bold">bats </span> by josh</p>
+	                    <p className="text-capitalize brand-small-text-2 text-light text-muted p-0">*you can preview an image by clicking or tapping on it</p>
+	                  </section>
                     <AppFooter childrenSearchActivePage="current-active-page"/>
 
 				</section>
