@@ -36,7 +36,7 @@ function App() {
             <Route path="app/search" element={<Search/>}/>
             <Route path="app/convert" element={<Convert/>}/>
             <Route path="app/settings" element={<Settings/>}/>
-            <Route path="app/search/:searchItem" element={<SearchResult/>}/>
+            <Route path="app/search/:packview" element={<SearchResult/>}/>
             <Route path="*" element={<NotFound/>}/>
           </Routes>
         </BrowserRouter>

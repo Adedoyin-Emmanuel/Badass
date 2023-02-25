@@ -16,7 +16,7 @@ const SearchResult = (): JSX.Element =>{
 	
 
 	const navigatePrevious = () =>{
-		navigateTo("/app/search/");
+		navigateTo(-1);
 
 	}
 	return (
@@ -30,17 +30,16 @@ const SearchResult = (): JSX.Element =>{
 	                    <br/>
 	                    <br/>
 
-					<h4>Hello world, you wan collect {searchItem}</h4>
+	                    <h5>{searchItem}</h5>
                     <AppFooter childrenSearchActivePage="current-active-page"/>
 
 				</section>
 
 			</React.Suspense>
 
-
 		</React.Fragment>
 
-	)
+	);
 }
 
 
