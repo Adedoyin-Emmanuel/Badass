@@ -18,16 +18,28 @@ const SearchResult = (): JSX.Element =>{
 		navigateTo(-1);
 	}
 
-	const [imageTitle, setImageTitle] = useState(()=> db.get("BADASS_IMAGE_TITLE"));
-	const [imageUser, setImageUser] = useState(()=> db.get("BADASS_IMAGE_USER"));
+	const [imageTitle, setImageTitle] = useState((): string => db.get("BADASS_IMAGE_TITLE"));
+	const [imageUser, setImageUser] = useState((): string => db.get("BADASS_IMAGE_USER"));
+	const [dataDonArrive, setDataDonArrive] = useState<boolean>(false);
+	const [apiReturnedData, setApiReturnedData] = useState();
 
- 
+
 	useEffect( ()=>{
 
+		setTimeout(async ()=>{
+			const photoResult = await searchAPI.searchImageByCollectionId(searchItem);
+
+			console.log(photoResult);
+			setDataDonArrive(true);
+			setApiReturnedData(
+				photoResult.map((photo: any)=>{
+					return <ImagePreviewCard key={photo.id} setImagePreviewSrc={"null"} setBgColor={"blue"} color={photo.color} altDescription={photo.description} src={photo.urls.regular}/>
+				})
+			)
+		})
 
 
-
-	});
+	},[dataDonArrive]);
 	return (
 
 		<React.Fragment>
@@ -44,11 +56,22 @@ const SearchResult = (): JSX.Element =>{
 	                    <p className="text-capitalize brand-small-text-2 text-light text-muted p-0">*you can preview an image by clicking or tapping on it</p>
 	                  </section>
 	                  <section className="container">
-                        <section className="d-flex flex-md-row flex-column align-items-center justify-content-around">
-	                 		 <ImagePreviewCard/>
-	                 		 <ImagePreviewCard/>
-	                 		 <ImagePreviewCard/>
-                        </section>
+
+	                  {
+
+	                  	(!dataDonArrive) && <section className="d-flex align-items-center justify-content-center m-auto py-4">
+                                                  <section className="dot-windmill"></section>
+                                            </section>
+	                  }
+
+	                  {
+	                  	(dataDonArrive) && <section className="d-flex flex-md-row flex-column align-items-center justify-content-around">
+						                 		 <ImagePreviewCard/>
+						                 		 <ImagePreviewCard/>
+						                 		 <ImagePreviewCard/>
+                        					</section>
+	                  }
+                        
 
                      </section>
                     <AppFooter childrenSearchActivePage="current-active-page"/>
