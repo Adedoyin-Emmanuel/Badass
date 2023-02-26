@@ -6,6 +6,7 @@ import AppFooter from "./../components/app-footer";
 import AppHeader from "./../components/app-header";
 import db from "./../backend/db";
 import ImagePreviewCard from "./../components/image-preview-card";
+import BackToTop from "./../components/back-to-top";
 import * as searchAPI from "./../apis/handleImageSearch";
 
 const SearchResult = (): JSX.Element =>{
@@ -21,7 +22,7 @@ const SearchResult = (): JSX.Element =>{
 	const [imageTitle, setImageTitle] = useState((): string => db.get("BADASS_IMAGE_TITLE"));
 	const [imageUser, setImageUser] = useState((): string => db.get("BADASS_IMAGE_USER"));
 	const [dataDonArrive, setDataDonArrive] = useState<boolean>(false);
-	const [apiReturnedData, setApiReturnedData] = useState();
+	const [apiReturnedData, setApiReturnedData] = useState<JSX.Element>();
 
 
 	useEffect( ()=>{
