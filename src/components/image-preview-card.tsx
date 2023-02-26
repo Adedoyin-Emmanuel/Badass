@@ -18,7 +18,7 @@ const ImagePreviewCard = ({setImagePreviewSrc, setBgColor, color, altDescription
 
 				<section className="image-container shadow">
 
-					<img src={src} alt={`relating to${altDescription}`} className = "d-block w-100"/>
+					<img src={src} alt={`relating to${altDescription}`} className = "img-preview-card d-block w-100"/>
 
 				</section>
 

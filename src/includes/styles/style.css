@@ -307,12 +307,12 @@ body {
 	height:300px;
 	
 }
-.image-container img
+.image-container .img-preview-card
 {
 	height:200px;
 	border:1px solid var(--brand-primary-light-color);
 	object-fit: cover;
-	
+
 }
 .form-container
 {

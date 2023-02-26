@@ -14,10 +14,11 @@ interface CollectionPackProps
 	user?: string,
 	id?: number | string,
 	altDescription?: string,
-	coverPhotoId?:string
+	coverPhotoId?:string,
+	onDownloadButtonClick?: ()=> void
 }
 
-const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, previewPhotoThree, user, id, altDescription, coverPhotoId}: CollectionPackProps) =>{
+const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, previewPhotoThree, user, id, altDescription, coverPhotoId, onDownloadButtonClick}: CollectionPackProps) =>{
 
 	const navigateTo = useNavigate();
 
@@ -28,6 +29,9 @@ const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, preview
 
 	}	
 
+	const handleDownloadClick = () =>{
+
+	}
 
 	return (
 
@@ -89,7 +93,7 @@ const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, preview
 				    </div>
 
 				    <div className="d-flex justify-content-around mt-3 my-2">
-				      <button className="p-1 px-2 rounded brand-download-image-btn brand-small-text-2 shadow-sm">
+				      <button className="p-1 px-2 rounded brand-download-image-btn brand-small-text-2 shadow-sm" onClick={onDownloadButtonClick}>
 						  <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" className="bi bi-download" viewBox="0 0 16 16">
 						    <path d="M7.5 1v9.793l-3.646-3.647a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0-.708-.708L8.5 10.793V1a.5.5 0 0 0-1 0z"/>
 						    <path d="M14.5 13.5v1a.5.5 0 0 1-.5.5h-12a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .5.5z"/>
