@@ -305,12 +305,14 @@ body {
 
 .image-card-container{
 	height:300px;
-	border:1px solid var(--brand-primary-light-color);
+	
 }
 .image-container img
 {
 	height:200px;
+	border:1px solid var(--brand-primary-light-color);
 	object-fit: cover;
+	
 }
 .form-container
 {

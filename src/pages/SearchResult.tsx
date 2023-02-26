@@ -35,7 +35,7 @@ const SearchResult = (): JSX.Element =>{
 				photoResult.map((photo: any)=>{
 					return <ImagePreviewCard key={photo.id} setImagePreviewSrc={"null"} setBgColor={"blue"} color={photo.color} altDescription={photo.description} src={photo.urls.regular}/>
 				})
-			)
+			);
 		})
 
 
@@ -55,23 +55,22 @@ const SearchResult = (): JSX.Element =>{
 	                    <p className="text-capitalize brand-small-text text-light"><span className="brand-text-primary-color text-captitalize fw-bold">{imageTitle} </span> by user {imageUser}</p>
 	                    <p className="text-capitalize brand-small-text-2 text-light text-muted p-0">*you can preview an image by clicking or tapping on it</p>
 	                  </section>
-	                  <section className="container">
+	                   {
 
-	                  {
+		                  	(!dataDonArrive) && <section className="d-flex align-items-center justify-content-center m-auto py-4">
+	                                                  <section className="dot-windmill"></section>
+	                                            </section>
+		               }
+	                  <section className="container d-flex align-items-center justify-content-center">
 
-	                  	(!dataDonArrive) && <section className="d-flex align-items-center justify-content-center m-auto py-4">
-                                                  <section className="dot-windmill"></section>
-                                            </section>
-	                  }
+		                 
 
-	                  {
-	                  	(dataDonArrive) && <section className="d-flex flex-md-row flex-column align-items-center justify-content-around">
-						                 		 <ImagePreviewCard/>
-						                 		 <ImagePreviewCard/>
-						                 		 <ImagePreviewCard/>
-                        					</section>
-	                  }
-                        
+		                  {
+		                  	(dataDonArrive) &&   <section className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 m-auto">
+							                 		 {apiReturnedData}
+	                        					</section>
+		                  }
+	                        
 
                      </section>
                     <AppFooter childrenSearchActivePage="current-active-page"/>

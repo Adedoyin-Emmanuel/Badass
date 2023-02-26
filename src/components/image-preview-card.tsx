@@ -14,11 +14,11 @@ const ImagePreviewCard = ({setImagePreviewSrc, setBgColor, color, altDescription
 
 		<React.Fragment>
 
-			<section className="image-card-container shadow mx-1 px-5 mt-3" >
+			<section className="image-card-container container-fluid " >
 
-				<section className="image-container">
+				<section className="image-container shadow">
 
-					<img src={src} alt={`relating to${altDescription}`} className = "img"/>
+					<img src={src} alt={`relating to${altDescription}`} className = "d-block w-100"/>
 
 				</section>
 
