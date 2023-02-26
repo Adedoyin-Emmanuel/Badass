@@ -73,7 +73,7 @@ const SearchResult = (): JSX.Element =>{
 	                        
 
                      </section>
-                    <AppFooter childrenSearchActivePage="current-active-page"/>
+                     <BackToTop/>
 
 				</section>
 
