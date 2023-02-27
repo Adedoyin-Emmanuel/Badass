@@ -10,7 +10,7 @@ import db from "./../backend/db";
 import CollectionPack from "./../components/collection-pack";
 import $ from "jquery";
 import BackToTop from "./../components/back-to-top";
-
+import Swal from "sweetalert2";
 interface CollectionPackProps
 {
     title?:string,
@@ -54,21 +54,48 @@ const Search = () =>{
                 e.preventDefault();
                 setFormSubmitted(true);
                 setTimeout(async ()=>{
-                    let searchResult = await searchAPI.searchImage();
-                    db.create("BADASS_TOTAL_SEARCH_IMAGES", searchResult.total);
-                    db.create("BADASS_TOTAL_SEARCH_PAGES", searchResult.total_pages);
-                    $("#image-search").blur();
+                    try
+                    {
+                        let searchResult = await searchAPI.searchImage();
+                        db.create("BADASS_TOTAL_SEARCH_IMAGES", searchResult.total);
+                        db.create("BADASS_TOTAL_SEARCH_PAGES", searchResult.total_pages);
+                        $("#image-search").blur();
 
-                    setApiReturnedData(searchResult.results.map((data:any) =>{
-                         return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description} coverPhotoId={data.cover_photo.id} onDownloadButtonClick={()=>{testFunction(data.id,data.total_photos,30, data.title, data.user.username)}}/>
-                    }));
+                        setApiReturnedData(searchResult.results.map((data:any) =>{
+                             return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description} coverPhotoId={data.cover_photo.id} onDownloadButtonClick={()=>{testFunction(data.id,data.total_photos,30, data.title, data.user.username)}}/>
+                        }));
 
-                    let searchItem = db.get("BADASS_SEARCH_ITEM");
-                    setDataDonArrive(true);
-                    setSearchData(searchItem);
+                        let searchItem = db.get("BADASS_SEARCH_ITEM");
+                        setDataDonArrive(true);
+                        setSearchData(searchItem);
+                    }catch(error:any){
+                        //console.log(error);
+                        if(error.statusText == "error")
+                        {
+                            Swal.fire({
+                                toast:true,
+                                text:"An error occured",
+                                icon:"error",
+                                showConfirmButton:false,
+                                timer:2000,
+                                position:"top",
+                            }).then((willProceed)=>{
+                                Swal.fire({
+                                    toast:true,
+                                    text:"Try again :)",
+                                    icon:"info",
+                                    showConfirmButton:false,
+                                    timer:3000,
+                                    position:"top"
+                                })
+                            });
+                        }
+                    }
                        
-                   }, 0);
+                }, 0);
+
                 setDataDonArrive(false);
+                  
             })  
            
         }

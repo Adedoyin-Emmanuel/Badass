@@ -28,7 +28,30 @@ export const searchImageByCollectionId = (id: string)=>{
 	return $.ajax({
 		url: `https://api.unsplash.com/collections/${collectionId}/photos?client_id=${UNSPLASH_API.API_KEY}&per_page=30`,
 		processData: false,
-		contentType:false
+		contentType:false,
+		error: (xhr:any, status: string, error:string) =>{
+			//if the status returns an error then there is an issue
+			if(status == "error")
+			{
+					Swal.fire({
+					toast:true,
+					text:"An error occured",
+					icon:"error",
+					showConfirmButton:false,
+					timer:2000,
+					position:"top",
+				}).then((willProceed)=>{
+					Swal.fire({
+						toast:true,
+						text:"Try again :)",
+						icon:"info",
+						showConfirmButton:false,
+						timer:3000,
+						position:"top"
+					})
+				});
+			}
+		}
 	});
 }
 
@@ -56,6 +79,14 @@ export const handleImageDownload = (id, total, perPage, title, user) =>{
 			if(images.length == totalImages)
 			{
 				//alert the user the download would start soon
+				Swal.fire({
+					toast:true,
+					text:"Download starting soon!",
+					position:"top",
+					timer:2000,
+					showConfirmButton:false,
+					icon:"info"
+				});
 
 				const zip = new JSZip();
 				let photoZip =  zip.folder(`${title} by ${user}`);
