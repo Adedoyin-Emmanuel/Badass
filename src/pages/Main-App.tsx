@@ -19,7 +19,6 @@ const MainApp = (): JSX.Element =>{
     return (
             <React.Fragment>
                 <Suspense fallback={<Spinner/>}>
-                    <Spinner/>
                    <section className="container-fluid p-0">
                        <Header/>
                         <div className="py-5 d-sm-none d-md-block"></div>

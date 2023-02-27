@@ -37,7 +37,7 @@ const Search = () =>{
     navigate.checkIfHomePageSeen();
 
     const navigateBack = () =>{
-        navigateTo(-1);
+        navigateTo("/app");
     }
     
     const handleFileDownload = (id,total,perPage, title, user) =>{
