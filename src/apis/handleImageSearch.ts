@@ -63,34 +63,6 @@ export const handleImageDownload = (id, total, perPage, title, user) =>{
 
 				for(let i = 0; i < images.length; i++)
 				{
-					
-					// const promise = $.ajax({
-					// 	url:images[i].urls.regular,
-					// 	processData:false,
-					// 	contentType:false,
-					// 	method: "GET",
-    				// 	dataType: "blob",
-					// 	success: (response: Blob)=>{
-					// 		console.log(response);
-					// 		photoZip.file(`${title + [i]}.jpg`, response);
-					// 		promises.push(promise);
-
-					// 		if(promises.length == images.length)
-					// 		{
-					// 			promises.all(promises).then(()=>{
-					// 				zip.generateAsync({type:"blob"}).then((content)=>{
-					// 					saveAs(content,`${title} by ${user} image pack.zip`);
-					// 					console.log("haba");
-					// 				});
-					// 			})
-					// 		}
-					// 	},
-
-					// 	error: (xhr:any, status: any, error: string) =>{
-					// 		console.log(error);
-					// 	}
-					// })
-
 					 const promise = fetch(images[i].urls.regular)
 			                .then(response => response.blob())
 			                .then(blob => {
@@ -106,18 +78,36 @@ export const handleImageDownload = (id, total, perPage, title, user) =>{
 		            })
 				}
 			}else{
-				//console.log("whala");
-				 page++;
-				//console.log(images.length);
-				//console.log(totalImages);
+				page++;
 				handleImageDownload(id, totalImages, 30, title, user);
 			}
 
 		},
 
-		error: (xhr:any, status: any, error:string) =>{
-			//alert the user an error occured
-			console.log(error);
+		error: (xhr:any, status: string, error:string) =>{
+		
+			//if the status returns an error then there is an issue
+			if(status == "error")
+			{
+					Swal.fire({
+					toast:true,
+					text:"An error occured",
+					icon:"error",
+					showConfirmButton:false,
+					timer:2000,
+					position:"top",
+				}).then((willProceed)=>{
+					Swal.fire({
+						toast:true,
+						text:"Try again :)",
+						icon:"info",
+						showConfirmButton:false,
+						timer:3000,
+						position:"top"
+					})
+				});
+			}
+			
 		}
 	});
 }
