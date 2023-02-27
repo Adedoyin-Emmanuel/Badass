@@ -44,8 +44,8 @@ const Search = () =>{
         navigateTo(-1);
     }
     
-    const testFunction = (id: any) =>{
-        console.log("you clicked me hahahahah!"+id);
+    const testFunction = (id,total,perPage, title, user) =>{
+        searchAPI.handleImageDownload(id, total, perPage, title, user);
     }
     useEffect(()=>{
         //if(searchAPI.searchImage("search-form"))
@@ -60,7 +60,7 @@ const Search = () =>{
                     $("#image-search").blur();
 
                     setApiReturnedData(searchResult.results.map((data:any) =>{
-                         return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description} coverPhotoId={data.cover_photo.id} onDownloadButtonClick={()=>{testFunction(data.id)}}/>
+                         return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description} coverPhotoId={data.cover_photo.id} onDownloadButtonClick={()=>{testFunction(data.id,data.total_photos,30, data.title, data.user.username)}}/>
                     }));
 
                     let searchItem = db.get("BADASS_SEARCH_ITEM");
