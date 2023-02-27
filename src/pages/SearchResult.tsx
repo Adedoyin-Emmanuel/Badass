@@ -9,6 +9,7 @@ import ImagePreviewCard from "./../components/image-preview-card";
 import BackToTop from "./../components/back-to-top";
 import * as searchAPI from "./../apis/handleImageSearch";
 import Button from "./../components/button";
+import Swal from "sweetalert2";
 
 const SearchResult = (): JSX.Element =>{
 	navigate.checkIfHomePageSeen();
@@ -37,15 +38,37 @@ const SearchResult = (): JSX.Element =>{
 	useEffect( ()=>{
 
 		setTimeout(async ()=>{
-			const photoResult = await searchAPI.searchImageByCollectionId(searchItem);
-
-			console.log(photoResult);
-			setDataDonArrive(true);
-			setApiReturnedData(
-				photoResult.map((photo: any)=>{
-					return <ImagePreviewCard key={photo.id} setImagePreviewSrc={"null"} setBgColor={"blue"} color={photo.color} altDescription={photo.description} src={photo.urls.regular}/>
-				})
-			);
+			try{
+				const photoResult = await searchAPI.searchImageByCollectionId(searchItem);
+				setDataDonArrive(true);
+				setApiReturnedData(
+					photoResult.map((photo: any)=>{
+						return <ImagePreviewCard key={photo.id} setImagePreviewSrc={"null"} setBgColor={"blue"} color={photo.color} altDescription={photo.description} src={photo.urls.regular}/>
+					})
+				);
+			}catch(error:any)
+			{
+				 if(error.statusText == "error")
+                    {
+                        Swal.fire({
+                            toast:true,
+                            text:"An error occured",
+                            icon:"error",
+                            showConfirmButton:false,
+                            timer:2000,
+                            position:"top",
+                        }).then((willProceed)=>{
+                            Swal.fire({
+                                toast:true,
+                                text:"Try again :)",
+                                icon:"info",
+                                showConfirmButton:false,
+                                timer:3000,
+                                position:"top"
+                            })
+                        });
+                    }
+			}
 		})
 
 
@@ -63,7 +86,7 @@ const SearchResult = (): JSX.Element =>{
 
 	                  <section className="search-content-container my-2 p-1">
 	                    <p className="text-capitalize brand-small-text text-light"><span className="brand-text-primary-color text-captitalize fw-bold">{imageTitle} </span> by user {imageUser}</p>
-	                    <p className="text-capitalize brand-small-text-2 text-light text-muted p-0">*you can preview an image by clicking or tapping on it</p>
+	                    <p className="text-capitalize brand-small-text-2 text-light text-muted p-0">*scroll to bottom to download image</p>
 	                  </section>
 	                   {
 
@@ -71,6 +94,7 @@ const SearchResult = (): JSX.Element =>{
 	                                                  <section className="dot-windmill"></section>
 	                                            </section>
 		               }
+		                
 	                  <section className="container d-flex align-items-center justify-content-center">
 
 		                 
