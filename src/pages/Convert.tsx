@@ -155,6 +155,7 @@ const Convert = () =>{
                 const updateFrontend = (convertToArg: string = "To") =>{
                     const conversionCardContent: JSX.Element[] = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
                         //const sayHi = () => console.log(`${file.lastModified}${file.name}`);
+                        console.log(file.type);
                         const userConvertType = () => checkFileToConvertTo();
                         const convertToLegitElement = <ConvertTo convertToText={convertToArg} convertToClick={userConvertType}/>
                         return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {`${file.name}.${getFileExtensionFromMimeType(file.type)}`} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {file.type} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />;
