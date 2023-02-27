@@ -134,7 +134,7 @@ const Convert = () =>{
                                             }).then((willProceed)=>{
                                                 Swal.fire({
                                                     toast:true,
-                                                    title"Download starting soon",
+                                                    title:"Download starting soon",
                                                     showConfirmButton:false,
                                                     icon:"info",
                                                     position:"top",
@@ -144,8 +144,6 @@ const Convert = () =>{
 
                                             legitResponse.forEach((data: convertAPI.ConvertJSONResponse, dataIndex: number)=>{
                                                 const {id, filename, extension, filesize, converting_to : convertingTo, convert_status : convertStatus, message, image_data : imageData} = data;
-
-                                                console.log(data);
                                                 setFileDetails(data);
                                                 db.update("BADASS_CONVERSION_STATUS", "1");
                                                 setConversionUIData(updateFrontend(selectedFormat));
@@ -196,8 +194,6 @@ const Convert = () =>{
 
                 const updateFrontend = (convertToArg: string = "To") =>{
                     const conversionCardContent: JSX.Element[] = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
-                        //const sayHi = () => console.log(`${file.lastModified}${file.name}`);
-                        console.log(getFileExtensionFromMimeType(file.type));
                         const userConvertType = () => checkFileToConvertTo();
                         const convertToLegitElement = <ConvertTo convertToText={convertToArg} convertToClick={userConvertType}/>
                         return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {`${file.name}`} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {getFileExtensionFromMimeType(file.type)} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />;

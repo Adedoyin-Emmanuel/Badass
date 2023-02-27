@@ -11,6 +11,7 @@ import CollectionPack from "./../components/collection-pack";
 import $ from "jquery";
 import BackToTop from "./../components/back-to-top";
 import Swal from "sweetalert2";
+
 interface CollectionPackProps
 {
     title?:string,
@@ -44,7 +45,6 @@ const Search = () =>{
         searchAPI.handleImageDownload(id, total, perPage, title, user);
     }
     useEffect(()=>{
-        //if(searchAPI.searchImage("search-form"))
         const getData =  () =>{ 
             $("#search-form").on("submit", (e: any)=>{
                 e.preventDefault();

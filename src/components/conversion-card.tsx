@@ -59,7 +59,7 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 		const legitFileName = trimWord(fileName);
 		jQuery(($) =>{
 			$.noConflict();
-			// const legitFileName = fileName.trim();
+			
 			$(`.${legitFileName}`).addClass("fade-away");
 			$(`.${legitFileName}`).on("animationend",(e:any)=>{
 				$(`.${legitFileName}`).addClass("d-none");
