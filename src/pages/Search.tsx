@@ -36,15 +36,11 @@ const Search = () =>{
     let userSearchItem = " ";
     navigate.checkIfHomePageSeen();
 
-    const test = () =>{
-       navigateTo(`${searchData}`)
-    }
-
     const navigateBack = () =>{
         navigateTo(-1);
     }
     
-    const testFunction = (id,total,perPage, title, user) =>{
+    const handleFileDownload = (id,total,perPage, title, user) =>{
         searchAPI.handleImageDownload(id, total, perPage, title, user);
     }
     useEffect(()=>{
@@ -62,7 +58,7 @@ const Search = () =>{
                         $("#image-search").blur();
 
                         setApiReturnedData(searchResult.results.map((data:any) =>{
-                             return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description} coverPhotoId={data.cover_photo.id} onDownloadButtonClick={()=>{testFunction(data.id,data.total_photos,30, data.title, data.user.username)}}/>
+                             return <CollectionPack key={data.id} title={data.title} total={data.total_photos} previewPhotoOne={data.preview_photos[0]?.urls.small} previewPhotoTwo={data.preview_photos[1]?.urls.small} previewPhotoThree={data.preview_photos[2]?.urls.small} user={data.user.username} id={data.id} altDescription={data.cover_photo.alt_description} coverPhotoId={data.cover_photo.id} onDownloadButtonClick={()=>{handleFileDownload(data.id,data.total_photos,30, data.title, data.user.username)}}/>
                         }));
 
                         let searchItem = db.get("BADASS_SEARCH_ITEM");

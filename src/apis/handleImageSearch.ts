@@ -83,7 +83,7 @@ export const handleImageDownload = (id, total, perPage, title, user) =>{
 					toast:true,
 					text:"Download starting soon!",
 					position:"top",
-					timer:2000,
+					timer:5000,
 					showConfirmButton:false,
 					icon:"info"
 				});

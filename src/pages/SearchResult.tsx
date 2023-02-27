@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate, useParams, useLocation} from "react-router-dom";
 import * as navigate from "./../includes/scripts/handleNavigation";
 import Spinner from "./../components/spinner";
 import AppFooter from "./../components/app-footer";
@@ -8,12 +8,17 @@ import db from "./../backend/db";
 import ImagePreviewCard from "./../components/image-preview-card";
 import BackToTop from "./../components/back-to-top";
 import * as searchAPI from "./../apis/handleImageSearch";
+import Button from "./../components/button";
 
 const SearchResult = (): JSX.Element =>{
 	navigate.checkIfHomePageSeen();
 
 	const navigateTo = useNavigate();
 	const {searchItem} = useParams();
+	const location = useLocation();
+	//query string is the total number of images
+	const queryString = location.search.substring(1);
+	
 
 	const navigatePrevious = () =>{
 		navigateTo(-1);
@@ -24,6 +29,10 @@ const SearchResult = (): JSX.Element =>{
 	const [dataDonArrive, setDataDonArrive] = useState<boolean>(false);
 	const [apiReturnedData, setApiReturnedData] = useState<JSX.Element>();
 
+
+	const handleDownloadButtonClick = () =>{
+		searchAPI.handleImageDownload(searchItem, queryString, 30, imageTitle, imageUser)
+	}
 
 	useEffect( ()=>{
 
@@ -75,6 +84,10 @@ const SearchResult = (): JSX.Element =>{
 
                      </section>
                      <BackToTop/>
+
+                     <section className=" button-container d-flex align-items-center justify-content-center">
+                             <Button className="brand-white-button my-3 width-toggle text-capitalize fw-bold text-dark brand-white-color" text="Download Images" onClick={handleDownloadButtonClick}></Button>
+                     </section>
 
 				</section>
 

@@ -23,7 +23,7 @@ const CollectionPack = ({title, total, previewPhotoOne, previewPhotoTwo, preview
 	const navigateTo = useNavigate();
 
 	const handleViewImageClick = (): void => {
-		navigateTo(`${id}`);
+		navigateTo(`${id}?${total}`);
 		db.create("BADASS_IMAGE_TITLE", title);
 		db.create("BADASS_IMAGE_USER", user);
 
