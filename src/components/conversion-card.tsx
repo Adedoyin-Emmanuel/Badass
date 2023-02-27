@@ -51,7 +51,7 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 	}
 
 	const returnSubString = (word: any) =>{
-		return (word.length > 5 ) ? `${word.substr(0, 5)}` : word;
+		return (word.length > 5 ) ? `${word.substr(0, 10)}` : word;
 	}
 
 	const FadeElement = () =>{

@@ -9,8 +9,8 @@ export const convertBytesToKb = (byte: number) =>{
 }
 
 export const getFileExtensionFromMimeType = (mimeType: string): string =>{
-  const mimeType = "image/png";
-  const extension = mimeType.split("/")[1];
+  const type = "image/png";
+  const extension = type.split("/")[1];
 
   return extension;
 }

@@ -117,34 +117,76 @@ const Convert = () =>{
 
                                 const selectedFormat = trimSelectedOption($("#image_format"));
                                 const fetchData = async () =>{
-                                    const response = await convertAPI.connectToBackend(formData, selectedFormat);
-                                    console.log(response);
-                                    const legitResponse = await JSON.parse(response);
-                                    
-                                    setValidFile(true);
+                                    try{
+                                            const response = await convertAPI.connectToBackend(formData, selectedFormat);
+                                            console.log(response);
+                                            const legitResponse = await JSON.parse(response);
+                                            
+                                            setValidFile(true);
 
-                                    legitResponse.forEach((data: convertAPI.ConvertJSONResponse, dataIndex: number)=>{
-                                        const {id, filename, extension, filesize, converting_to : convertingTo, convert_status : convertStatus, message, image_data : imageData} = data;
+                                            Swal.fire({
+                                                toast:true,
+                                                title:"Conversion successful",
+                                                icon:"success",
+                                                timer:2000,
+                                                showConfirmButton:false,
+                                                position:"top"
+                                            }).then((willProceed)=>{
+                                                Swal.fire({
+                                                    toast:true,
+                                                    title"Download starting soon",
+                                                    showConfirmButton:false,
+                                                    icon:"info",
+                                                    position:"top",
+                                                    timer:4000
+                                                });
+                                            })
 
-                                        console.log(data);
-                                        setFileDetails(data);
-                                        db.update("BADASS_CONVERSION_STATUS", "1");
-                                        setConversionUIData(updateFrontend(selectedFormat));
-                                        
-                                        const arrayBuffer = new ArrayBuffer(imageData.length);
-                                        const uintArray = new Uint8Array(arrayBuffer);
-                                        for (let i = 0; i < imageData.length; i++) {
-                                          uintArray[i] = imageData.charCodeAt(i);
+                                            legitResponse.forEach((data: convertAPI.ConvertJSONResponse, dataIndex: number)=>{
+                                                const {id, filename, extension, filesize, converting_to : convertingTo, convert_status : convertStatus, message, image_data : imageData} = data;
+
+                                                console.log(data);
+                                                setFileDetails(data);
+                                                db.update("BADASS_CONVERSION_STATUS", "1");
+                                                setConversionUIData(updateFrontend(selectedFormat));
+                                                
+                                                const arrayBuffer = new ArrayBuffer(imageData.length);
+                                                const uintArray = new Uint8Array(arrayBuffer);
+                                                for (let i = 0; i < imageData.length; i++) {
+                                                  uintArray[i] = imageData.charCodeAt(i);
+                                                }
+                                                const blob = new Blob([arrayBuffer], { type: `image/${convertingTo}` }); // Create blob from array buffer
+                                                const url = URL.createObjectURL(blob); // Create object URL from blob
+                                                const link = document.createElement('a');
+                                                link.href = url;
+                                                link.download = `${filename}_converted.${convertingTo}`;
+                                                link.click();
+
+                                                
+                                        });
+                                    }catch(error:any)
+                                    {
+                                      if(error.statusText == "error")
+                                        {
+                                            Swal.fire({
+                                                toast:true,
+                                                text:"An error occured",
+                                                icon:"error",
+                                                showConfirmButton:false,
+                                                timer:2000,
+                                                position:"top",
+                                            }).then((willProceed)=>{
+                                                Swal.fire({
+                                                    toast:true,
+                                                    text:"Try again :)",
+                                                    icon:"info",
+                                                    showConfirmButton:false,
+                                                    timer:3000,
+                                                    position:"top"
+                                                })
+                                            });
                                         }
-                                        const blob = new Blob([arrayBuffer], { type: `image/${convertingTo}` }); // Create blob from array buffer
-                                        const url = URL.createObjectURL(blob); // Create object URL from blob
-                                        const link = document.createElement('a');
-                                        link.href = url;
-                                        link.download = `${filename}_converted.${convertingTo}`;
-                                        link.click();
-
-                                        
-                                    });
+                                    }
                                 }
                                 fetchData();
                             })
@@ -155,10 +197,10 @@ const Convert = () =>{
                 const updateFrontend = (convertToArg: string = "To") =>{
                     const conversionCardContent: JSX.Element[] = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
                         //const sayHi = () => console.log(`${file.lastModified}${file.name}`);
-                        console.log(file.type);
+                        console.log(getFileExtensionFromMimeType(file.type));
                         const userConvertType = () => checkFileToConvertTo();
                         const convertToLegitElement = <ConvertTo convertToText={convertToArg} convertToClick={userConvertType}/>
-                        return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {`${file.name}.${getFileExtensionFromMimeType(file.type)}`} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {file.type} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />;
+                        return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {`${file.name}`} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {getFileExtensionFromMimeType(file.type)} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />;
                         
                     });
 
