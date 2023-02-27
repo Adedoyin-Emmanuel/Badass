@@ -4,7 +4,7 @@ import AppHeader from "./../components/app-header";
 import AppFooter from "./../components/app-footer";
 import Button from "./../components/button";
 import * as navigate from "./../includes/scripts/handleNavigation";
-import {convertBytesToKb, isImage} from "./../includes/scripts/script";
+import {convertBytesToKb, isImage, getFileExtensionFromMimeType} from "./../includes/scripts/script";
 import Spinner from "./../components/spinner";
 import * as convertAPI from "./../apis/handleConversion";
 import ConversionCard from "./../components/conversion-card";
@@ -118,8 +118,9 @@ const Convert = () =>{
                                 const selectedFormat = trimSelectedOption($("#image_format"));
                                 const fetchData = async () =>{
                                     const response = await convertAPI.connectToBackend(formData, selectedFormat);
-                                    const legitResponse = await JSON.parse(response);
                                     console.log(response);
+                                    const legitResponse = await JSON.parse(response);
+                                    
                                     setValidFile(true);
 
                                     legitResponse.forEach((data: convertAPI.ConvertJSONResponse, dataIndex: number)=>{
@@ -129,20 +130,20 @@ const Convert = () =>{
                                         setFileDetails(data);
                                         db.update("BADASS_CONVERSION_STATUS", "1");
                                         setConversionUIData(updateFrontend(selectedFormat));
-                                        /*
+                                        
                                         const arrayBuffer = new ArrayBuffer(imageData.length);
                                         const uintArray = new Uint8Array(arrayBuffer);
                                         for (let i = 0; i < imageData.length; i++) {
                                           uintArray[i] = imageData.charCodeAt(i);
                                         }
-                                        const blob = new Blob([arrayBuffer], { type: 'image/png' }); // Create blob from array buffer
+                                        const blob = new Blob([arrayBuffer], { type: `image/${convertingTo}` }); // Create blob from array buffer
                                         const url = URL.createObjectURL(blob); // Create object URL from blob
                                         const link = document.createElement('a');
                                         link.href = url;
-                                        link.download = 'image.png';
+                                        link.download = `${filename}_converted.${convertingTo}`;
                                         link.click();
 
-                                        */
+                                        
                                     });
                                 }
                                 fetchData();
@@ -156,7 +157,7 @@ const Convert = () =>{
                         //const sayHi = () => console.log(`${file.lastModified}${file.name}`);
                         const userConvertType = () => checkFileToConvertTo();
                         const convertToLegitElement = <ConvertTo convertToText={convertToArg} convertToClick={userConvertType}/>
-                        return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {file.name} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {file.type} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />;
+                        return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {`${file.name}.${getFileExtensionFromMimeType(file.type)}`} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {file.type} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />;
                         
                     });
 

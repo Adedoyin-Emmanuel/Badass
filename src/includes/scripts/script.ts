@@ -8,7 +8,7 @@ export const convertBytesToKb = (byte: number) =>{
     return (Math.ceil(byte / 1024));
 }
 
-const getFileExtensionFromMimeType = (mimeType: string): string =>{
+export const getFileExtensionFromMimeType = (mimeType: string): string =>{
   const mimeToExt: Record<string, string> = {
     "image/png": "png",
     "image/jpeg": "jpg",
