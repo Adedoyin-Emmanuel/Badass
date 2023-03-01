@@ -121,6 +121,7 @@ const Convert = () =>{
                                             const response = await convertAPI.connectToBackend(formData, selectedFormat);
                                             console.log(response);
                                             const legitResponse = await JSON.parse(response);
+                                            console.log(legitResponse);
                                             
                                             setValidFile(true);
 
@@ -164,6 +165,8 @@ const Convert = () =>{
                                         });
                                     }catch(error:any)
                                     {
+
+                                        console.log(error);
                                       if(error.statusText == "error")
                                         {
                                             Swal.fire({
