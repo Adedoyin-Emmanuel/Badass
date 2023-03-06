@@ -146,11 +146,11 @@ const Convert = () =>{
                                                 setFileDetails(data);
                                                 db.update("BADASS_CONVERSION_STATUS", "1");
                                                 setConversionUIData(updateFrontend(selectedFormat));
-                                                
-                                                const arrayBuffer = new ArrayBuffer(imageData.length);
+                                                const decodedImageData = atob(imageData);
+                                                const arrayBuffer = new ArrayBuffer(decodedImageData.length);
                                                 const uintArray = new Uint8Array(arrayBuffer);
-                                                for (let i = 0; i < imageData.length; i++) {
-                                                  uintArray[i] = imageData.charCodeAt(i);
+                                                for (let i = 0; i < decodedImageData.length; i++) {
+                                                  uintArray[i] = decodedImageData.charCodeAt(i);
                                                 }
                                                 const blob = new Blob([arrayBuffer], { type: `image/${convertingTo}` }); // Create blob from array buffer
                                                 const url = URL.createObjectURL(blob); // Create object URL from blob
