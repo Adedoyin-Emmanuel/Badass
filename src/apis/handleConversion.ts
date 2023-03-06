@@ -17,7 +17,7 @@ export interface ConvertJSONResponse
 
 export const connectToBackend = (formData: any, selectedFormat: string) =>{
 		return $.ajax({
-            url:`https://testbasedev.000webhostapp.com/api/convert/index.php?app_id=${Badass.API_KEY}&convert_to=${selectedFormat}`,
+            url:`http://testbasedev.000webhostapp.com/badass-backend/api/convert/index.php?app_id=${Badass.API_KEY}&convert_to=${selectedFormat}`,
 			method: "POST",
 			contentType:false,
 			processData:false,
