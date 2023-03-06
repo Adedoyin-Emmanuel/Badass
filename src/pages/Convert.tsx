@@ -101,7 +101,7 @@ const Convert = () =>{
                                     <option class="option px-2 text-capitalize text-center" value="svg">Svg</option>
                                     <option class="option px-2 text-capitalize text-center" value="png">Png</option>
                                     <option class="option px-2 text-capitalize text-center" value="jpg">Jpg</option>
-                                    <option class="option px-2 text-capitalize text-center" value="gif">Gif</option>
+                                    <option class="option px-2 text-capitalize text-center" value="ico">Ico</option>
                                     <option class="option px-2 text-capitalize text-center" value="jpeg">Jpeg</option>
                             </form>
                         `,
