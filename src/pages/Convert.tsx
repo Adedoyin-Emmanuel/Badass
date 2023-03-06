@@ -119,15 +119,13 @@ const Convert = () =>{
                                 const fetchData = async () =>{
                                     try{
                                             const response = await convertAPI.connectToBackend(formData, selectedFormat);
-                                            console.log(response);
+                                         
                                             const legitResponse = await JSON.parse(response);
-                                            console.log(legitResponse);
-                                            
                                             setValidFile(true);
 
                                             Swal.fire({
                                                 toast:true,
-                                                title:"Conversion successful",
+                                                text:"Conversion successful",
                                                 icon:"success",
                                                 timer:2000,
                                                 showConfirmButton:false,
@@ -135,7 +133,7 @@ const Convert = () =>{
                                             }).then((willProceed)=>{
                                                 Swal.fire({
                                                     toast:true,
-                                                    title:"Download starting soon",
+                                                    text:"Download starting soon",
                                                     showConfirmButton:false,
                                                     icon:"info",
                                                     position:"top",
