@@ -19,22 +19,22 @@ const MainApp = (): JSX.Element =>{
     return (
             <React.Fragment>
                 <Suspense fallback={<Spinner/>}>
-                   <section className="container-fluid p-0">
+                   <section className="container-fluid p-0 ">
                        <Header/>
                         <div className="py-5 d-sm-none d-md-block"></div>
                        <section className="remove-bg-container ">
                             <section className="image-container d-flex align-items-center justify-content-center m-auto brand-primary-color rounded-1 py-2 width-toggle " style={{"overflowX":"hidden"}}>
                                 <img src={BgImage} width = "400" height = "220" className="bg-image p-1"/>
                             </section>
-                            <h4 className="fw-bold text-light fs-4 text-capitalize p-2 my-3">Remove Image <span className="brand-text-primary-color">Background</span></h4>
+                            <h4 className="fw-bold text-light fs-4 text-capitalize p-2 my-3 text-md-center">Remove Image <span className="brand-text-primary-color">Background</span></h4>
 
-                            <p className="text-muted brand-small-text p-2">Get a transparent background for any image</p>
+                            <p className="text-muted brand-small-text p-2 text-md-center">Get a transparent background for any image</p>
 
                             <section className="m-auto button-container d-flex align-items-center justify-content-center">
                                   <Button className="brand-white-button my-3 width-toggle text-capitalize fw-bold text-dark brand-white-color" text="upload image" onClick={navigate.navigateToUpload}></Button>
                             </section>
 
-                            <p className="text-muted brand-small-text p-2">No image? try one of these</p>
+                            <p className="text-muted brand-small-text p-2 text-md-center">No image? try one of these</p>
                             <section className="no-image d-flex align-items-center justify-content-center">
                                     <section className="image-box  p-1 brand-white-color rounded-1 mx-2">
                                         <img src={LionImage} width="40" height="30" className="rounded-1"/>
@@ -58,9 +58,9 @@ const MainApp = (): JSX.Element =>{
                              <section className="image-container d-flex align-items-center justify-content-center m-auto  rounded-1 py-2 width-toggle " style={{"overflowX":"hidden"}}>
                                 <img src={ChainLink} width = "400" height = "220" className="bg-image p-1"/>
                             </section>
-                            <h4 className="fw-bold fs-4 text-capitalize text-white p-2"><span className="brand-text-primary-color">Convert</span> Your Images | Files </h4>
+                            <h4 className="fw-bold fs-4 text-capitalize text-white p-2 text-md-center"><span className="brand-text-primary-color">Convert</span> Your Images | Files </h4>
 
-                            <p className="text-muted brand-small-text p-2">With Badass, you can convert your files to any format</p>
+                            <p className="text-muted brand-small-text p-2 text-md-center">With Badass, you can convert your files to any format</p>
                              <section className="m-auto button-container d-flex align-items-center justify-content-center">
                                   <Button className="brand-button-3 my-3 width-toggle text-capitalize fw-bold text-white brand-white-color" text="choose files" onClick={navigate.navigateToConvert}></Button>
                             </section>
@@ -71,9 +71,9 @@ const MainApp = (): JSX.Element =>{
                             <section className="image-container d-flex align-items-center justify-content-center m-auto  rounded-1 py-2 width-toggle " style={{"overflowX":"hidden"}}>
                                 <img src={FastDownload} width = "400" height = "220" className="bg-image p-1"/>
                             </section>
-                            <h4 className="fw-bold fs-4 text-capitalize text-white p-2"><span className="brand-text-primary-color">Download</span> Multiple Images At Once </h4>
+                            <h4 className="fw-bold fs-4 text-capitalize text-white p-2 text-md-center"><span className="brand-text-primary-color">Download</span> Multiple Images At Once </h4>
 
-                            <p className="text-muted brand-small-text p-2">Ever thought of downloading multiple images at once?</p>
+                            <p className="text-muted brand-small-text p-2 text-md-center">Ever thought of downloading multiple images at once?</p>
                              <section className="m-auto button-container d-flex align-items-center justify-content-center">
                                   <Button className="brand-white-button my-3 width-toggle text-capitalize fw-bold text-dark brand-white-color" text="Download Images" onClick={navigate.navigateToDownload}></Button>
                             </section>
