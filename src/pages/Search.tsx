@@ -107,7 +107,7 @@ const Search = () =>{
                                 <br/>
                                 <br/>
                                 <br/>
-                             <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light text-capitalize">Bulk image downloader</h3>
+                             <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light text-capitalize mx-md-5">Bulk image downloader</h3>
 
                             
                              <section className="form-container m-auto width-toggle-7">
@@ -119,7 +119,7 @@ const Search = () =>{
                              </section>
 
                             <section className="search-results-container my-2">
-                               {(dataDonArrive) && <p className="text-capitalize brand-small-text mx-2 text-light px-2">search results for <span className="brand-primary-text fw-bold" id="searchTerm">{searchData}</span> <span className="brand-small-text-2">{db.get("BADASS_TOTAL_SEARCH_IMAGES")} {(parseInt(db.get("BADASS_TOTAL_SEARCH_IMAGES")) > 1) ? "images" : "image" }</span></p>} 
+                               {(dataDonArrive) && <p className="text-capitalize brand-small-text mx-2 text-light px-2 text-center">search results for <span className="brand-primary-text fw-bold" id="searchTerm">{searchData}</span> <span className="brand-small-text-2">{db.get("BADASS_TOTAL_SEARCH_IMAGES")} {(parseInt(db.get("BADASS_TOTAL_SEARCH_IMAGES")) > 1) ? "images" : "image" }</span></p>} 
                                 
                                 {
                                     (!dataDonArrive && formSubmitted) && <section className="d-flex align-items-center justify-content-center m-auto py-4">
