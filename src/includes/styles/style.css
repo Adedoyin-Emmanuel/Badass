@@ -326,6 +326,8 @@ body {
 	animation: fade .4s 1;
 }
 
+
+
 @keyframes fade {
 
 	from{
@@ -371,6 +373,13 @@ body {
 
 }
 
+
+@media (min-width: 1200px) {
+	.width-toggle {
+		width: 35%;
+	}
+
+}
 
 /* 
 @media (min-width: 400.98px){
