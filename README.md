@@ -9,7 +9,12 @@
 - **Backend API**
 - **Live Site**
 
-
+- [Introduction](#Introduction)
+  - [Screenshots | Project Images](#Images)
+  - [Technologies](#Technologies)
+  - [Backend API](#Backend-API)
+  - [Live Site](#Live-Site)
+  - [Author](#author)
 
 #### Introduction
 
@@ -23,7 +28,12 @@ And usually I spend too much time on this surfing the web for good assets and al
 
 #### Images 
 
-#### Frontend Technologies
+
+![screenshot of the subtraction level](/src/assets/Screenshot%20(188).png)
+![screenshot of the multiplication level](/src/assets/Screenshot%20(190).png)
+![screenshot of the multiplication score page](/src/assets/Screenshot%20(191).png)
+
+#### Technologies
 
 - **ReactJS**
 - **Typescript**
@@ -31,17 +41,18 @@ And usually I spend too much time on this surfing the web for good assets and al
 - **Bootstrap 5**
 - **Vanilla CSS**
 - **Jquery**
-
-
-#### Backend Technologies
 - **PHP**
 - **Composer Tool**
 
-#### Check The Backend API
+#### Backend-API
 **see https://github.com/Adedoyin-Emmanuel/Badass-Backend**
 
 
-#### Live Site
- **https://badass-app.vercel.app**
+#### Live-Site
+ **[Badass App](https://badass-app.vercel.app/)**
 
+#### Author
 
+Adedoyin Emmanuel Adeniyi
+
+*follow me* **[@Twitter](https://twitter.com/Emmysoft_Tm/)**
