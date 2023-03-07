@@ -1,5 +1,4 @@
 import React, {Suspense} from "react";
-import sayHello from "./../apis/getData";
 import Header from "../components/header";
 import Hero from "../components/hero";
 import * as navigate from "./../includes/scripts/handleNavigation";

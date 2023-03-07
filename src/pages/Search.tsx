@@ -107,6 +107,7 @@ const Search = () =>{
                                 <br/>
                                 <br/>
                                 <br/>
+                                <div className="py-5 d-sm-none d-md-block"></div>
                              <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light text-capitalize mx-md-5">Bulk image downloader</h3>
 
                             

@@ -10,7 +10,6 @@ import Settings from "./pages/Settings";
 import NotFound from "./pages/404";
 import "./autoload";
 import db from "./backend/db";
-import sayHello from "./apis/getData";
 import Spinner from "./components/spinner";
 import SearchResult from "./pages/SearchResult";
 
@@ -22,7 +21,6 @@ function App() {
   let DEFAULT_ROUTE: JSX.Element = <MainApp/>;
 
   (db.get("BADASS_HOME_PAGE_SEEN") === "true") ? DEFAULT_ROUTE = <MainApp/> : DEFAULT_ROUTE = <Home/>
-  sayHello();
 	return (
     <Suspense fallback={<Spinner/>}>
   		<div className="App">
