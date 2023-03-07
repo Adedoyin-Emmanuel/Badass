@@ -13,9 +13,9 @@
       "sizes": "658x756"
     },
     {
-      "src": "logo.png",
+      "src": "maskable_icon_big.png",
       "type": "image/png",
-      "sizes": "658x756",
+      "sizes": "512x512",
       "purpose":"any maskable"
     }
   ],
