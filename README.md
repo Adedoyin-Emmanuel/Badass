@@ -23,6 +23,7 @@ And usually I spend too much time on this surfing the web for good assets and al
 #### Images 
 
 
+![screenshot of the main website](/src/assets/screenshots/main-website.png)
 ![screenshot of the Convert Page](/src/assets/screenshots/screenshot1.png)
 ![screenshot of the Convert Page](/src/assets/screenshots/screenshot2.png)
 ![screenshot of the Convert Page](/src/assets/screenshots/screenshot3.png)
@@ -33,8 +34,9 @@ And usually I spend too much time on this surfing the web for good assets and al
 ![screenshot of the Bulk Image Downloader Page](/src/assets/screenshots/screenshot8.png)
 ![screenshot of the Bulk Image Downloader Result [PackView] Page](/src/assets/screenshots/screenshot9.png)
 ![screenshot of the Bulk Image Downloader Result [PackView] Page](/src/assets/screenshots/screenshot10.png)
-#### Technologies
 
+#### Technologies
+Below are the technologies I used;
 - **ReactJS**
 - **Typescript**
 - **PWA Technology**
@@ -53,6 +55,7 @@ And usually I spend too much time on this surfing the web for good assets and al
 
 #### Author
 
-Adedoyin Emmanuel Adeniyi
+I am Adedoyin Emmanuel Adeniyi
 
 *follow me* **[@Twitter](https://twitter.com/Emmysoft_Tm/)**
+*my portfolio* **[@My-Portfolio](https://adedoyin-emmanuel.netlify.app/)**
