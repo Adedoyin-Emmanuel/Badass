@@ -13,7 +13,7 @@ const AppHeader = (props: Prop): JSX.Element => {
 		//checks if there is a custom navigation function defined else navigate to default route /
 		if(props.backButtonClick == undefined)
 		{
-			navigate.navigateToHome();
+			navigate.navigateToApp();
 		}else
 
 		{
