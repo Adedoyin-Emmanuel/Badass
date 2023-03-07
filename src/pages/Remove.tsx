@@ -101,7 +101,7 @@ const Remove = () =>{
                                 <br/>
                                 <br/>
                              <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light">Remove Background</h3>
-                             <p className="text-muted text-light text-center">Remove the background of any image</p>
+                             <p className="text-muted text-light text-start p-2">Remove the background of any image</p>
 
                              <section className="conversion-area" id="conversion-area">
 
@@ -111,7 +111,7 @@ const Remove = () =>{
 
                              <section className="m-auto d-flex align-items-center justify-content-center">
                                 <form className="form w-100 d-flex align-items-center justify-content-center">
-                                <div className="brand-white-button brand-button-4 text-center fs-6 my-3">
+                                <div className="brand-white-button width-toggle brand-button-4 text-center fs-6 my-3">
                                     <label>
                                         <input type="file" className="form-control w-75 width-toggle brand-primary-color" id="remove_bg_file" hidden multiple onChange={e => getFileDetails(e)}/>  
                                         choose files      

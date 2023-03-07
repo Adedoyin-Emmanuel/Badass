@@ -39,6 +39,11 @@ const Convert = () =>{
     const [fileDetails, setFileDetails] = useState<convertAPI.ConvertJSONResponse>();
     const [validFile, setValidFile] = useState<boolean>(false);
 
+
+    const trimWord = (word: any) =>{
+        return word.replace(/[()\[\]{}\-_=+~!@#$%^&*;:'"<>,.?\\|/`\s]/g, '');
+    }
+
     useEffect(()=>{
         jQuery(($)=>{
             $.noConflict();
@@ -197,7 +202,7 @@ const Convert = () =>{
                     const conversionCardContent: JSX.Element[] = fileArray.map((file: FrontendFileData, fileIndex: number)=>{
                         const userConvertType = () => checkFileToConvertTo();
                         const convertToLegitElement = <ConvertTo convertToText={convertToArg} convertToClick={userConvertType}/>
-                        return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {`${file.name}`} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {getFileExtensionFromMimeType(file.type)} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />;
+                        return <ConversionCard key = {`${file.lastModified}${file.name}`} fileName = {`${trimWord(file.name)}`} fileSize = {`${convertBytesToKb(file.size)}Kb`} fileExtension = {getFileExtensionFromMimeType(file.type)} fileConvertStatus = {parseInt(db.get("BADASS_CONVERSION_STATUS"))} convertToElement={convertToLegitElement} />;
                         
                     });
 
@@ -226,7 +231,7 @@ const Convert = () =>{
 
                      <section className="m-auto d-flex align-items-center justify-content-center">
                         <form className="form w-100 d-flex align-items-center justify-content-center" id="conversion_form" encType="multipart/form-data">
-                        <div className="brand-button-3 brand-button-4 text-center fs-6 my-3">
+                        <div className="brand-button-3 width-toggle brand-button-4 text-center fs-6 my-4">
                             <label>
                                 <input type="file" id="file_uploaded" name="files" className="form-control w-75 width-toggle brand-primary-color"  hidden multiple/>  
                                 choose image      

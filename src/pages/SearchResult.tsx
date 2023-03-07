@@ -109,7 +109,7 @@ const SearchResult = (): JSX.Element =>{
                      </section>
                      <BackToTop/>
 
-                     <section className=" button-container d-flex align-items-center justify-content-center">
+                     <section className=" button-container d-flex align-items-center justify-content-center my-3">
                              <Button className="brand-white-button my-3 width-toggle text-capitalize fw-bold text-dark brand-white-color" text="Download Images" onClick={handleDownloadButtonClick}></Button>
                      </section>
 

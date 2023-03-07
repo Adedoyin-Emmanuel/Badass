@@ -3,12 +3,6 @@
 
 ### Table Of Content
 
-- **Introduction**
-- **Screenshots | Project Images**
-- **Technologies**
-- **Backend API**
-- **Live Site**
-
 - [Introduction](#Introduction)
   - [Screenshots | Project Images](#Images)
   - [Technologies](#Technologies)

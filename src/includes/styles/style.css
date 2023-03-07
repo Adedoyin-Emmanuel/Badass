@@ -122,6 +122,7 @@ body{
 	background: var(--brand-primary-light-color);
 	padding:17px;
 	width:75%;
+	cursor: pointer;
 
 }
 
@@ -374,12 +375,7 @@ body {
 }
 
 
-@media (min-width: 1200px) {
-	.width-toggle {
-		width: 35%;
-	}
 
-}
 
 /* 
 @media (min-width: 400.98px){

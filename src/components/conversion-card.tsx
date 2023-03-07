@@ -51,7 +51,7 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 	}
 
 	const returnSubString = (word: any) =>{
-		return (word.length > 5 ) ? `${word.substr(0, 10)}` : word;
+		return (word.length > 5 ) ? `${word.substr(0, 5)}` : word;
 	}
 
 	const FadeElement = () =>{
@@ -77,7 +77,7 @@ const ConversionCard = ({ fileIcon, fileName, fileConvertStatus, fileExtension, 
 				<section className="file-card">
 					
 						<section className="file-image-container d-flex ">
-							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{`${returnSubString(fileName)}`}</p>
+							<p className="file-name brand-small-text text-muted mx-2 text-capitalize m-0">{`${returnSubString(fileName)}[.${fileExtension}]`}</p>
 
 						</section>
 						
