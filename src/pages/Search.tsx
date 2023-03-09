@@ -104,9 +104,6 @@ const Search = () =>{
             <Suspense fallback={<Spinner/>}>
                     <section className="container-fluid p-0 d-flex flex-column">
                             <AppHeader title="Search Images" backButtonClick={navigateBack}/>
-                                <br/>
-                                <br/>
-                                <br/>
                                 <div className="py-5 d-sm-none d-md-block"></div>
                              <h3 className="fs-4 fw-bold text-start p-2 my-3 text-light text-capitalize mx-md-5">Bulk image downloader</h3>
 
