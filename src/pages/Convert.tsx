@@ -124,7 +124,7 @@ const Convert = () =>{
                                 const fetchData = async () =>{
                                     try{
                                             const response = await convertAPI.connectToBackend(formData, selectedFormat);
-                                         
+                                     
                                             const legitResponse = await JSON.parse(response);
                                             setValidFile(true);
 
